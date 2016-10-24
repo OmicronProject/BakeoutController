@@ -33,3 +33,11 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.+'
 }
 
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        xml.destination "${buildDir}/reports/jacoco/report.xml"
+        html.enabled true
+        csv.enabled true
+    }
+}
