@@ -11,4 +11,9 @@ public class LibraryTest {
     @Test public void TestBasicAssertion() {
         assertTrue(1 == 1);
     }
+    
+    @Test public void TestLibraryMethod() {
+        Library lib = new Library();
+        assertTrue(lib.someLibraryMethod());
+    }
 }
