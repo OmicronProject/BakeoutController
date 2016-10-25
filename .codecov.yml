@@ -20,3 +20,5 @@ comment:
     flags: null
     paths: null
 
+fixes:
+    - "Library::src/main/java"
