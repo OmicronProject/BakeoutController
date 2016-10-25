@@ -36,8 +36,10 @@ dependencies {
 jacocoTestReport {
     reports {
         xml.enabled true
-        xml.destination "${buildDir}/reports/jacoco/report.xml"
         html.enabled true
         csv.enabled true
     }
 }
+
+check.dependsOn jacocoTestReport
+
