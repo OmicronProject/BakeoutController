@@ -4,7 +4,7 @@
  *
  * @author mkononen, @date 24/10/16 2:30 PM
  */
-package controller.library;
+package Library;
 
 public class Library {
     public boolean someLibraryMethod() {
