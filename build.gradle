@@ -41,6 +41,9 @@ dependencies {
     // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
     // 'test.useTestNG()' to your build script.
     testCompile group: 'junit', name: 'junit', version: '4.+'
+
+    // Add TestFX
+    testCompile group: 'org.testfx', name: 'testfx-junit', version:'4.+'
 }
 
 jacocoTestReport {

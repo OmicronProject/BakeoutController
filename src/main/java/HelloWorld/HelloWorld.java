@@ -2,32 +2,26 @@ package HelloWorld;
 
 import javafx.application.Application;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-/**
- * Basic HelloWorld from Oracle website. OOOOOORAAACCLLLLLLLLLEEEE!
- */
 public class HelloWorld extends Application {
+    @FXML private Text actionTarget;
+
+    @FXML protected void sayHelloWorld(ActionEvent event){
+        actionTarget.setText("The button has been pressed.");
+    }
+
     @Override
-    public void start(Stage primaryStage) {
-        primaryStage.setTitle("Hello World!");
-        Button btn = new Button();
-        btn.setText("Say 'Hello World'");
-        btn.setOnAction(new EventHandler<ActionEvent>() {
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("HelloWorld.fxml"));
 
-            @Override
-            public void handle(ActionEvent event) {
-                System.out.println("Hello World!");
-            }
-        });
-
-        StackPane root = new StackPane();
-        root.getChildren().add(btn);
-        primaryStage.setScene(new Scene(root, 300, 250));
-        primaryStage.show();
+        stage.setTitle("The Button");
+        stage.setScene(new Scene(root, 300, 275));
+        stage.show();
     }
 }
