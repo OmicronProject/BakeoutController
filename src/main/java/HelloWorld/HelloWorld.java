@@ -16,12 +16,23 @@ public class HelloWorld extends Application {
         actionTarget.setText("The button has been pressed.");
     }
 
+    /**
+     * Tests that a click can successfully work
+     *
+     * @param stage The stage to which the test is supposed to be run
+     * @throws Exception If unable to load the FXML file
+     * @apiNote getClass.getResource() returns null silently if the resource
+     *  cannot be found on the runtime classpath. Therefore, preface the
+     *  file specification by a forward slash. This makes the tests pass
+     */
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("HelloWorld.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/HelloWorld.fxml"));
+
+        Scene scene = new Scene(root);
 
         stage.setTitle("The Button");
-        stage.setScene(new Scene(root, 300, 275));
+        stage.setScene(scene);
         stage.show();
     }
 }
