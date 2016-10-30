@@ -7,7 +7,7 @@
         fx:controller="HelloWorld.HelloWorld"
         xmlns:fx="http://javafx.com/fxml">
     <center>
-        <Button text="Press the Button" onAction="#sayHelloWorld" />
+        <Button text="Press the Button" onAction="#sayHelloWorld"  fx:id="theButton"/>
     </center>
     <bottom>
         <Text fx:id="actionTarget" />
