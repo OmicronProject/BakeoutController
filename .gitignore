@@ -27,3 +27,6 @@ gradle-app.setting
 
 # Vim Swap Files
 .*.swp
+
+# IntelliJ files
+.idea
