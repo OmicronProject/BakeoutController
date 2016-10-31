@@ -6,13 +6,13 @@ sudo: false
 language: java
 jdk:
     - oraclejdk8
-    - openjdk7
 
 notifications:
     email: false
 
 # Due to a peculiarility in caching dependencies in Gradle,
-# remove the module lock file and all files having to do with
+# remove the module lock file and files having to do with
+# plugin dependency resolution
 before_cache:
     - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
     - rm -rf $HOME/.gradle/caches/*/plugin-resolution/
@@ -23,6 +23,8 @@ cache:
         - $HOME/.gradle/wrapper/
 
 before_install:
+    - apt-get -qq update
+    - apt-get install xvfb
     - pip install --user codecov
 
 before_script:
