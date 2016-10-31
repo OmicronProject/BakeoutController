@@ -65,3 +65,10 @@ jfx {
     mainClass = 'Main'
     vendor = 'Michal Kononenko'
 }
+
+test {
+    systemProperty 'Dtestfx.robot', 'glass'
+    systemProperty 'Dglass.platform', 'Monocle'
+    systemProperty 'Dmonocle.platform', 'Headless'
+    systemProperty 'Dprism.order', 'sw'
+}
