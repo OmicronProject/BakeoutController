@@ -21,4 +21,5 @@ comment:
     paths: null
 
 fixes:
+    - "ui::src/main/java"
     - "Library::src/main/java"
