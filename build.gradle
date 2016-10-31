@@ -68,7 +68,7 @@ check.dependsOn jacocoTestReport
 apply plugin: 'javafx-gradle-plugin'
 
 jfx {
-    mainClass = 'Main'
+    mainClass = 'main.Main'
     vendor = 'Michal Kononenko'
 }
 
