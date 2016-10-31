@@ -1,7 +1,8 @@
 # Travis CI Build file for BakeoutController
 # Written by Michal Kononenko
 
-sudo: false
+# We need sudo so we can use apt-get
+sudo: required
 
 language: java
 jdk:
@@ -23,8 +24,8 @@ cache:
         - $HOME/.gradle/wrapper/
 
 before_install:
-    - apt-get -qq update
-    - apt-get install xvfb
+    - sudo apt-get -qq update
+    - sudo apt-get install xvfb
     - pip install --user codecov
 
 before_script:
