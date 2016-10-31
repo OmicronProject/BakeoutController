@@ -4,7 +4,7 @@
 <?import javafx.scene.text.Text?>
 
 <BorderPane prefHeight="300.0" prefWidth="200.0"
-        fx:controller="HelloWorld.HelloWorld"
+        fx:controller="ui.HelloWorld"
         xmlns:fx="http://javafx.com/fxml">
     <center>
         <Button text="Press the Button" onAction="#sayHelloWorld"  fx:id="theButton"/>

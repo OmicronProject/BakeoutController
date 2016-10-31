@@ -1,6 +1,6 @@
-package HelloWorldTest;
+package uitest;
 
-import HelloWorld.HelloWorld;
+import ui.HelloWorld;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -23,7 +23,7 @@ public class HelloWorldTest extends ApplicationTest {
     }
 
     @Test
-    public void test_click() {
+    public void testClick() {
         clickOn(button);
         assertEquals(actionTarget.getText(), "The button has been pressed.");
     }

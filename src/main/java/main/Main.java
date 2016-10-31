@@ -1,4 +1,6 @@
-import HelloWorld.HelloWorld;
+package main;
+
+import ui.HelloWorld;
 
 /**
  * The main runner for the application
