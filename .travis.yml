@@ -2,7 +2,7 @@
 # Written by Michal Kononenko
 
 # We need sudo so we can use apt-get
-sudo: required
+sudo: false
 
 language: java
 jdk:
@@ -24,8 +24,8 @@ cache:
         - $HOME/.gradle/wrapper/
 
 before_install:
-    - sudo apt-get -qq update
-    - sudo apt-get install xvfb
+    - "export DISPLAY=:99.0"
+    - "sh -e /etc/init.d/xvfb start"
     - pip install --user codecov
 
 before_script:
