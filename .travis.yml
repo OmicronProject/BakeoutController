@@ -8,6 +8,10 @@ language: java
 jdk:
     - oraclejdk8
 
+branches:
+    except:
+        - gh-pages
+
 notifications:
     email: false
 
@@ -33,4 +37,6 @@ before_script:
 
 after_success:
     - codecov
+    - chmod +x ./push_docs.sh
+    - ./push_docs.sh
 
