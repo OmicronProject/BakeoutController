@@ -1,3 +1,4 @@
+# Ignore Java class files
 *.class
 
 # Mobile Tools for Java (J2ME)
@@ -15,7 +16,6 @@ hs_err_pid*
 .gradle
 /build/
 
-
 # Ignore Gradle GUI config
 gradle-app.setting
 
@@ -30,3 +30,4 @@ gradle-app.setting
 
 # IntelliJ files
 .idea
+
