@@ -12,6 +12,12 @@ branches:
     except:
         - gh-pages
 
+env:
+    global:
+        - GH_REPO_NAME: BakeoutController
+        - DOXYFILE: $TRAVIS_BUILD_DIR/docs/Doxyfile
+        - GH_REPO_REF: github.com/OmicronProject/BakeoutController.git
+
 notifications:
     email: false
 
@@ -37,6 +43,7 @@ before_script:
 
 after_success:
     - codecov
+    - cd $TRAVIS_BUILD_DIR
     - chmod +x ./push_docs.sh
     - ./push_docs.sh
 

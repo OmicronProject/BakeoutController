@@ -31,3 +31,5 @@ gradle-app.setting
 # IntelliJ files
 .idea
 
+# Doxygen Build
+./doc/build
