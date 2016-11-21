@@ -21,6 +21,9 @@ plugins {
     id "edu.sc.seis.launch4j" version "1.6.2"
 }
 
+apply plugin: 'application'
+mainClassName = 'main.Main'
+
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
 
