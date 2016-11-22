@@ -21,6 +21,11 @@ plugins {
     id "edu.sc.seis.launch4j" version "1.6.2"
 }
 
+launch4j {
+    mainClassName = 'main.Main'
+    icon = './static/logo.ico'
+}
+
 apply plugin: 'application'
 mainClassName = 'main.Main'
 
