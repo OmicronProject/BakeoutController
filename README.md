@@ -12,7 +12,10 @@ GUI application to control the temperature and pressure control for introduction
 [![Codacy Badge](
     https://api.codacy.com/project/badge/Grade/9575688447ef42fbaffa1f9a4eef6dea)](
     https://www.codacy.com/app/michalkononenko/BakeoutController?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=OmicronProject/BakeoutController&amp;utm_campaign=Badge_Grade)
-
+[![Documentation](
+    https://img.shields.io/badge/documentation-running-green.svg)](
+    https://omicronproject.github.io/BakeoutController/
+)
 ## Building the Project
 This project uses [Gradle](https://gradle.org/) to build and test the code.
 To view available Gradle tasks for building, run
