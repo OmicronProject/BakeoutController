@@ -23,7 +23,6 @@ plugins {
 
 launch4j {
     mainClassName = 'main.Main'
-    icon = './static/logo.ico'
 }
 
 apply plugin: 'application'
