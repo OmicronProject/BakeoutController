@@ -1,4 +1,4 @@
-package unittest.uitest;
+package unit.ui;
 
 import ui.HelloWorld;
 import javafx.scene.control.Button;

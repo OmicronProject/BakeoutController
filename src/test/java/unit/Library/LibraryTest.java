@@ -1,4 +1,4 @@
-package unittest.LibraryTest;
+package unit.Library;
 
 import Library.Library;
 import org.junit.Test;

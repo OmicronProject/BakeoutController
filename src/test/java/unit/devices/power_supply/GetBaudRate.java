@@ -1,4 +1,4 @@
-package unittest.devices.power_supply;
+package unit.devices.power_supply;
 
 import devices.PowerSupply;
 import org.junit.Test;
