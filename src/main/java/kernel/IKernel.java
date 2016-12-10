@@ -1,6 +1,6 @@
 package kernel;
 
-import java.util.Enumeration;
+import java.util.ArrayList;
 
 /**
  * Describes available methods for the Kernel of this application
@@ -9,5 +9,5 @@ public interface IKernel {
     /**
      * @return The name of all the available comm ports on the system
      */
-    public Enumeration<String> getCommPortNames();
+    ArrayList<String> getCommPortNames();
 }
