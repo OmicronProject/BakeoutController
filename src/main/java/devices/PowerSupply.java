@@ -51,6 +51,10 @@ public class PowerSupply implements IPowerSupply {
         this(BAUD_RATE_19200);
     }
 
+    /**
+     * Compress all baud rates into a single list
+     * @return A list of all allowed Baud rates
+     */
     private ArrayList<Integer> makeBaudRateList(){
         ArrayList<Integer> baudRates = new ArrayList<>();
 

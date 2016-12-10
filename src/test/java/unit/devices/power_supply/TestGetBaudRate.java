@@ -5,13 +5,16 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Created by mkononen on 10/12/16.
+ * Contains unit tests for {@link PowerSupply#getBaudRate() getBaudRate()}
+ * method
  */
-public class GetBaudRate {
+public class TestGetBaudRate extends TestPowerSupplyWithFixture {
+
+    /**
+     * Tests that the desired Baud rate is successfully returned by the getter.
+     */
     @Test
     public void test_get_baud_rate(){
-        PowerSupply supply = new PowerSupply(PowerSupply.BAUD_RATE_1200);
-
         int baud = supply.getBaudRate();
 
         assertEquals(PowerSupply.BAUD_RATE_1200, baud);
