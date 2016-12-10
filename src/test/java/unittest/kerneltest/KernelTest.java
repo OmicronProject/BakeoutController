@@ -1,4 +1,4 @@
-package kerneltest;
+package unittest.kerneltest;
 
 import kernel.ICommPortManager;
 import kernel.Kernel;
