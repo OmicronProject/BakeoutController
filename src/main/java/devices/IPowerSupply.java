@@ -33,4 +33,15 @@ interface IPowerSupply {
      *  a valid Baud rate
      */
     void setBaudRate(int newBaudRate) throws NotAllowedBaudRateException;
+
+    /**
+     * @return The Data format of the RS232 Connection
+     */
+    int getDataFormat();
+
+    /**
+     * @return The parity regime of the RS232 Connection to this instrument
+     */
+    int getParity();
+
 }

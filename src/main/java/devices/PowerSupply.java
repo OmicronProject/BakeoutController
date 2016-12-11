@@ -1,6 +1,7 @@
 package devices;
 
 import exceptions.NotAllowedBaudRateException;
+import gnu.io.SerialPort;
 
 import java.util.ArrayList;
 
@@ -103,4 +104,18 @@ public class PowerSupply implements IPowerSupply {
 
         this.baudRate = newBaudRate;
     }
+
+    /**
+     * @return The required data format
+     */
+    public int getDataFormat(){ return SerialPort.DATABITS_8; }
+
+    /**
+     * @return The parity regime of the Power supply connection
+     */
+    public int getParity(){
+        return SerialPort.PARITY_NONE;
+    }
+
+
 }
