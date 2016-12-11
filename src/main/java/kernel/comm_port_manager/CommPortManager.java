@@ -14,7 +14,7 @@ public class CommPortManager implements ICommPortManager {
         identifiers = CommPortIdentifier.getPortIdentifiers();
 
     }
-    public Enumeration<String> getCommPortNames(){
+    @Override public Enumeration<String> getCommPortNames(){
         return new CommPortList(identifiers);
     }
 }

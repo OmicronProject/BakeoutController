@@ -42,7 +42,7 @@ public class Kernel implements IKernel {
      *
      * @return The available port names
      */
-    public ArrayList<String> getCommPortNames() {
+    @Override public ArrayList<String> getCommPortNames() {
         Enumeration<String> namesFromManager =
                 commPortManager.getCommPortNames();
 

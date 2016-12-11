@@ -79,20 +79,20 @@ public class PowerSupply implements IPowerSupply {
     /**
      * @return the allowed Baud Rates
      */
-    public ArrayList<Integer> getAllowedBaudRates(){
+    @Override public ArrayList<Integer> getAllowedBaudRates(){
         return makeBaudRateList();
     }
 
     /**
      * @return the current Baud Rate
      */
-    public int getBaudRate(){return baudRate;}
+    @Override public int getBaudRate(){return baudRate;}
 
     /**
      * @param baudRate The Baud rate to check
      * @return True if the Baud rate is allowed, otherwise False
      */
-    public boolean isAllowedBaudRate(int baudRate){
+    @Override public boolean isAllowedBaudRate(int baudRate){
         return this.makeBaudRateList().contains(baudRate);
     }
 
@@ -100,7 +100,7 @@ public class PowerSupply implements IPowerSupply {
      * @param newBaudRate The new baud rate to be set
      * @throws NotAllowedBaudRateException if the Baud rate is not allowed
      */
-    public void setBaudRate(int newBaudRate) throws
+    @Override public void setBaudRate(int newBaudRate) throws
             NotAllowedBaudRateException {
         if (!this.isAllowedBaudRate(newBaudRate)){
             String messageToThrow = String.format(
@@ -116,26 +116,27 @@ public class PowerSupply implements IPowerSupply {
     /**
      * @return The required data format
      */
-    public int getDataFormat(){ return SerialPort.DATABITS_8; }
+    @Override public int getDataFormat(){ return SerialPort.DATABITS_8; }
 
     /**
      * @return The parity regime of the Power supply connection
      */
-    public int getParity(){
+    @Override public int getParity(){
         return SerialPort.PARITY_NONE;
     }
 
     /**
      * @return The current address of the Power Supply
      */
-    public int getAddress(){ return address; }
+    @Override public int getAddress(){ return address; }
 
     /**
      * Set the device address to a new Address
      * @param newAddress The address to which the device is to be set
      * @throws NotAllowedAddressException if the address is not allowed
      */
-    public void setAddress(int newAddress) throws NotAllowedAddressException {
+    @Override public void setAddress(int newAddress) throws
+            NotAllowedAddressException {
         if(newAddress < MINIMUM_ADDRESS || newAddress > MAXIMUM_ADDRESS){
             String messageToThrow = String.format(
                 "Attempted to set address of %d which is not between %d and " +
