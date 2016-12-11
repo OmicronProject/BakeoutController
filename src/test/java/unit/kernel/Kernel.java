@@ -1,6 +1,6 @@
 package unit.kernel;
 
-import kernel.ICommPortManager;
+import kernel.comm_port_manager.ICommPortManager;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JMock;

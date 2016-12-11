@@ -1,5 +1,6 @@
 package kernel;
 
+import kernel.comm_port_manager.ICommPortManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

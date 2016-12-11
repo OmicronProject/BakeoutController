@@ -1,7 +1,6 @@
 package kernel.comm_port_manager;
 
 import gnu.io.CommPortIdentifier;
-import kernel.ICommPortManager;
 
 import java.util.Enumeration;
 
