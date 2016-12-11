@@ -1,5 +1,8 @@
 package kernel;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.ArrayList;
 import java.util.Enumeration;
 
@@ -8,6 +11,7 @@ import java.util.Enumeration;
  */
 public class Kernel implements IKernel {
     private ICommPortManager commPortManager;
+    private Logger logger;
 
     /**
      * Instantiate a new kernel
@@ -17,6 +21,17 @@ public class Kernel implements IKernel {
      */
     public Kernel(ICommPortManager commPortManager){
         this.commPortManager = commPortManager;
+        setUpLogger();
+    }
+
+    /**
+     * Set up a logging tool to log data
+     */
+    private void setUpLogger(){
+        Logger logger = LoggerFactory.getLogger(Kernel.class);
+        logger.info("Started application");
+
+        this.logger = logger;
     }
 
     /**
