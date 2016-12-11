@@ -9,11 +9,13 @@ import org.junit.Before;
  */
 class TestPowerSupply {
     int desiredBaudRate;
+    int desiredAddress;
 
     /**
      * Initialize a basic test for the Power Supply
      */
     @Before public void setUp(){
         desiredBaudRate = PowerSupply.BAUD_RATE_1200;
+        desiredAddress = 6;
     }
 }

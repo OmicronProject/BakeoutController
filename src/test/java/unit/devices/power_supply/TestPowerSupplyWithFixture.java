@@ -10,12 +10,14 @@ import org.junit.Before;
 class TestPowerSupplyWithFixture extends TestPowerSupply {
     PowerSupply supply;
     int desiredBaudRate;
+    int desiredAddress;
 
     /**
      * Creates the fixture
      */
     @Before public void setUp(){
         desiredBaudRate = PowerSupply.BAUD_RATE_1200;
-        supply = new PowerSupply(desiredBaudRate);
+        desiredAddress = 5;
+        supply = new PowerSupply(desiredBaudRate, desiredAddress);
     }
 }

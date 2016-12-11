@@ -14,7 +14,7 @@ public class TestGetBaudRate extends TestPowerSupplyWithFixture {
      * Tests that the desired Baud rate is successfully returned by the getter.
      */
     @Test
-    public void test_get_baud_rate(){
+    public void testGetBaudRate(){
         int baud = supply.getBaudRate();
 
         assertEquals(PowerSupply.BAUD_RATE_1200, baud);

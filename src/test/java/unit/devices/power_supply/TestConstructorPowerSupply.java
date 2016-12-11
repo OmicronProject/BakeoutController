@@ -23,8 +23,10 @@ public class TestConstructorPowerSupply extends TestPowerSupply {
      * Tests that there is also a constructor that accepts an integer baud
      * Rate.
      */
-    @Test public void testConstructorWithChosenBaud(){
-        PowerSupply powerSupply = new PowerSupply(desiredBaudRate);
+    @Test public void testConstructorWithChosenBaudandAddress(){
+        PowerSupply powerSupply = new PowerSupply(
+            desiredBaudRate, desiredAddress
+        );
         assertNotNull(powerSupply);
     }
 }

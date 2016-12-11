@@ -1,5 +1,6 @@
 package devices;
 
+import exceptions.NotAllowedAddressException;
 import exceptions.NotAllowedBaudRateException;
 
 import java.util.ArrayList;
@@ -44,4 +45,13 @@ interface IPowerSupply {
      */
     int getParity();
 
+    /**
+     * @return The address of the Power Supply
+     */
+    int getAddress();
+
+    /**
+     * @param newAdress The new address to set
+     */
+    void setAddress(int newAdress) throws NotAllowedAddressException;
 }

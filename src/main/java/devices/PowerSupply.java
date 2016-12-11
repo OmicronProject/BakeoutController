@@ -1,5 +1,6 @@
 package devices;
 
+import exceptions.NotAllowedAddressException;
 import exceptions.NotAllowedBaudRateException;
 import gnu.io.SerialPort;
 
@@ -10,6 +11,8 @@ import java.util.ArrayList;
  */
 public class PowerSupply implements IPowerSupply {
     private int baudRate;
+    private int address;
+
 
     /**
      * 1200 bits per second Baud Rate
@@ -36,21 +39,26 @@ public class PowerSupply implements IPowerSupply {
      */
     public static final int BAUD_RATE_19200 = 19200;
 
+    private static final int MINIMUM_ADDRESS = 0;
+    private static final int MAXIMUM_ADDRESS = 30;
+
+    private static final int DEFAULT_ADDRESS = 6;
+    private static final int DEFAULT_BAUD_RATE = BAUD_RATE_19200;
+
     /**
      * @param desiredBaudRate The Baud Rate (bits per second) to be used in
      *                 communicating
      */
-    public PowerSupply(int desiredBaudRate){
+    public PowerSupply(int desiredBaudRate, int desiredAddress){
 
         this.setBaudRate(desiredBaudRate);
+        this.setAddress(desiredAddress);
     }
 
     /**
      * If no Baud Rate is provided, then it is set to 19200 by default
      */
-    public PowerSupply(){
-        this(BAUD_RATE_19200);
-    }
+    public PowerSupply(){this(DEFAULT_BAUD_RATE, DEFAULT_ADDRESS);}
 
     /**
      * Compress all baud rates into a single list
@@ -117,5 +125,27 @@ public class PowerSupply implements IPowerSupply {
         return SerialPort.PARITY_NONE;
     }
 
+    /**
+     * @return The current address of the Power Supply
+     */
+    public int getAddress(){ return address; }
 
+    /**
+     * Set the device address to a new Address
+     * @param newAddress The address to which the device is to be set
+     * @throws NotAllowedAddressException if the address is not allowed
+     */
+    public void setAddress(int newAddress) throws NotAllowedAddressException {
+        if(newAddress < MINIMUM_ADDRESS || newAddress > MAXIMUM_ADDRESS){
+            String messageToThrow = String.format(
+                "Attempted to set address of %d which is not between %d and " +
+                        "%d",
+                newAddress, MINIMUM_ADDRESS, MAXIMUM_ADDRESS
+            );
+
+            throw new NotAllowedAddressException(messageToThrow);
+        }
+
+        this.address = newAddress;
+    }
 }
