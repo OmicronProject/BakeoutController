@@ -12,6 +12,9 @@ import static org.junit.Assert.assertArrayEquals;
 public class TestGetAllowedBaudRates extends TestPowerSupplyWithFixture {
     private Integer[] expectedAllowedBaudRates;
 
+    /**
+     * Set up a list of allowed Baud Rates
+     */
     @Before public void makeAllowedBaudRates(){
         expectedAllowedBaudRates = new Integer[5];
 
@@ -22,8 +25,11 @@ public class TestGetAllowedBaudRates extends TestPowerSupplyWithFixture {
         expectedAllowedBaudRates[4] = PowerSupply.BAUD_RATE_19200;
     }
 
-    @Test
-    public void getBaudRates(){
+    /**
+     * Tests that the list of allowed Baud rates matches the one set up in
+     * the pervious test
+     */
+    @Test public void getBaudRates(){
         assertArrayEquals(
             expectedAllowedBaudRates,
             supply.getAllowedBaudRates().toArray()
