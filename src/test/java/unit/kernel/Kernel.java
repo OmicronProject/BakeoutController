@@ -17,14 +17,14 @@ import static org.junit.Assert.assertEquals;
  */
 @RunWith(JMock.class)
 public class Kernel {
-
+    private String appName = "app";
     private Mockery context = new Mockery();
 
     @Test
     public void testGetPortNames(){
         ICommPortManager manager = context.mock(ICommPortManager.class);
 
-        kernel.Kernel kernel = new kernel.Kernel(manager);
+        kernel.Kernel kernel = new kernel.Kernel(appName, manager);
         MockComPortList portNames = new MockComPortList();
 
         context.checking(new Expectations() {{

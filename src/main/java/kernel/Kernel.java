@@ -12,6 +12,7 @@ import java.util.Enumeration;
  */
 public class Kernel implements IKernel {
     private ICommPortManager commPortManager;
+    private String applicationName;
     private Logger logger;
 
     /**
@@ -20,8 +21,9 @@ public class Kernel implements IKernel {
      * @param commPortManager The device to use to manage serial communication
      *                        ports in the application
      */
-    public Kernel(ICommPortManager commPortManager){
+    public Kernel(String applicationName, ICommPortManager commPortManager){
         this.commPortManager = commPortManager;
+        this.applicationName = applicationName;
         setUpLogger();
     }
 
