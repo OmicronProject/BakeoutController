@@ -1,6 +1,6 @@
-package unit.devices.power_supply;
+package unit.devices.tdk_lambda_power_supply;
 
-import devices.PowerSupply;
+import devices.TDKLambdaPowerSupply;
 import org.junit.Test;
 
 import static org.junit.Assert.assertNotNull;
@@ -8,14 +8,14 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Contains Unit tests for the Power Supply
  */
-public class TestConstructorPowerSupply extends TestPowerSupply {
+public class Constructor extends TestTDKLambdaPowerSupply {
 
     /**
      * Tests that the default constructor creates a device with Baud rate
      * of 19200 bits per second by default
      */
     @Test public void testConstructor(){
-        PowerSupply powersupply = new PowerSupply();
+        TDKLambdaPowerSupply powersupply = new TDKLambdaPowerSupply();
         assertNotNull(powersupply);
     }
 
@@ -24,9 +24,9 @@ public class TestConstructorPowerSupply extends TestPowerSupply {
      * Rate.
      */
     @Test public void testConstructorWithChosenBaudandAddress(){
-        PowerSupply powerSupply = new PowerSupply(
+        TDKLambdaPowerSupply TDKLambdaPowerSupply = new TDKLambdaPowerSupply(
             desiredBaudRate, desiredAddress
         );
-        assertNotNull(powerSupply);
+        assertNotNull(TDKLambdaPowerSupply);
     }
 }

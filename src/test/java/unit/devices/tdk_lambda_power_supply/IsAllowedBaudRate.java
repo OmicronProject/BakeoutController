@@ -1,20 +1,20 @@
-package unit.devices.power_supply;
+package unit.devices.tdk_lambda_power_supply;
 
-import devices.PowerSupply;
+import devices.TDKLambdaPowerSupply;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 /**
- * Contains unit tests for {@link PowerSupply#isAllowedBaudRate(int)}
+ * Contains unit tests for {@link TDKLambdaPowerSupply#isAllowedBaudRate(int)}
  */
-public class TestIsAllowedBaudRate extends TestPowerSupplyWithFixture {
+public class IsAllowedBaudRate extends TestTDKLambdaPowerSupplyWithFixture {
     /**
      * Tests that the method returns True for an allowed Baud Rate
      */
     @Test public void testIsAllowedBaudRateTrue(){
-        assertTrue(supply.isAllowedBaudRate(PowerSupply.BAUD_RATE_1200));
+        assertTrue(supply.isAllowedBaudRate(TDKLambdaPowerSupply.BAUD_RATE_1200));
     }
 
     /**

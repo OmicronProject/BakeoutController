@@ -1,14 +1,15 @@
-package unit.devices.power_supply;
+package unit.devices.tdk_lambda_power_supply;
 
+import devices.TDKLambdaPowerSupply;
 import exceptions.NotAllowedAddressException;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 /**
- * Contains unit tests for {@link devices.PowerSupply#setAddress(int)}
+ * Contains unit tests for {@link TDKLambdaPowerSupply#setAddress(int)}
  */
-public class TestSetAddress extends TestPowerSupplyWithFixture {
+public class SetAddress extends TestTDKLambdaPowerSupplyWithFixture {
     private int goodAddress = 10;
     private int badAddress = 300;
 

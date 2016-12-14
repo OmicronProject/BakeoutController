@@ -2,151 +2,103 @@ package devices;
 
 import exceptions.NotAllowedAddressException;
 import exceptions.NotAllowedBaudRateException;
-import gnu.io.SerialPort;
 
 import java.util.ArrayList;
 
 /**
- * Represents the TDK-Lambda Programmable Power Supply
+ * Describes all methods that the power supply implements
  */
-public class PowerSupply implements IPowerSupply {
-    private int baudRate;
-    private int address;
-
+interface PowerSupply {
 
     /**
      * 1200 bits per second Baud Rate
      */
-    public static final int BAUD_RATE_1200 = 1200;
+    int BAUD_RATE_1200 = 1200;
 
     /**
      * 2400 bits per second Baud Rate
      */
-    public static final int BAUD_RATE_2400 = 2400;
+    int BAUD_RATE_2400 = 2400;
 
     /**
      * 4800 bits per second Baud Rate
      */
-    public static final int BAUD_RATE_4800 = 4800;
+    int BAUD_RATE_4800 = 4800;
 
     /**
      * 9600 bits per second Baud Rate
      */
-    public static final int BAUD_RATE_9600 = 9600;
+    int BAUD_RATE_9600 = 9600;
 
     /**
      * 19200 bits per second Baud Rate
      */
-    public static final int BAUD_RATE_19200 = 19200;
-
-    private static final int MINIMUM_ADDRESS = 0;
-    private static final int MAXIMUM_ADDRESS = 30;
-
-    private static final int DEFAULT_ADDRESS = 6;
-    private static final int DEFAULT_BAUD_RATE = BAUD_RATE_19200;
+    int BAUD_RATE_19200 = 19200;
 
     /**
-     * @param desiredBaudRate The Baud Rate (bits per second) to be used in
-     *                 communicating
+     * Minimum RS232 Address for the Power Supply
      */
-    public PowerSupply(int desiredBaudRate, int desiredAddress){
-
-        this.setBaudRate(desiredBaudRate);
-        this.setAddress(desiredAddress);
-    }
+    int MINIMUM_ADDRESS = 0;
 
     /**
-     * If no Baud Rate is provided, then it is set to 19200 by default
+     * Maximum RS232 Address for the Power supply
      */
-    public PowerSupply(){this(DEFAULT_BAUD_RATE, DEFAULT_ADDRESS);}
+    int MAXIMUM_ADDRESS = 30;
 
     /**
-     * Compress all baud rates into a single list
-     * @return A list of all allowed Baud rates
+     * The power supply's default address
      */
-    private ArrayList<Integer> makeBaudRateList(){
-        ArrayList<Integer> baudRates = new ArrayList<>();
-
-        baudRates.add(BAUD_RATE_1200);
-        baudRates.add(BAUD_RATE_2400);
-        baudRates.add(BAUD_RATE_4800);
-        baudRates.add(BAUD_RATE_9600);
-        baudRates.add(BAUD_RATE_19200);
-
-        return baudRates;
-    }
+    int DEFAULT_ADDRESS = 6;
 
     /**
-     * @return the allowed Baud Rates
+     * The default application Baud rate. This is controlled by a DIP switch
+     * at the back of the power supply, so there really isn't a hard-coded
+     * default rate. Set it to the fastest speed
      */
-    @Override public ArrayList<Integer> getAllowedBaudRates(){
-        return makeBaudRateList();
-    }
+    int DEFAULT_BAUD_RATE = BAUD_RATE_19200;
 
     /**
-     * @return the current Baud Rate
+     * @return The current baud rate of the device
      */
-    @Override public int getBaudRate(){return baudRate;}
+    int getBaudRate();
 
     /**
+     * @return The allowed baud rates (bits per second) that the device
+     * supports.
+     */
+    ArrayList<Integer> getAllowedBaudRates();
+
+    /**
+     * Checks whether a Baud rate is allowed by the device
      * @param baudRate The Baud rate to check
-     * @return True if the Baud rate is allowed, otherwise False
+     * @return True if the baud rate is allowed, otherwise False
      */
-    @Override public boolean isAllowedBaudRate(int baudRate){
-        return this.makeBaudRateList().contains(baudRate);
-    }
+    boolean isAllowedBaudRate(int baudRate);
 
     /**
      * @param newBaudRate The new baud rate to be set
-     * @throws NotAllowedBaudRateException if the Baud rate is not allowed
+     * @throws NotAllowedBaudRateException if the Baud rate to be set is not
+     *  a valid Baud rate
      */
-    @Override public void setBaudRate(int newBaudRate) throws
-            NotAllowedBaudRateException {
-        if (!this.isAllowedBaudRate(newBaudRate)){
-            String messageToThrow = String.format(
-                    "Attempted to set a power supply Baud Rate of %d. This " +
-                            "is not allowed.", newBaudRate
-            );
-            throw new NotAllowedBaudRateException(messageToThrow);
-        }
-
-        this.baudRate = newBaudRate;
-    }
+    void setBaudRate(int newBaudRate) throws NotAllowedBaudRateException;
 
     /**
-     * @return The required data format
+     * @return The Data format of the RS232 Connection
      */
-    @Override public int getDataFormat(){ return SerialPort.DATABITS_8; }
+    int getDataFormat();
 
     /**
-     * @return The parity regime of the Power supply connection
+     * @return The parity regime of the RS232 Connection to this instrument
      */
-    @Override public int getParity(){
-        return SerialPort.PARITY_NONE;
-    }
+    int getParity();
 
     /**
-     * @return The current address of the Power Supply
+     * @return The address of the Power Supply
      */
-    @Override public int getAddress(){ return address; }
+    int getAddress();
 
     /**
-     * Set the device address to a new Address
-     * @param newAddress The address to which the device is to be set
-     * @throws NotAllowedAddressException if the address is not allowed
+     * @param newAdress The new address to set
      */
-    @Override public void setAddress(int newAddress) throws
-            NotAllowedAddressException {
-        if(newAddress < MINIMUM_ADDRESS || newAddress > MAXIMUM_ADDRESS){
-            String messageToThrow = String.format(
-                "Attempted to set address of %d which is not between %d and " +
-                        "%d",
-                newAddress, MINIMUM_ADDRESS, MAXIMUM_ADDRESS
-            );
-
-            throw new NotAllowedAddressException(messageToThrow);
-        }
-
-        this.address = newAddress;
-    }
+    void setAddress(int newAdress) throws NotAllowedAddressException;
 }
