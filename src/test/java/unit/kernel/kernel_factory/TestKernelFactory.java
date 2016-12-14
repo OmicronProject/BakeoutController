@@ -25,5 +25,13 @@ public class TestKernelFactory {
 
     private void setUpKernelFactory(){
         kernelFactory.setApplicationName(applicationName);
+        kernelFactory.setCommPortManager(commPortManager);
+    }
+
+    /**
+     * Start the kernel, no way to stop except starting another test case
+     */
+    void startKernel(){
+        kernelFactory.getKernelInstance();
     }
 }
