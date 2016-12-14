@@ -7,9 +7,5 @@ import kernel.ApplicationKernelFactory;
  * set to create a ApplicationKernel instance.
  */
 public class UnableToCreateKernelException extends IllegalStateException {
-    private String message;
-
-    public UnableToCreateKernelException(String message){
-        this.message = message;
-    }
+    public UnableToCreateKernelException(String message){super(message);}
 }

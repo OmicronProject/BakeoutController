@@ -9,9 +9,9 @@ import org.junit.Before;
  * instantiation of {@link TDKLambdaPowerSupply}
  */
 class TestTDKLambdaPowerSupplyWithFixture extends TestTDKLambdaPowerSupply {
-    PowerSupply supply;
-    int desiredBaudRate;
-    int desiredAddress;
+    protected PowerSupply supply;
+    protected int desiredBaudRate;
+    protected int desiredAddress;
 
     /**
      * Creates the fixture

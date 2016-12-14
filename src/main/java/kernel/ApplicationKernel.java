@@ -56,6 +56,13 @@ public class ApplicationKernel implements Kernel {
 
         return portNames;
     }
+
+    /**
+     * @return The name of the application
+     */
+    @Override public String getApplicationName(){
+        return this.applicationName;
+    }
 }
 
 

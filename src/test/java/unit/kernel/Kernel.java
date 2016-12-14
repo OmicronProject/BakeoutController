@@ -27,10 +27,14 @@ public class Kernel {
         ApplicationKernel applicationKernel = new ApplicationKernel(appName, manager);
         MockComPortList portNames = new MockComPortList();
 
-        context.checking(new Expectations() {{
-            oneOf(manager).getCommPortNames();
-            will(returnValue(portNames));
-        }});
+        class ExpectedResponse extends Expectations {
+            ExpectedResponse(){
+                oneOf(manager).getCommPortNames();
+                will(returnValue(portNames));
+            }
+        }
+
+        context.checking(new ExpectedResponse());
 
         assertEquals(portNames.getElements(), applicationKernel.getCommPortNames());
         context.assertIsSatisfied();

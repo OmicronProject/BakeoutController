@@ -5,9 +5,5 @@ package exceptions;
  * application state
  */
 public class UnableToSetParameterException extends IllegalStateException {
-    private String message;
-
-    public UnableToSetParameterException(String message){
-        this.message = message;
-    }
+    public UnableToSetParameterException(String message){ super(message); }
 }
