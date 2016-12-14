@@ -10,9 +10,9 @@ import org.junit.Rule;
  * Contains unit tests for {@link ApplicationKernelFactory}
  */
 public class TestKernelFactory {
-    final String applicationName;
-    final CommPortManager commPortManager;
-    final KernelFactory applicationKernelFactory;
+    protected final String applicationName;
+    protected final CommPortManager commPortManager;
+    protected final KernelFactory applicationKernelFactory;
 
     @Rule public JUnitRuleMockery context = new JUnitRuleMockery();
 
@@ -32,7 +32,7 @@ public class TestKernelFactory {
     /**
      * Start the kernel, no way to stop except starting another test case
      */
-    void startKernel(){
+    protected void startKernel(){
         applicationKernelFactory.getKernelInstance();
     }
 }

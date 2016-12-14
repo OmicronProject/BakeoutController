@@ -1,8 +1,6 @@
 package kernel;
 
 import kernel.comm_port_manager.CommPortManager;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -13,7 +11,6 @@ import java.util.Enumeration;
 public class ApplicationKernel implements Kernel {
     private final CommPortManager commPortManager;
     private final String applicationName;
-    private final Logger logger;
 
     /**
      * Instantiate a new kernel
@@ -24,17 +21,6 @@ public class ApplicationKernel implements Kernel {
     public ApplicationKernel(String applicationName, CommPortManager commPortManager){
         this.commPortManager = commPortManager;
         this.applicationName = applicationName;
-        this.logger = setUpLogger();
-    }
-
-    /**
-     * Set up a logging tool to log data
-     */
-    private static Logger setUpLogger(){
-        Logger logger = LoggerFactory.getLogger(ApplicationKernel.class);
-        logger.info("Started application");
-
-        return logger;
     }
 
     /**
