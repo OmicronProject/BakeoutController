@@ -1,11 +1,11 @@
 package unit.kernel;
 
-import kernel.comm_port_manager.ICommPortManager;
+import kernel.ApplicationKernel;
+import kernel.comm_port_manager.CommPortManager;
 import org.jmock.Expectations;
-import org.jmock.Mockery;
-import org.jmock.integration.junit4.JMock;
+import org.jmock.integration.junit4.JUnitRuleMockery;
+import org.junit.Rule;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -15,16 +15,16 @@ import static org.junit.Assert.assertEquals;
 /**
  * Tests that the kernel is successfully able to get names of ports
  */
-@RunWith(JMock.class)
 public class Kernel {
-    private String appName = "app";
-    private Mockery context = new Mockery();
+    private static final String appName = "app";
+
+    @Rule public JUnitRuleMockery context = new JUnitRuleMockery();
 
     @Test
     public void testGetPortNames(){
-        ICommPortManager manager = context.mock(ICommPortManager.class);
+        CommPortManager manager = context.mock(CommPortManager.class);
 
-        kernel.Kernel kernel = new kernel.Kernel(appName, manager);
+        ApplicationKernel applicationKernel = new ApplicationKernel(appName, manager);
         MockComPortList portNames = new MockComPortList();
 
         context.checking(new Expectations() {{
@@ -32,7 +32,7 @@ public class Kernel {
             will(returnValue(portNames));
         }});
 
-        assertEquals(portNames.getElements(), kernel.getCommPortNames());
+        assertEquals(portNames.getElements(), applicationKernel.getCommPortNames());
         context.assertIsSatisfied();
     }
 }

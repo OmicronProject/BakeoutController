@@ -1,25 +1,26 @@
 package unit.kernel.kernel_factory;
 
 import exceptions.UnableToSetParameterException;
+import kernel.ApplicationKernelFactory;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 /**
- * Tests {@link kernel.KernelFactory#setApplicationName(String)}
+ * Tests {@link ApplicationKernelFactory#setApplicationName(String)}
  */
 public class TestSetApplicationName extends TestKernelFactory {
     private static final String newAppName = "newApp";
 
     @Test public void testVanillaSetter(){
-        kernelFactory.setApplicationName(newAppName);
+        applicationKernelFactory.setApplicationName(newAppName);
 
-        assertEquals(newAppName, kernelFactory.getApplicationName());
+        assertEquals(newAppName, applicationKernelFactory.getApplicationName());
     }
 
     @Test(expected = UnableToSetParameterException.class)
     public void testSetterWhenRunning(){
         this.startKernel();
-        kernelFactory.setApplicationName(newAppName);
+        applicationKernelFactory.setApplicationName(newAppName);
     }
 }

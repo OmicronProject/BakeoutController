@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Describes all methods that the power supply implements
  */
-interface PowerSupply {
+public interface PowerSupply {
 
     /**
      * 1200 bits per second Baud Rate

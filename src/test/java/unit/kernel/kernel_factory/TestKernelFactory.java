@@ -1,37 +1,38 @@
 package unit.kernel.kernel_factory;
 
+import kernel.ApplicationKernelFactory;
 import kernel.KernelFactory;
-import kernel.comm_port_manager.ICommPortManager;
+import kernel.comm_port_manager.CommPortManager;
 import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.Rule;
 
 /**
- * Contains unit tests for {@link kernel.KernelFactory}
+ * Contains unit tests for {@link ApplicationKernelFactory}
  */
 public class TestKernelFactory {
     final String applicationName;
-    final ICommPortManager commPortManager;
-    final KernelFactory kernelFactory;
+    final CommPortManager commPortManager;
+    final KernelFactory applicationKernelFactory;
 
     @Rule public JUnitRuleMockery context = new JUnitRuleMockery();
 
     public TestKernelFactory(){
-        commPortManager = context.mock(ICommPortManager.class);
+        commPortManager = context.mock(CommPortManager.class);
         applicationName = "Unit Testing BakeoutController";
-        kernelFactory = new KernelFactory();
+        applicationKernelFactory = new ApplicationKernelFactory();
 
         setUpKernelFactory();
     }
 
     private void setUpKernelFactory(){
-        kernelFactory.setApplicationName(applicationName);
-        kernelFactory.setCommPortManager(commPortManager);
+        applicationKernelFactory.setApplicationName(applicationName);
+        applicationKernelFactory.setCommPortManager(commPortManager);
     }
 
     /**
      * Start the kernel, no way to stop except starting another test case
      */
     void startKernel(){
-        kernelFactory.getKernelInstance();
+        applicationKernelFactory.getKernelInstance();
     }
 }

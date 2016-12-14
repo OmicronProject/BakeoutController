@@ -1,8 +1,10 @@
 package unit.devices.tdk_lambda_power_supply;
 
+import devices.PowerSupply;
 import devices.TDKLambdaPowerSupply;
 import exceptions.NotAllowedBaudRateException;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -15,11 +17,11 @@ public class SetBaudRate extends TestTDKLambdaPowerSupplyWithFixture {
      * Tests that a Baud Rate can be set successfully
      */
     @Test public void testSetGoodBaudRates(){
-        supply.setBaudRate(TDKLambdaPowerSupply.BAUD_RATE_19200);
-        assertEquals(TDKLambdaPowerSupply.BAUD_RATE_19200, supply.getBaudRate());
+        supply.setBaudRate(PowerSupply.BAUD_RATE_19200);
+        assertEquals(PowerSupply.BAUD_RATE_19200, supply.getBaudRate());
 
-        supply.setBaudRate(TDKLambdaPowerSupply.BAUD_RATE_1200);
-        assertEquals(TDKLambdaPowerSupply.BAUD_RATE_1200, supply.getBaudRate());
+        supply.setBaudRate(PowerSupply.BAUD_RATE_1200);
+        assertEquals(PowerSupply.BAUD_RATE_1200, supply.getBaudRate());
     }
 
     /**

@@ -1,5 +1,6 @@
 package unit.devices.tdk_lambda_power_supply;
 
+import devices.PowerSupply;
 import devices.TDKLambdaPowerSupply;
 import org.junit.Before;
 
@@ -8,7 +9,7 @@ import org.junit.Before;
  * instantiation of {@link TDKLambdaPowerSupply}
  */
 class TestTDKLambdaPowerSupplyWithFixture extends TestTDKLambdaPowerSupply {
-    TDKLambdaPowerSupply supply;
+    PowerSupply supply;
     int desiredBaudRate;
     int desiredAddress;
 
@@ -16,7 +17,7 @@ class TestTDKLambdaPowerSupplyWithFixture extends TestTDKLambdaPowerSupply {
      * Creates the fixture
      */
     @Before public void setUp(){
-        desiredBaudRate = TDKLambdaPowerSupply.BAUD_RATE_1200;
+        desiredBaudRate = PowerSupply.BAUD_RATE_1200;
         desiredAddress = 5;
         supply = new TDKLambdaPowerSupply(desiredBaudRate, desiredAddress);
     }

@@ -1,7 +1,9 @@
 package unit.devices.tdk_lambda_power_supply;
 
+import devices.PowerSupply;
 import devices.TDKLambdaPowerSupply;
 import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 
 /**
@@ -17,6 +19,6 @@ public class GetBaudRate extends TestTDKLambdaPowerSupplyWithFixture {
     public void testGetBaudRate(){
         int baud = supply.getBaudRate();
 
-        assertEquals(TDKLambdaPowerSupply.BAUD_RATE_1200, baud);
+        assertEquals(PowerSupply.BAUD_RATE_1200, baud);
     }
 }
