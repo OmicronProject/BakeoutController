@@ -107,11 +107,9 @@ public class ApplicationKernelFactory implements KernelFactory {
                         "manager"
             );
         }
-
         this.applicationKernelInstance = new ApplicationKernel(
             this.applicationName, this.commPortManager
         );
-
         this.isKernelRunning = true;
     }
 }

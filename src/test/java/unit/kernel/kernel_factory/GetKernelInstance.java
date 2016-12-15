@@ -1,7 +1,7 @@
 package unit.kernel.kernel_factory;
 
 import exceptions.UnableToCreateKernelException;
-import kernel.ApplicationKernel;
+import kernel.Kernel;
 import kernel.ApplicationKernelFactory;
 import org.junit.Test;
 
@@ -35,8 +35,8 @@ public class GetKernelInstance extends TestKernelFactory {
     }
 
     @Test public void testWhetherKernelIsSingleton(){
-        ApplicationKernel applicationKernel = applicationKernelFactory.getKernelInstance();
-        ApplicationKernel secondApplicationKernel = applicationKernelFactory.getKernelInstance();
+        Kernel applicationKernel = applicationKernelFactory.getKernelInstance();
+        Kernel secondApplicationKernel = applicationKernelFactory.getKernelInstance();
 
         assertEquals(applicationKernel, secondApplicationKernel);
     }

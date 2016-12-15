@@ -5,25 +5,27 @@ import devices.TDKLambdaPowerSupply;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertArrayEquals;
+import java.util.ArrayList;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Contains unit tests for {@link TDKLambdaPowerSupply#getAllowedBaudRates()}
  */
 public class GetAllowedBaudRates extends TestTDKLambdaPowerSupplyWithFixture {
-    private Integer[] expectedAllowedBaudRates;
+    private ArrayList<Integer> expectedAllowedBaudRates;
 
     /**
      * Set up a list of allowed Baud Rates
      */
     @Before public void makeAllowedBaudRates(){
-        expectedAllowedBaudRates = new Integer[5];
+        expectedAllowedBaudRates = new ArrayList<>();
 
-        expectedAllowedBaudRates[0] = PowerSupply.BAUD_RATE_1200;
-        expectedAllowedBaudRates[1] = PowerSupply.BAUD_RATE_2400;
-        expectedAllowedBaudRates[2] = PowerSupply.BAUD_RATE_4800;
-        expectedAllowedBaudRates[3] = PowerSupply.BAUD_RATE_9600;
-        expectedAllowedBaudRates[4] = PowerSupply.BAUD_RATE_19200;
+        expectedAllowedBaudRates.add(PowerSupply.BAUD_RATE_1200);
+        expectedAllowedBaudRates.add(PowerSupply.BAUD_RATE_2400);
+        expectedAllowedBaudRates.add(PowerSupply.BAUD_RATE_4800);
+        expectedAllowedBaudRates.add(PowerSupply.BAUD_RATE_9600);
+        expectedAllowedBaudRates.add(PowerSupply.BAUD_RATE_19200);
     }
 
     /**
@@ -31,9 +33,9 @@ public class GetAllowedBaudRates extends TestTDKLambdaPowerSupplyWithFixture {
      * the pervious test
      */
     @Test public void getBaudRates(){
-        assertArrayEquals(
+        assertEquals(
             expectedAllowedBaudRates,
-            supply.getAllowedBaudRates().toArray()
+            supply.getAllowedBaudRates()
         );
     }
 }

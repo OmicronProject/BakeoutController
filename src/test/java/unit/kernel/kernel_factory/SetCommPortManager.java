@@ -4,6 +4,7 @@ import exceptions.UnableToSetParameterException;
 import kernel.ApplicationKernelFactory;
 import kernel.comm_port_manager.CommPortManager;
 import org.junit.Test;
+import unit.kernel.MockCommPortManager;
 
 import java.util.ArrayList;
 

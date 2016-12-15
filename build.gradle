@@ -48,7 +48,8 @@ repositories {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
-    // Add the serial library
+    // Import RXTX. This is a cross-platform wrapper for an RS232 serial port
+    // that implements the Java Communications API
     compile 'org.rxtx:rxtx:2.1.7'
 
     // The production code uses the SLF4J logging API at compile time
@@ -60,13 +61,13 @@ dependencies {
     // 'test.useTestNG()' to your build script.
     testCompile group: 'junit', name: 'junit', version: '4.12'
 
-    // Add TestFX
+    // TestFX is the unit test suite for the JavaFX GUI library
     testCompile group: 'org.testfx', name: 'testfx-junit', version:'4.+'
 
     // Add a testing Mr.Robot that will allow the UI to be tested headlessly
     testRuntime 'org.testfx:openjfx-monocle:1.8.0_20'
 
-    // Add Jmock 2
+    // Add Jmock 2 to stub out interfaces for fast unit testing
     testCompile group: 'org.jmock', name: 'jmock-junit4', version: '2+'
 }
 

@@ -8,17 +8,20 @@ import java.util.Enumeration;
 /**
  * Maintains all hardware interactions
  */
-public class ApplicationKernel implements Kernel {
+class ApplicationKernel implements Kernel {
     private final CommPortManager commPortManager;
     private final String applicationName;
 
     /**
      * Instantiate a new kernel
-     *
+     * @param applicationName The name of the application. This will be used
+     *                        in order to negotiate for RS 232 ports.
      * @param commPortManager The device to use to manage serial communication
      *                        ports in the application
      */
-    public ApplicationKernel(String applicationName, CommPortManager commPortManager){
+    ApplicationKernel(
+        String applicationName, CommPortManager commPortManager
+    ){
         this.commPortManager = commPortManager;
         this.applicationName = applicationName;
     }
