@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['helloworld',['HelloWorld',['../classui_1_1HelloWorld.html',1,'ui']]],
-  ['helloworldtest',['HelloWorldTest',['../classuitest_1_1HelloWorldTest.html',1,'uitest']]]
+  ['applicationkernelfactory',['ApplicationKernelFactory',['../classkernel_1_1ApplicationKernelFactory.html',1,'kernel']]],
+  ['applicationkernelfactory',['ApplicationKernelFactory',['../classkernel_1_1ApplicationKernelFactory.html#a90bf26c074134d7385254fc76c0cbb29',1,'kernel::ApplicationKernelFactory']]]
 ];

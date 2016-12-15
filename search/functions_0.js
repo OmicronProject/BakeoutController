@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['start',['start',['../classui_1_1HelloWorld.html#a0de86283331e19447d18443c942ba8af',1,'ui::HelloWorld']]]
+  ['applicationkernelfactory',['ApplicationKernelFactory',['../classkernel_1_1ApplicationKernelFactory.html#a90bf26c074134d7385254fc76c0cbb29',1,'kernel::ApplicationKernelFactory']]]
 ];

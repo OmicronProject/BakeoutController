@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classunit_1_1kernel_1_1MockCommPortManager.html" title="unit.kernel.MockCommPort\lManager" alt="" coords="243,5,424,47"/>
+<area shape="rect" id="node3" href="$interfacekernel_1_1comm__port__manager_1_1CommPortManager.html" title="kernel.comm_port_manager.\lCommPortManager" alt="" coords="5,67,192,108"/>
+<area shape="rect" id="node4" href="$classkernel_1_1comm__port__manager_1_1SerialPortManager.html" title="kernel.comm_port_manager.\lSerialPortManager" alt="" coords="240,71,427,112"/>
+</map>
