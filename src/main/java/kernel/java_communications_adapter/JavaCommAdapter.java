@@ -1,6 +1,7 @@
 package kernel.java_communications_adapter;
 
 import gnu.io.CommPortIdentifier;
+import gnu.io.NoSuchPortException;
 
 import java.util.Enumeration;
 
@@ -10,7 +11,12 @@ import java.util.Enumeration;
 public class JavaCommAdapter implements JavaCommunicationsAPIAdapter {
     public JavaCommAdapter(){};
 
-    public Enumeration getCommPortIdentifiers(){
+    @Override public Enumeration getCommPortIdentifiers(){
         return CommPortIdentifier.getPortIdentifiers();
+    }
+
+    @Override public CommPortIdentifier getCommPortIdentifier(String portName)
+            throws NoSuchPortException {
+        return CommPortIdentifier.getPortIdentifier(portName);
     }
 }

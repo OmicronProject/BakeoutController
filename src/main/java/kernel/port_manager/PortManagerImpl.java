@@ -3,8 +3,11 @@ package kernel.port_manager;
 import exceptions.UnableToCastToIdentifierException;
 import gnu.io.CommPort;
 import gnu.io.CommPortIdentifier;
+import gnu.io.NoSuchPortException;
 import kernel.java_communications_adapter.JavaCommAdapter;
 import kernel.java_communications_adapter.JavaCommunicationsAPIAdapter;
+import kernel.port_manager.serial_port.SerialPort;
+import kernel.port_manager.serial_port.SerialPortImpl;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -51,6 +54,18 @@ public class PortManagerImpl implements PortManager {
     }
 
     /**
+     *
+     * @param portName The name of the port that needs to be retrieved
+     * @return the port Identifier
+     */
+    @Override public SerialPort getPortByName(String portName)
+            throws NoSuchPortException {
+        CommPortIdentifier portIdentifier = this.adapter
+                .getCommPortIdentifier(portName);
+        return new SerialPortImpl(portIdentifier);
+    }
+
+    /**
      * Iterates through a list of {@link CommPortIdentifier } and returns
      * the port names for all ports in the list
      * @param portList The list of {@link CommPortIdentifier} for which the
@@ -75,7 +90,7 @@ public class PortManagerImpl implements PortManager {
      *                        to be processed
      * @return a list of {@link CommPortIdentifier}
      */
-    private ArrayList<CommPortIdentifier> castToPortIdentifiers(
+    private static ArrayList<CommPortIdentifier> castToPortIdentifiers(
             Enumeration portIdentifiers
     ){
         ArrayList<CommPortIdentifier> identifierList = new ArrayList<>();
@@ -96,7 +111,7 @@ public class PortManagerImpl implements PortManager {
      * @throws UnableToCastToIdentifierException if the casting could not be
      *                                           done
      */
-    private CommPortIdentifier castObjectToCommPortIdentifier(
+    private static CommPortIdentifier castObjectToCommPortIdentifier(
             Object identifier
     ) throws UnableToCastToIdentifierException {
         try{
@@ -106,7 +121,14 @@ public class PortManagerImpl implements PortManager {
         }
     }
 
-    private ArrayList<CommPortIdentifier> filterForSerialPorts
+    /**
+     * Iterates through a list of {@link CommPortIdentifier} and pulls out
+     * the identifiers representing all serial ports
+     *
+     * @param portList The list of ports to iterate
+     * @return a list of serial port names
+     */
+    private static ArrayList<CommPortIdentifier> filterForSerialPorts
             (ArrayList<CommPortIdentifier> portList){
 
         ArrayList<CommPortIdentifier> serialPorts = new ArrayList<>();
