@@ -1,6 +1,6 @@
 package kernel;
 
-import kernel.comm_port_manager.CommPortManager;
+import kernel.comm_port_manager.PortManager;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
@@ -9,20 +9,20 @@ import java.util.Enumeration;
  * Maintains all hardware interactions
  */
 class ApplicationKernel implements Kernel {
-    private final CommPortManager commPortManager;
+    private final PortManager portManager;
     private final String applicationName;
 
     /**
      * Instantiate a new kernel
      * @param applicationName The name of the application. This will be used
      *                        in order to negotiate for RS 232 ports.
-     * @param commPortManager The device to use to manage serial communication
+     * @param portManager The device to use to manage serial communication
      *                        ports in the application
      */
     ApplicationKernel(
-        String applicationName, CommPortManager commPortManager
+        String applicationName, PortManager portManager
     ){
-        this.commPortManager = commPortManager;
+        this.portManager = portManager;
         this.applicationName = applicationName;
     }
 
@@ -35,7 +35,7 @@ class ApplicationKernel implements Kernel {
      */
     @Override public ArrayList<String> getCommPortNames() {
         Enumeration<String> namesFromManager =
-                commPortManager.getCommPortNames();
+                portManager.getCommPortNames();
 
         ArrayList<String> portNames = new ArrayList<String>();
 

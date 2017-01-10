@@ -2,7 +2,7 @@ package kernel;
 
 import exceptions.UnableToCreateKernelException;
 import exceptions.UnableToSetParameterException;
-import kernel.comm_port_manager.CommPortManager;
+import kernel.comm_port_manager.PortManager;
 
 /**
  * Responsible for bootstrapping the hardware kernel of the application
@@ -16,7 +16,7 @@ public class ApplicationKernelFactory implements KernelFactory {
     /**
      * The current manager for serial communications
      */
-    private CommPortManager commPortManager;
+    private PortManager portManager;
 
     /**
      * The current kernel instance
@@ -57,15 +57,15 @@ public class ApplicationKernelFactory implements KernelFactory {
     /**
      * @return The current port manager
      */
-    @Override public CommPortManager getCommPortManager(){
-        return this.commPortManager;
+    public PortManager getPortManager(){
+        return this.portManager;
     }
 
     /**
      * @param newManager the name of the new manager
      * @throws UnableToSetParameterException if the kernel is already running
      */
-    @Override public void setCommPortManager(CommPortManager newManager)
+    public void setPortManager(PortManager newManager)
             throws UnableToSetParameterException {
         if (this.isKernelRunning) {
             throw new UnableToSetParameterException(
@@ -73,7 +73,7 @@ public class ApplicationKernelFactory implements KernelFactory {
             );
         }
 
-        this.commPortManager = newManager;
+        this.portManager = newManager;
     }
 
     /**
@@ -101,14 +101,14 @@ public class ApplicationKernelFactory implements KernelFactory {
                 "Attempted to create an application with no name"
             );
         }
-        if (this.commPortManager == null){
+        if (this.portManager == null){
             throw new UnableToCreateKernelException(
                 "Attempted to create an application with no serial port " +
                         "manager"
             );
         }
         this.applicationKernelInstance = new ApplicationKernel(
-            this.applicationName, this.commPortManager
+            this.applicationName, this.portManager
         );
         this.isKernelRunning = true;
     }

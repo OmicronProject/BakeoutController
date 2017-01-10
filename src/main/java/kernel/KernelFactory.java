@@ -2,7 +2,7 @@ package kernel;
 
 import exceptions.UnableToCreateKernelException;
 import exceptions.UnableToSetParameterException;
-import kernel.comm_port_manager.CommPortManager;
+import kernel.comm_port_manager.PortManager;
 
 /**
  * Describes methods for the kernel singleton factory. To be used by the
@@ -25,13 +25,13 @@ public interface KernelFactory {
     /**
      * @return The current serial port manager
      */
-    CommPortManager getCommPortManager();
+    PortManager getPortManager();
 
     /**
      * @param newManager The new manager to set
      * @throws UnableToSetParameterException if the manager cannot be set
      */
-    void setCommPortManager(CommPortManager newManager) throws
+    void setPortManager(PortManager newManager) throws
             UnableToSetParameterException;
 
     /**

@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 public class Kernel {
     private static final String appName = "app";
     private kernel.Kernel appKernel;
-    private MockCommPortManager portManager;
+    private MockPortManager portManager;
 
     @Rule public JUnitRuleMockery context = new JUnitRuleMockery();
 
@@ -24,11 +24,11 @@ public class Kernel {
      */
     @Before
     public void setUpKernel(){
-        portManager = new MockCommPortManager();
+        portManager = new MockPortManager();
         KernelFactory factory = new ApplicationKernelFactory();
 
         factory.setApplicationName(appName);
-        factory.setCommPortManager(portManager);
+        factory.setPortManager(portManager);
 
         appKernel = factory.getKernelInstance();
     }

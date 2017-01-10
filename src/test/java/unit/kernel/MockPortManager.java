@@ -1,14 +1,14 @@
 package unit.kernel;
 
-import kernel.comm_port_manager.CommPortManager;
+import kernel.comm_port_manager.PortManager;
 
 import java.util.ArrayList;
 import java.util.Enumeration;
 
 /**
- * Returns a mocked-out list of ports. Stubs out {@link CommPortManager}
+ * Returns a mocked-out list of ports. Stubs out {@link PortManager}
  */
-public class MockCommPortManager implements CommPortManager,
+public class MockPortManager implements PortManager,
         Enumeration<String> {
     private final ArrayList<String> portNames;
     private int index;
@@ -17,7 +17,7 @@ public class MockCommPortManager implements CommPortManager,
      * If a no-argument constructor is used, add some test data to the mock
      * array to return.
      */
-    public MockCommPortManager(){
+    public MockPortManager(){
         ArrayList<String> portNames = new ArrayList<>();
         portNames.add("COM1");
         portNames.add("COM2");
@@ -30,7 +30,7 @@ public class MockCommPortManager implements CommPortManager,
      * Initialize using a pre-determined port list
      * @param portNames The array of strings representing port names
      */
-    public MockCommPortManager(ArrayList<String> portNames){
+    public MockPortManager(ArrayList<String> portNames){
         this.portNames = portNames;
         this.index = 0;
     }

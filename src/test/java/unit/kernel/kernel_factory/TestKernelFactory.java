@@ -2,7 +2,7 @@ package unit.kernel.kernel_factory;
 
 import kernel.ApplicationKernelFactory;
 import kernel.KernelFactory;
-import kernel.comm_port_manager.CommPortManager;
+import kernel.comm_port_manager.PortManager;
 import org.jmock.integration.junit4.JUnitRuleMockery;
 import org.junit.Rule;
 
@@ -11,13 +11,13 @@ import org.junit.Rule;
  */
 public class TestKernelFactory {
     protected final String applicationName;
-    protected final CommPortManager commPortManager;
+    protected final PortManager portManager;
     protected final KernelFactory applicationKernelFactory;
 
     @Rule public JUnitRuleMockery context = new JUnitRuleMockery();
 
     public TestKernelFactory(){
-        commPortManager = context.mock(CommPortManager.class);
+        portManager = context.mock(PortManager.class);
         applicationName = "Unit Testing BakeoutController";
         applicationKernelFactory = new ApplicationKernelFactory();
 
@@ -26,7 +26,7 @@ public class TestKernelFactory {
 
     private void setUpKernelFactory(){
         applicationKernelFactory.setApplicationName(applicationName);
-        applicationKernelFactory.setCommPortManager(commPortManager);
+        applicationKernelFactory.setPortManager(portManager);
     }
 
     /**

@@ -6,12 +6,12 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Contains tests for {@link ApplicationKernelFactory#getCommPortManager()}
+ * Contains tests for {@link ApplicationKernelFactory#getPortManager()}
  */
 public class GetCommPortManager extends TestKernelFactory {
     @Test public void getCommPortManager(){
         assertEquals(
-            commPortManager, applicationKernelFactory.getCommPortManager()
+                portManager, applicationKernelFactory.getPortManager()
         );
     }
 }

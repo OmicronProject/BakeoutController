@@ -31,7 +31,7 @@ public class GetKernelInstance extends TestKernelFactory {
     }
 
     private void setUpKernelFactoryWithManager(){
-        applicationKernelFactoryWithManager.setCommPortManager(commPortManager);
+        applicationKernelFactoryWithManager.setPortManager(portManager);
     }
 
     @Test public void testWhetherKernelIsSingleton(){

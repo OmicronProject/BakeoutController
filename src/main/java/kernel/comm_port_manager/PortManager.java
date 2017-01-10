@@ -5,7 +5,7 @@ import java.util.Enumeration;
 /**
  * Wraps static methods in the Java Communications API to allow stubbing
  */
-public interface CommPortManager {
+public interface PortManager {
 
     /**
      * @return The names of all communication ports

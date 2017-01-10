@@ -7,7 +7,7 @@ import java.util.Enumeration;
 /**
  * Manages all RS232 connections
  */
-public class SerialPortManager implements CommPortManager {
+public class SerialPortManager implements PortManager {
     /**
      * The comm port identifiers returned by the API
      */
