@@ -23,5 +23,4 @@ public interface JavaCommunicationsAPIAdapter {
      */
     CommPortIdentifier getCommPortIdentifier(String portName) throws
             NoSuchPortException;
-
 }

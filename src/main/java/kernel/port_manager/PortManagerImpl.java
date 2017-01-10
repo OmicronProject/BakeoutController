@@ -16,6 +16,9 @@ import java.util.Enumeration;
  * Managers communication ports available on the machine
  */
 public class PortManagerImpl implements PortManager {
+    private final String ownerName = "Testing";
+    private final int timeout = 1000;
+
     /**
      * The adapter to be used when working with the Java Communications API
      */
@@ -62,7 +65,9 @@ public class PortManagerImpl implements PortManager {
             throws NoSuchPortException {
         CommPortIdentifier portIdentifier = this.adapter
                 .getCommPortIdentifier(portName);
-        return new SerialPortImpl(portIdentifier);
+        return new SerialPortImpl(
+            portIdentifier, this.ownerName, this.timeout
+        );
     }
 
     /**

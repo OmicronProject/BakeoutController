@@ -1,5 +1,6 @@
 package kernel.java_communications_adapter;
 
+import gnu.io.CommPort;
 import gnu.io.CommPortIdentifier;
 import gnu.io.NoSuchPortException;
 
