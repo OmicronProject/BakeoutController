@@ -1,4 +1,4 @@
-package kernel.comm_port_manager;
+package kernel.port_manager;
 
 import java.util.Enumeration;
 
