@@ -1,8 +1,8 @@
 package kernel.port_manager.serial_port;
 
 import gnu.io.CommPort;
-import gnu.io.CommPortIdentifier;
 import gnu.io.PortInUseException;
+import kernel.java_communications_adapter.CommPortIdentifier;
 
 /**
  * Implements methods for working with RS232 serial ports

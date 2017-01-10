@@ -4,6 +4,7 @@ import exceptions.UnableToCastToIdentifierException;
 import gnu.io.CommPort;
 import gnu.io.CommPortIdentifier;
 import gnu.io.NoSuchPortException;
+import kernel.java_communications_adapter.CommPortIdentifierImpl;
 import kernel.java_communications_adapter.JavaCommAdapter;
 import kernel.java_communications_adapter.JavaCommunicationsAPIAdapter;
 import kernel.port_manager.serial_port.SerialPort;
@@ -65,8 +66,12 @@ public class PortManagerImpl implements PortManager {
             throws NoSuchPortException {
         CommPortIdentifier portIdentifier = this.adapter
                 .getCommPortIdentifier(portName);
+
+        CommPortIdentifierImpl wrappedPortIdentifier = new
+                CommPortIdentifierImpl(portIdentifier);
+
         return new SerialPortImpl(
-            portIdentifier, this.ownerName, this.timeout
+            wrappedPortIdentifier, this.ownerName, this.timeout
         );
     }
 
