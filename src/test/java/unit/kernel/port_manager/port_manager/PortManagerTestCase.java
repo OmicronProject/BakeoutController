@@ -3,9 +3,6 @@ package unit.kernel.port_manager.port_manager;
 import kernel.java_communications_adapter.JavaCommunicationsAPIAdapter;
 import kernel.port_manager.PortManager;
 import kernel.port_manager.PortManagerImpl;
-import org.jmock.Mockery;
-import org.jmock.integration.junit4.JUnit4Mockery;
-import org.jmock.lib.concurrent.Synchroniser;
 import org.junit.Before;
 import unit.kernel.port_manager.PortManagerModuleTestCase;
 
@@ -23,13 +20,6 @@ public abstract class PortManagerTestCase extends PortManagerModuleTestCase {
      * Communications API
      */
     protected JavaCommunicationsAPIAdapter mockAdapter;
-
-    /**
-     * The JMock context for mocking out interfaces
-     */
-    protected Mockery context = new JUnit4Mockery(){{
-        setThreadingPolicy(new Synchroniser());
-    }};
 
     /**
      * set up a mock adapter
