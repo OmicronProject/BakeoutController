@@ -12,6 +12,9 @@ import static org.junit.Assert.assertNotNull;
  * Contains unit tests for {@link PortManager#getPortNames()}
  */
 public class GetPortNames extends PortManagerTestCase {
+    /**
+     * Walks through the code's happy path
+     */
     @Test
     public void getPortNames(){
         this.context.checking(new Expectations(){{

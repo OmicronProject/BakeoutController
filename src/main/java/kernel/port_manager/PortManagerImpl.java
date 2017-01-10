@@ -13,6 +13,9 @@ import java.util.Enumeration;
  * Managers communication ports available on the machine
  */
 public class PortManagerImpl implements PortManager {
+    /**
+     * The adapter to be used when working with the Java Communications API
+     */
     private JavaCommunicationsAPIAdapter adapter;
 
     /**
@@ -23,7 +26,7 @@ public class PortManagerImpl implements PortManager {
     }
 
     /**
-     * @return An enumeration of COM port names
+     * @return A list of port names accessible to the machine
      */
     @Override public ArrayList<String> getPortNames(){
         Enumeration portIdentifiers = this.adapter.getCommPortIdentifiers();
@@ -47,9 +50,15 @@ public class PortManagerImpl implements PortManager {
         return getPortNamesForPortList(serialPortList);
     }
 
-    private ArrayList<String> getPortNamesForPortList
+    /**
+     * Iterates through a list of {@link CommPortIdentifier } and returns
+     * the port names for all ports in the list
+     * @param portList The list of {@link CommPortIdentifier} for which the
+     *                 names are to be retrieved
+     * @return A list of strings representing the port names
+     */
+    private static ArrayList<String> getPortNamesForPortList
             (ArrayList<CommPortIdentifier> portList){
-
         ArrayList<String> portNames = new ArrayList<>();
 
         for(CommPortIdentifier portIdentifier: portList){
@@ -59,6 +68,13 @@ public class PortManagerImpl implements PortManager {
         return portNames;
     }
 
+    /**
+     * Casts an enumeration of generic objects from the Java Communications
+     * API into a list of {@link CommPortIdentifier }
+     * @param portIdentifiers the enumeration of port identifiers that needs
+     *                        to be processed
+     * @return a list of {@link CommPortIdentifier}
+     */
     private ArrayList<CommPortIdentifier> castToPortIdentifiers(
             Enumeration portIdentifiers
     ){
@@ -72,9 +88,17 @@ public class PortManagerImpl implements PortManager {
         return identifierList;
     }
 
+    /**
+     * Casts the enumeration from the Java Communications API to a usable
+     * {@link CommPortIdentifier}
+     * @param identifier The identifier to cast
+     * @return ``identifier`` cast as to the desired type
+     * @throws UnableToCastToIdentifierException if the casting could not be
+     *                                           done
+     */
     private CommPortIdentifier castObjectToCommPortIdentifier(
             Object identifier
-    ){
+    ) throws UnableToCastToIdentifierException {
         try{
             return (CommPortIdentifier)(identifier);
         } catch (ClassCastException error){
