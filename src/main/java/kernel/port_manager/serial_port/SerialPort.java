@@ -11,11 +11,26 @@ public interface SerialPort {
      */
     String getOwnerName();
 
+    /**
+     * @return True if the port is owned, otherwise False
+     */
     boolean isPortOwned();
 
+    /**
+     * opens the serial port
+     *
+     * @throws PortInUseException if the port is being used by another
+     * application
+     */
     void acquire() throws PortInUseException;
 
+    /**
+     * closes the serial port
+     */
     void release();
 
+    /**
+     * @return True if the port has been acquired, otherwise False
+     */
     boolean isPortOpen();
 }

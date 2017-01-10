@@ -1,6 +1,6 @@
 package kernel.port_manager.serial_port;
 
-import gnu.io.CommPort;
+import kernel.java_communications_adapter.CommPort;
 import gnu.io.PortInUseException;
 import kernel.java_communications_adapter.CommPortIdentifier;
 

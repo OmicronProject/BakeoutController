@@ -1,5 +1,6 @@
 package unit.kernel.port_manager.serial_port.serial_port;
 
+import kernel.java_communications_adapter.CommPort;
 import kernel.java_communications_adapter.CommPortIdentifier;
 import kernel.port_manager.serial_port.SerialPort;
 import kernel.port_manager.serial_port.SerialPortImpl;
@@ -17,9 +18,14 @@ public abstract class SerialPortTestCase extends SerialPortModuleTestCase {
     protected final int timeout = 1000;
 
     protected SerialPort serialPort;
+    protected CommPort commPort;
 
     @Before public void setUpMockPortIdentifier(){
         this.portIdentifier = context.mock(CommPortIdentifier.class);
+    }
+
+    @Before public void setUpMockCommPort(){
+        this.commPort = context.mock(CommPort.class);
     }
 
     @Before public void setUpSerialPort(){

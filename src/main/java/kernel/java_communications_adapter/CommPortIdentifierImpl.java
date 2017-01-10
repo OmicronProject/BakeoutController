@@ -1,10 +1,10 @@
 package kernel.java_communications_adapter;
 
-import gnu.io.CommPort;
 import gnu.io.PortInUseException;
 
 /**
- * Created by mkononen on 10/01/17.
+ * Provides a stub to {@link CommPort} so that it can be mocked for unit
+ * testing
  */
 public class CommPortIdentifierImpl implements CommPortIdentifier {
     private gnu.io.CommPortIdentifier portIdentifier;
@@ -19,6 +19,9 @@ public class CommPortIdentifierImpl implements CommPortIdentifier {
 
     @Override public CommPort open(String appName, int timeout) throws
             PortInUseException {
-        return this.portIdentifier.open(appName, timeout);
+        gnu.io.CommPort portFromAPI = this.portIdentifier.open(appName,
+                timeout);
+
+        return new CommPortImpl(portFromAPI);
     }
 }

@@ -1,10 +1,10 @@
 package kernel.java_communications_adapter;
 
-import gnu.io.CommPort;
 import gnu.io.PortInUseException;
 
 /**
- * Created by mkononen on 10/01/17.
+ * Wraps methods used in {@link gnu.io.CommPortIdentifier}, in order to
+ * allow these methods to be stubbed out.
  */
 public interface CommPortIdentifier {
     boolean isCurrentlyOwned();
