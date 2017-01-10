@@ -1,4 +1,4 @@
-package unit.kernel.port_manager;
+package unit.kernel.port_manager.port_manager;
 
 import kernel.java_communications_adapter.JavaCommunicationsAPIAdapter;
 import kernel.port_manager.PortManager;
@@ -7,12 +7,12 @@ import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.jmock.lib.concurrent.Synchroniser;
 import org.junit.Before;
-import unit.kernel.KernelTestCase;
+import unit.kernel.port_manager.PortManagerModuleTestCase;
 
 /**
  * Base class for all tests involving {@link kernel.port_manager}
  */
-public abstract class PortManagerTestCase extends KernelTestCase {
+public abstract class PortManagerTestCase extends PortManagerModuleTestCase {
     /**
      * The instance of {@link PortManager} to be used for testing
      */

@@ -1,4 +1,4 @@
-package unit.kernel.port_manager;
+package unit.kernel.port_manager.port_manager;
 
 import gnu.io.NoSuchPortException;
 import kernel.port_manager.serial_port.SerialPort;

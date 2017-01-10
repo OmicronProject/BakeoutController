@@ -1,4 +1,4 @@
-package unit.kernel.port_manager;
+package unit.kernel.port_manager.port_manager;
 
 import kernel.port_manager.PortManager;
 import org.jmock.Expectations;
