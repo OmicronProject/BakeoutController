@@ -1,5 +1,6 @@
 package kernel.serial_ports;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
@@ -11,10 +12,10 @@ public interface PortCommunicator {
     /**
      * @return A stream useful for reading from the port
      */
-    InputStream getInputStream();
+    InputStream getInputStream() throws IOException;
 
     /**
      * @return A stream useful for writing to the port
      */
-    OutputStream getOutputStream();
+    OutputStream getOutputStream() throws IOException;
 }

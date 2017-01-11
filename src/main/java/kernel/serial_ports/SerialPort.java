@@ -29,8 +29,16 @@ public interface SerialPort {
      */
     boolean isPortOpen();
 
+    /**
+     * @return The configuration parameters of the port
+     */
     PortConfiguration getConfig();
 
+    /**
+     * Set the configuration to a new value
+     * @param newConfig a data structure representing the new values to be set
+     * @throws UnsupportedCommOperationException if it cannot be done
+     */
     void setConfig(PortConfiguration newConfig) throws
             UnsupportedCommOperationException ;
 }

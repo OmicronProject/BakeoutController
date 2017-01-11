@@ -5,6 +5,6 @@ import java.util.Enumeration;
 /**
  * Describes how the wrapper works
  */
-public interface CommPortWrapper {
+public interface PortIdentifierGetter {
     Enumeration getPortIdentifiers();
 }
