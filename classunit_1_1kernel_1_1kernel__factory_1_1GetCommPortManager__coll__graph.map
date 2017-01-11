@@ -1,5 +1,0 @@
-<map id="unit.kernel.kernel_factory.GetCommPortManager" name="unit.kernel.kernel_factory.GetCommPortManager">
-<area shape="rect" id="node2" href="$classunit_1_1kernel_1_1kernel__factory_1_1TestKernelFactory.html" title="unit.kernel.kernel\l_factory.TestKernelFactory" alt="" coords="198,109,378,151"/>
-<area shape="rect" id="node3" href="$interfacekernel_1_1comm__port__manager_1_1CommPortManager.html" title="kernel.comm_port_manager.\lCommPortManager" alt="" coords="5,5,192,47"/>
-<area shape="rect" id="node4" href="$interfacekernel_1_1KernelFactory.html" title="kernel.KernelFactory" alt="" coords="217,13,359,39"/>
-</map>

@@ -1,0 +1,8 @@
+<map id="unit.kernel.serial_ports.rxtx_port_driver.RXTXPortDriverTestCase" name="unit.kernel.serial_ports.rxtx_port_driver.RXTXPortDriverTestCase">
+<area shape="rect" id="node2" href="$classunit_1_1kernel_1_1serial__ports_1_1SerialPortsTestCase.html" title="unit.kernel.serial\l_ports.SerialPortsTestCase" alt="" coords="747,58,930,99"/>
+<area shape="rect" id="node3" href="$classunit_1_1kernel_1_1KernelTestCase.html" title="unit.kernel.KernelTestCase" alt="" coords="370,7,550,33"/>
+<area shape="rect" id="node4" href="$classunit_1_1UnitTestCase.html" title="unit.UnitTestCase" alt="" coords="173,7,301,33"/>
+<area shape="rect" id="node6" href="$interfacekernel_1_1serial__ports_1_1comm__port__wrapper_1_1PortIdentifierGetter.html" title="kernel.serial_ports.comm\l_port_wrapper.PortIdentifierGetter" alt="" coords="351,58,569,99"/>
+<area shape="rect" id="node7" href="$classkernel_1_1serial__ports_1_1RXTXPortDriver.html" title="kernel.serial_ports.RXTXPort\lDriver" alt="" coords="743,123,935,165"/>
+<area shape="rect" id="node8" href="$interfacekernel_1_1serial__ports_1_1PortDriver.html" title="kernel.serial_ports.Port\lDriver" alt="" coords="382,123,538,165"/>
+</map>

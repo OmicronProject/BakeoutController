@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['kernel',['Kernel',['../classunit_1_1kernel_1_1Kernel.html',1,'unit::kernel']]],
-  ['kernel',['Kernel',['../interfacekernel_1_1Kernel.html',1,'kernel']]],
-  ['kernelfactory',['KernelFactory',['../interfacekernel_1_1KernelFactory.html',1,'kernel']]]
+  ['javacommsapiwrapper',['JavaCommsAPIWrapper',['../classkernel_1_1serial__ports_1_1comm__port__wrapper_1_1JavaCommsAPIWrapper.html',1,'kernel::serial_ports::comm_port_wrapper']]]
 ];

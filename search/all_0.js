@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['applicationkernelfactory',['ApplicationKernelFactory',['../classkernel_1_1ApplicationKernelFactory.html',1,'kernel']]],
-  ['applicationkernelfactory',['ApplicationKernelFactory',['../classkernel_1_1ApplicationKernelFactory.html#a90bf26c074134d7385254fc76c0cbb29',1,'kernel::ApplicationKernelFactory']]]
+  ['assertgoodcontext',['assertGoodContext',['../classunit_1_1UnitTestCase.html#a217855c9759c9d75a75b5cbe18c4efd4',1,'unit::UnitTestCase']]]
 ];

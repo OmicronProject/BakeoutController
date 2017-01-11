@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nextelement',['nextElement',['../classunit_1_1kernel_1_1MockCommPortManager.html#ab251d9fc4dbeb422234b76019561b96a',1,'unit::kernel::MockCommPortManager']]]
+  ['open',['open',['../interfacekernel_1_1serial__ports_1_1SerialPort.html#ab6003d10f218721f40411153c6ed15ca',1,'kernel::serial_ports::SerialPort']]]
 ];
