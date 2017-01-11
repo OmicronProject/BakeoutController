@@ -11,7 +11,7 @@ public abstract class SerialPortsTestCase extends KernelTestCase {
     protected CommPortWrapper mockJavaCommAPI;
 
     @Before
-    public void setUpMockJavaCommunicationsAPI(){
+    public final void setUpMockJavaCommunicationsAPI(){
         this.mockJavaCommAPI = this.context.mock(CommPortWrapper.class);
     }
 }
