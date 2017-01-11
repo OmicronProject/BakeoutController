@@ -32,8 +32,4 @@ public class CommPortImpl implements CommPort {
     @Override public OutputStream getOutputStream() throws IOException {
         return this.commPort.getOutputStream();
     }
-
-    @Override public String getName(){
-        return this.commPort.getName();
-    }
 }
