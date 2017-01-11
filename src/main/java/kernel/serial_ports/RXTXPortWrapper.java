@@ -1,5 +1,6 @@
 package kernel.serial_ports;
 
+import gnu.io.PortInUseException;
 import gnu.io.RXTXPort;
 import gnu.io.UnsupportedCommOperationException;
 
@@ -9,12 +10,20 @@ import java.io.OutputStream;
 /**
  * Wraps the RXTX port
  */
-public class RXTXPortWrapper implements SerialPort, PortCommunicator,
+final class RXTXPortWrapper implements SerialPort, PortCommunicator,
         PortConfiguration {
-    private final RXTXPort port;
 
-    public RXTXPortWrapper(RXTXPort portToWrap){
-        this.port = portToWrap;
+    private RXTXPort port;
+    private final String portName;
+    private boolean isPortOpen;
+
+    public RXTXPortWrapper(String portName){
+        this.portName = portName;
+    }
+
+    public RXTXPortWrapper(RXTXPort port){
+        this.port = port;
+        this.portName = port.getName();
     }
 
     @Override public PortCommunicator getCommunicator(){
@@ -57,7 +66,21 @@ public class RXTXPortWrapper implements SerialPort, PortCommunicator,
         );
     }
 
+    @Override public void open() throws PortInUseException {
+        if (!this.isPortOpen){
+            this.port = new RXTXPort(this.portName);
+            this.isPortOpen = true;
+        }
+    }
+
+    @Override public boolean isPortOpen(){
+        return this.isPortOpen;
+    }
+
     @Override public void close(){
-        this.port.close();
+        if (this.isPortOpen){
+            this.port.close();
+            this.isPortOpen = false;
+        }
     }
 }

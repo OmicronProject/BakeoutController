@@ -1,9 +1,6 @@
 package kernel.serial_ports;
 
 import gnu.io.CommPortIdentifier;
-import gnu.io.NoSuchPortException;
-import gnu.io.PortInUseException;
-import gnu.io.RXTXPort;
 import kernel.serial_ports.comm_port_wrapper.CommPortWrapper;
 
 import java.util.ArrayList;
@@ -38,11 +35,8 @@ public class RXTXPortDriver implements PortDriver {
         return getPortNamesForList(serialPortList);
     }
 
-    @Override public SerialPort getPortByName(String portName) throws
-            NoSuchPortException, PortInUseException {
-
-        RXTXPort portToWrap = new RXTXPort(portName);
-        return new RXTXPortWrapper(portToWrap);
+    @Override public SerialPort getPortByName(String portName) {
+        return new RXTXPortWrapper(portName);
     }
 
     private ArrayList<CommPortIdentifier> castPortIdentsToList(

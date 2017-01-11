@@ -1,5 +1,6 @@
 package kernel.serial_ports;
 
+import gnu.io.PortInUseException;
 import gnu.io.UnsupportedCommOperationException;
 
 /**
@@ -14,9 +15,19 @@ public interface SerialPort {
     PortCommunicator getCommunicator();
 
     /**
+     * Open the port
+     */
+    void open() throws PortInUseException;
+
+    /**
      * close the port and release it to the world
      */
     void close();
+
+    /**
+     * @return true if the port is open, else false
+     */
+    boolean isPortOpen();
 
     PortConfiguration getConfig();
 
