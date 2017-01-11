@@ -1,5 +1,9 @@
 package kernel.java_communications_adapter;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 /**
  * Wraps {@link gnu.io.CommPort} using the {@link CommPort} interface.
  */
@@ -19,5 +23,17 @@ public class CommPortImpl implements CommPort {
      */
     @Override public void close(){
         this.commPort.close();
+    }
+
+    @Override public InputStream getInputStream() throws IOException {
+        return this.commPort.getInputStream();
+    }
+
+    @Override public OutputStream getOutputStream() throws IOException {
+        return this.commPort.getOutputStream();
+    }
+
+    @Override public String getName(){
+        return this.commPort.getName();
     }
 }

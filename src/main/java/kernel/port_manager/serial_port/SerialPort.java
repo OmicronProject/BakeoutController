@@ -1,6 +1,7 @@
 package kernel.port_manager.serial_port;
 
 import gnu.io.PortInUseException;
+import gnu.io.UnsupportedCommOperationException;
 
 /**
  * Exposes methods required for working with RS232 serial ports
@@ -33,4 +34,10 @@ public interface SerialPort {
      * @return True if the port has been acquired, otherwise False
      */
     boolean isPortOpen();
+
+    PortConfigurationParameters getPortConfig();
+
+    void setPortConfig(PortConfigurationParameters newParameters) throws
+            UnsupportedCommOperationException;
+
 }
