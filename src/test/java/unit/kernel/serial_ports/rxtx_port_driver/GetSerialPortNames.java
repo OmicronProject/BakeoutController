@@ -12,10 +12,18 @@ import static org.junit.Assert.assertNotNull;
 public final class GetSerialPortNames extends RXTXPortDriverTestCase {
     @Test
     public void getSerialPortNames(){
-        context.checking(new Expectations(){{
-            oneOf(mockJavaCommAPI).getPortIdentifiers();
-        }});
+        context.checking(new JMockExpectations());
 
         assertNotNull(portDriver.getSerialPortNames());
+    }
+
+    /**
+     * Enumerates what is to be expected out of mock objects in
+     * {@link #getSerialPortNames()}
+     */
+    private class JMockExpectations extends Expectations {
+        JMockExpectations() {
+            oneOf(mockJavaCommAPI).getPortIdentifiers();
+        }
     }
 }

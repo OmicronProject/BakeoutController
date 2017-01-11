@@ -12,9 +12,7 @@ public abstract class UnitTestCase {
     /**
      * Set up a context for performing mocks using JMock
      */
-    protected final Mockery context = new JUnit4Mockery(){{
-        setThreadingPolicy(new Synchroniser());
-    }};
+    protected final Mockery context = new UnitTestingMockery();
 
     /**
      * Check that any mockeries set up were correctly used
@@ -24,4 +22,13 @@ public abstract class UnitTestCase {
         this.context.assertIsSatisfied();
     }
 
+    /**
+     * Extends the JUnit mockery with a synchronizer to allow for
+     * multi-threaded testing.
+     */
+    private class UnitTestingMockery extends JUnit4Mockery {
+        UnitTestingMockery(){
+            setThreadingPolicy(new Synchroniser());
+        }
+    }
 }

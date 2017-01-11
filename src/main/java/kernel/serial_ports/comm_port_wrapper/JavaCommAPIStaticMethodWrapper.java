@@ -1,16 +1,17 @@
 package kernel.serial_ports.comm_port_wrapper;
 
 import gnu.io.CommPortIdentifier;
-import gnu.io.NoSuchPortException;
 
 import java.util.Enumeration;
 
 /**
- * Created by mkononen on 11/01/17.
+ * Implements a direct wrapper for static methods from the Java
+ * Communications API
  */
 public class JavaCommAPIStaticMethodWrapper implements CommPortWrapper {
-    public JavaCommAPIStaticMethodWrapper(){}
-
+    /**
+     * @return The result of {@link CommPortIdentifier#getPortIdentifiers()}
+     */
     @Override public Enumeration getPortIdentifiers(){
         return CommPortIdentifier.getPortIdentifiers();
     }

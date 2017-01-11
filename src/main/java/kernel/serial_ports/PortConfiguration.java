@@ -12,6 +12,27 @@ import gnu.io.RXTXPort;
  * set later on the device.
  */
 public interface PortConfiguration {
+
+    /**
+     * 8 bit data format
+     */
+    int DATABITS_8 = RXTXPort.DATABITS_8;
+
+    /**
+     * 9600 bits per second Baud rate
+     */
+    int BAUD_RATE_9600 = 9600;
+
+    /**
+     * No parity bits in serial communication
+     */
+    int PARITY_NONE = RXTXPort.PARITY_NONE;
+
+    /**
+     * Specifies that one stop bit is to be used
+     */
+    int STOPBITS_1 = RXTXPort.STOPBITS_1;
+
     /**
      * @return The Baud rate for the port
      */
@@ -31,13 +52,4 @@ public interface PortConfiguration {
      * @return The number of stop bits in the port
      */
     int getStopBits();
-
-    int DATABITS_8 = RXTXPort.DATABITS_8;
-
-    int BAUD_RATE_9600 = 9600;
-
-    int PARITY_NONE = RXTXPort.PARITY_NONE;
-
-    int STOPBITS_1 = RXTXPort.STOPBITS_1;
-
 }

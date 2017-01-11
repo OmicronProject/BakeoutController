@@ -5,5 +5,4 @@ package exceptions;
  * {@link gnu.io.CommPortIdentifier}
  */
 public class UnableToCastToIdentifierException extends ClassCastException {
-    public UnableToCastToIdentifierException(){};
 }
