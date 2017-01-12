@@ -1,104 +1,46 @@
 package devices;
 
-import exceptions.NotAllowedAddressException;
-import exceptions.NotAllowedBaudRateException;
-
-import java.util.ArrayList;
+import java.io.IOException;
 
 /**
  * Describes all methods that the power supply implements
  */
-public interface PowerSupply {
+public interface PowerSupply extends NamedDevice {
+    char terminationCharacter = '\r';
 
-    /**
-     * 1200 bits per second Baud Rate
-     */
-    int BAUD_RATE_1200 = 1200;
+    String GET_ADDRESS_COMMAND = "ADR %d\r";
 
-    /**
-     * 2400 bits per second Baud Rate
-     */
-    int BAUD_RATE_2400 = 2400;
+    String GET_VOLTAGE_COMMAND = "PV?\r";
 
-    /**
-     * 4800 bits per second Baud Rate
-     */
-    int BAUD_RATE_4800 = 4800;
+    String SET_VOLTAGE_COMMAND = "PV %.3f\r";
 
-    /**
-     * 9600 bits per second Baud Rate
-     */
-    int BAUD_RATE_9600 = 9600;
+    String GET_CURRENT_COMMAND = "PC?\r";
 
-    /**
-     * 19200 bits per second Baud Rate
-     */
-    int BAUD_RATE_19200 = 19200;
+    String SET_CURRENT_COMMAND = "PC %.3f\r";
 
-    /**
-     * Minimum RS232 Address for the Power Supply
-     */
-    int MINIMUM_ADDRESS = 0;
+    String SET_OUTPUT_COMMAND = "OUT %s\r";
 
-    /**
-     * Maximum RS232 Address for the Power supply
-     */
-    int MAXIMUM_ADDRESS = 30;
+    String RESET_COMMAND = "RST\r";
 
-    /**
-     * The power supply's default address
-     */
-    int DEFAULT_ADDRESS = 6;
+    String OK_RESPONSE = "OK";
 
-    /**
-     * The default application Baud rate. This is controlled by a DIP switch
-     * at the back of the power supply, so there really isn't a hard-coded
-     * default rate. Set it to the fastest speed
-     */
-    int DEFAULT_BAUD_RATE = BAUD_RATE_19200;
+    String OFF = "0";
 
-    /**
-     * @return The current baud rate of the device
-     */
-    int getBaudRate();
+    String ON = "1";
 
-    /**
-     * @return The allowed baud rates (bits per second) that the device
-     * supports.
-     */
-    ArrayList<Integer> getAllowedBaudRates();
+    void reset() throws IOException;
 
-    /**
-     * Checks whether a Baud rate is allowed by the device
-     * @param baudRate The Baud rate to check
-     * @return True if the baud rate is allowed, otherwise False
-     */
-    boolean isAllowedBaudRate(int baudRate);
+    double getVoltage() throws IOException;
 
-    /**
-     * @param newBaudRate The new baud rate to be set
-     * @throws NotAllowedBaudRateException if the Baud rate to be set is not
-     *  a valid Baud rate
-     */
-    void setBaudRate(int newBaudRate) throws NotAllowedBaudRateException;
+    void setVoltage(double newVoltage) throws IOException;
 
-    /**
-     * @return The Data format of the RS232 Connection
-     */
-    int getDataFormat();
+    double getCurrent() throws IOException;
 
-    /**
-     * @return The parity regime of the RS232 Connection to this instrument
-     */
-    int getParity();
+    void setCurrent(double newCurrent) throws IOException;
 
-    /**
-     * @return The address of the Power Supply
-     */
-    int getAddress();
+    int getDeviceAddress();
 
-    /**
-     * @param newAdress The new address to set
-     */
-    void setAddress(int newAdress) throws NotAllowedAddressException;
+    void outputOn() throws IOException;
+
+    void outputOff() throws IOException;
 }
