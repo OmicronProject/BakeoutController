@@ -16,8 +16,12 @@ public abstract class TDKLambdaPowerSupplyTestCase extends DevicesTestCase {
     protected PowerSupply powerSupply;
 
     @Before
-    public void setUpPowerSupply() throws IOException {
-        this.communicatorForTestCase.write("OK");
+    public void setUp() throws IOException {
+        setUpPowerSupply();
+    }
+
+    private void setUpPowerSupply() throws IOException {
+        this.communicatorForDevice.setReadData("OK");
         powerSupply = new TDKLambdaPowerSupply(deviceName, communicatorForDevice,
                 deviceAddress);
     }

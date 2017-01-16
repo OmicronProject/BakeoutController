@@ -1,7 +1,6 @@
 package unit.devices;
 
 import kernel.serial_ports.PortCommunicator;
-import org.jmock.Expectations;
 import org.junit.Before;
 import unit.UnitTestCase;
 
@@ -11,56 +10,44 @@ import java.io.*;
  * Base class for all unit tests of {@link devices}
  */
 public abstract class DevicesTestCase extends UnitTestCase {
-    protected PortCommunicator communicatorForDevice;
-    protected DeviceCommunicator communicatorForTestCase;
-
-    protected PipedInputStream mockInputStream;
-    protected PipedOutputStream mockOutputStream;
-
-    protected PipedOutputStream streamForWritingToDevice;
-    protected PipedInputStream streamForReadingFromDevice;
+    protected DeviceCommunicator communicatorForDevice;
 
     @Before
     public void setUpDevicesTestCase() throws IOException {
         initializeDeviceCommunicator();
-        initializeMockStreams();
-        initializeTestCaseCommunicator();
-        checkExpectations();
     }
 
     private void initializeDeviceCommunicator(){
-        this.communicatorForDevice = this.context.mock(PortCommunicator.class);
+        this.communicatorForDevice = new DeviceCommunicator();
     }
 
-    private void initializeMockStreams() throws IOException {
-        this.mockInputStream = new PipedInputStream();
-        this.mockOutputStream = new PipedOutputStream();
+    protected class DeviceCommunicator implements PortCommunicator {
+        InputStream inputStream;
+        OutputStream outputStream;
 
-        this.streamForReadingFromDevice = new PipedInputStream(this
-                .mockOutputStream);
+        public DeviceCommunicator(){
+            this.inputStream = new ByteArrayInputStream("OK".getBytes());
+            this.outputStream = new ByteArrayOutputStream();
+        }
 
-        this.streamForWritingToDevice = new PipedOutputStream(this
-                .mockInputStream);
-    }
+        @Override public InputStream getInputStream(){
+            return this.inputStream;
+        }
 
-    private void initializeTestCaseCommunicator(){
-        this.communicatorForTestCase = new DeviceCommunicator(
-            this.streamForReadingFromDevice, this.streamForWritingToDevice
-        );
-    }
+        @Override public OutputStream getOutputStream(){
+            return this.outputStream;
+        }
 
-    private void checkExpectations() throws IOException {
-        this.context.checking(new StreamExpectations());
-    }
+        public void setReadData(String dataForDeviceToRead){
+            this.inputStream = new ByteArrayInputStream(
+                dataForDeviceToRead.getBytes()
+            );
+        }
 
-    class StreamExpectations extends Expectations {
-        public StreamExpectations() throws IOException {
-
-            oneOf(communicatorForDevice).getInputStream();
-            will(returnValue(mockInputStream));
-
-            oneOf(communicatorForDevice).getOutputStream();
-            will(returnValue(mockOutputStream));
+        public String getReadData(){
+            String data = this.outputStream.toString();
+            this.outputStream = new ByteArrayOutputStream();
+            return data;
         }
     }
 }
