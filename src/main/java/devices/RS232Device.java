@@ -1,6 +1,5 @@
 package devices;
 
-import exceptions.BadMessageException;
 import kernel.serial_ports.PortCommunicator;
 
 import java.io.*;
