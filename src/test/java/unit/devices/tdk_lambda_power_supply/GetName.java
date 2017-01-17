@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Contains unit tests for {@link TDKLambdaPowerSupply#getName()}
  */
-public class GetName extends TDKLambdaPowerSupplyTestCase {
+public final class GetName extends TDKLambdaPowerSupplyTestCase {
 
     @Test
     public void testGetName(){

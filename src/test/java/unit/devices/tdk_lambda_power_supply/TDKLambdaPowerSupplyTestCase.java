@@ -2,10 +2,13 @@ package unit.devices.tdk_lambda_power_supply;
 
 import devices.PowerSupply;
 import devices.TDKLambdaPowerSupply;
+import org.junit.After;
 import org.junit.Before;
 import unit.devices.DevicesTestCase;
 
 import java.io.IOException;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Base class for all tests of {@link devices.TDKLambdaPowerSupply}
@@ -24,5 +27,16 @@ public abstract class TDKLambdaPowerSupplyTestCase extends DevicesTestCase {
         this.communicatorForDevice.setReadData("OK");
         powerSupply = new TDKLambdaPowerSupply(deviceName, communicatorForDevice,
                 deviceAddress);
+        this.communicatorForDevice.clear();
+    }
+
+    @After
+    public void cleanUpCommunicator(){
+        this.communicatorForDevice.clear();
+    }
+
+    protected void checkCorrectMessage(String expectedMessage){
+        String writtenData = this.communicatorForDevice.getReadData();
+        assertEquals(expectedMessage, writtenData);
     }
 }

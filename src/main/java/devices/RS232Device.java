@@ -40,12 +40,13 @@ public abstract class RS232Device implements NamedDevice {
     /**
      * @param commandToWrite The command to write
      * @throws IOException if a valid command cannot be written to the port
-     * @throws BadMessageException If the desired command is invalid
      */
     protected void write(String commandToWrite) throws IOException {
         OutputStream outputStream = this.portCommunicator.getOutputStream();
         OutputStreamWriter streamWriter = new OutputStreamWriter(outputStream);
+        BufferedWriter buffer = new BufferedWriter(streamWriter);
 
-        streamWriter.write(commandToWrite);
+        buffer.write(commandToWrite);
+        buffer.flush();
     }
 }

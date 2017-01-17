@@ -42,7 +42,7 @@ public class TDKLambdaPowerSupply extends RS232Device implements PowerSupply {
         return this.deviceAddress;
     }
 
-    @Override public double getVoltage() throws IOException {
+    @Override public Double getVoltage() throws IOException {
         return this.writeWithDoubleResponse(GET_VOLTAGE_COMMAND);
     }
 
@@ -71,7 +71,7 @@ public class TDKLambdaPowerSupply extends RS232Device implements PowerSupply {
 
     @Override public void outputOff() throws IOException {
         String commandToWrite = String.format(
-            PowerSupply.SET_OUTPUT_COMMAND, OFF
+            PowerSupply.SET_OUTPUT_COMMAND, PowerSupply.OFF
         );
 
         this.writeWithOKResponse(commandToWrite);
@@ -79,7 +79,7 @@ public class TDKLambdaPowerSupply extends RS232Device implements PowerSupply {
 
     @Override public void outputOn() throws IOException {
         String command = String.format(
-                SET_OUTPUT_COMMAND, ON
+            PowerSupply.SET_OUTPUT_COMMAND, PowerSupply.ON
         );
 
         this.writeWithOKResponse(command);
@@ -107,7 +107,7 @@ public class TDKLambdaPowerSupply extends RS232Device implements PowerSupply {
 
         if (!response.equals(PowerSupply.OK_RESPONSE)){
             throw new ResponseNotOKException("Did not receive response of " +
-                    "\"OK\"");
+                String.format("%s", PowerSupply.OK_RESPONSE));
         }
     }
 }

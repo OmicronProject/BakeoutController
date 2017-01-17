@@ -30,7 +30,7 @@ public interface PowerSupply extends NamedDevice {
 
     void reset() throws IOException;
 
-    double getVoltage() throws IOException;
+    Double getVoltage() throws IOException;
 
     void setVoltage(double newVoltage) throws IOException;
 

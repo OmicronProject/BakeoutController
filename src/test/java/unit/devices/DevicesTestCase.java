@@ -49,5 +49,10 @@ public abstract class DevicesTestCase extends UnitTestCase {
             this.outputStream = new ByteArrayOutputStream();
             return data;
         }
+
+        public void clear(){
+            this.inputStream = new ByteArrayInputStream("OK".getBytes());
+            this.outputStream = new ByteArrayOutputStream();
+        }
     }
 }
