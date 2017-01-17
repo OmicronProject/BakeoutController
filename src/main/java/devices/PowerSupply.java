@@ -91,7 +91,7 @@ public interface PowerSupply extends NamedDevice {
      * @return The current in Amperes that the power supply is set to output.
      * @throws IOException If the command could not be sent to the device
      */
-    double getCurrent() throws IOException;
+    Double getCurrent() throws IOException;
 
     /**
      * @param newCurrent The current in Amperes, to set the device to

@@ -7,7 +7,7 @@ import java.io.*;
 /**
  * Base class for all devices using an RS232 serial port
  */
-public abstract class RS232Device implements NamedDevice {
+abstract class RS232Device implements NamedDevice {
     private final PortCommunicator portCommunicator;
     protected final String deviceName;
 
