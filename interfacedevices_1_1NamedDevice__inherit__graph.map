@@ -1,0 +1,4 @@
+<map id="devices.NamedDevice" name="devices.NamedDevice">
+<area shape="rect" id="node2" href="$interfacedevices_1_1PowerSupply.html" title="devices.PowerSupply" alt="" coords="5,80,153,107"/>
+<area shape="rect" id="node3" href="$classdevices_1_1TDKLambdaPowerSupply.html" title="devices.TDKLambdaPowerSupply" alt="" coords="55,155,277,181"/>
+</map>

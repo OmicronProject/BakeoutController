@@ -1,3 +1,4 @@
 <map id="devices.TDKLambdaPowerSupply" name="devices.TDKLambdaPowerSupply">
-<area shape="rect" id="node2" href="$interfacedevices_1_1PowerSupply.html" title="devices.PowerSupply" alt="" coords="42,5,190,32"/>
+<area shape="rect" id="node3" href="$interfacedevices_1_1NamedDevice.html" title="devices.NamedDevice" alt="" coords="91,5,245,32"/>
+<area shape="rect" id="node4" href="$interfacedevices_1_1PowerSupply.html" title="devices.PowerSupply" alt="" coords="182,80,330,107"/>
 </map>

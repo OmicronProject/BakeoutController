@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['rxtxportconfiguration',['RXTXPortConfiguration',['../classkernel_1_1serial__ports_1_1RXTXPortConfiguration.html',1,'kernel::serial_ports']]],
-  ['rxtxportconfigurationtestcase',['RXTXPortConfigurationTestCase',['../classunit_1_1kernel_1_1serial__ports_1_1rxtx__port__configuration_1_1RXTXPortConfigurationTestCase.html',1,'unit::kernel::serial_ports::rxtx_port_configuration']]],
-  ['rxtxportdriver',['RXTXPortDriver',['../classkernel_1_1serial__ports_1_1RXTXPortDriver.html',1,'kernel::serial_ports']]],
-  ['rxtxportdrivertestcase',['RXTXPortDriverTestCase',['../classunit_1_1kernel_1_1serial__ports_1_1rxtx__port__driver_1_1RXTXPortDriverTestCase.html',1,'unit::kernel::serial_ports::rxtx_port_driver']]]
+  ['portcommunicator',['PortCommunicator',['../interfacekernel_1_1serial__ports_1_1PortCommunicator.html',1,'kernel::serial_ports']]],
+  ['portconfiguration',['PortConfiguration',['../interfacekernel_1_1serial__ports_1_1PortConfiguration.html',1,'kernel::serial_ports']]],
+  ['portdriver',['PortDriver',['../interfacekernel_1_1serial__ports_1_1PortDriver.html',1,'kernel::serial_ports']]],
+  ['portidentifiergetter',['PortIdentifierGetter',['../interfacekernel_1_1serial__ports_1_1comm__port__wrapper_1_1PortIdentifierGetter.html',1,'kernel::serial_ports::comm_port_wrapper']]],
+  ['powersupply',['PowerSupply',['../interfacedevices_1_1PowerSupply.html',1,'devices']]]
 ];
