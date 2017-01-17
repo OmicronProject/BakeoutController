@@ -1,120 +1,177 @@
 package devices;
 
-import exceptions.NotAllowedAddressException;
-import exceptions.NotAllowedBaudRateException;
-import gnu.io.SerialPort;
+import exceptions.ResponseNotOKException;
+import kernel.serial_ports.PortCommunicator;
 
-import java.util.ArrayList;
+import java.io.IOException;
 
 /**
- * Represents the TDK-Lambda Programmable Power Supply
+ * Contains methods for working with the power supply
  */
-public class TDKLambdaPowerSupply implements PowerSupply {
-    private int baudRate;
-    private int address;
+public class TDKLambdaPowerSupply extends RS232Device implements PowerSupply {
+    /**
+     * The device address
+     */
+    private final int deviceAddress;
 
     /**
-     * @param desiredBaudRate The Baud Rate (bits per second) to be used in
-     *                 communicating
+     *
+     * Constructs an instance of the power supply, and places the device
+     * into a state where it's capable of accepting remote commands. For the
+     * TDK Lambda power supply, this means the "ADR" command must be sent to
+     * the device with its matching address. This command must return an
+     * "OK" response.
+     *
+     * @param deviceName The name of the device
+     * @param portCommunicator A tool capable of communicating with the device
+     * @param deviceAddress An integer representing the address of the
+     *                      device on the given port
+     * @throws IOException If the device cannot be initialized
      */
-    public TDKLambdaPowerSupply(int desiredBaudRate, int desiredAddress){
-
-        this.setBaudRate(desiredBaudRate);
-        this.setAddress(desiredAddress);
+    public TDKLambdaPowerSupply(
+            String deviceName, PortCommunicator portCommunicator, int
+            deviceAddress
+    ) throws IOException {
+        super(deviceName, portCommunicator);
+        this.deviceAddress = deviceAddress;
+        this.startDevice();
     }
 
     /**
-     * If no Baud Rate is provided, then it is set to 19200 by default
+     * @return The name of the device
      */
-    public TDKLambdaPowerSupply(){this(DEFAULT_BAUD_RATE, DEFAULT_ADDRESS);}
-
-    /**
-     * Compress all baud rates into a single list
-     * @return A list of all allowed Baud rates
-     */
-    private ArrayList<Integer> makeBaudRateList(){
-        ArrayList<Integer> baudRates = new ArrayList<>();
-
-        baudRates.add(BAUD_RATE_1200);
-        baudRates.add(BAUD_RATE_2400);
-        baudRates.add(BAUD_RATE_4800);
-        baudRates.add(BAUD_RATE_9600);
-        baudRates.add(BAUD_RATE_19200);
-
-        return baudRates;
+    @Override public String getName(){
+        return deviceName;
     }
 
     /**
-     * @return the allowed Baud Rates
+     * @return The address of the device
      */
-    @Override public ArrayList<Integer> getAllowedBaudRates(){
-        return makeBaudRateList();
+    @Override public int getDeviceAddress(){
+        return this.deviceAddress;
     }
 
     /**
-     * @return the current Baud Rate
+     * @return The voltage that the device is currently set to output
+     * @throws IOException if the command to get this value cannot be written
      */
-    @Override public int getBaudRate(){return baudRate;}
-
-    /**
-     * @param baudRate The Baud rate to check
-     * @return True if the Baud rate is allowed, otherwise False
-     */
-    @Override public boolean isAllowedBaudRate(int baudRate){
-        return this.makeBaudRateList().contains(baudRate);
+    @Override public Double getVoltage() throws IOException {
+        return this.writeWithDoubleResponse(GET_VOLTAGE_COMMAND);
     }
 
     /**
-     * @param newBaudRate The new baud rate to be set
-     * @throws NotAllowedBaudRateException if the Baud rate is not allowed
+     * @param newVoltage The voltage to which the device output is to be set
+     * @throws IOException If the command to set this voltage could not be
+     * sent to the device
      */
-    @Override public void setBaudRate(int newBaudRate) throws
-            NotAllowedBaudRateException {
-        if (!this.isAllowedBaudRate(newBaudRate)){
-            String messageToThrow = String.format(
-                    "Attempted to set a power supply Baud Rate of %d. This " +
-                            "is not allowed.", newBaudRate
-            );
-            throw new NotAllowedBaudRateException(messageToThrow);
+    @Override public void setVoltage(double newVoltage) throws IOException {
+        String commandToWrite = String.format(
+            PowerSupply.SET_VOLTAGE_COMMAND, newVoltage
+        );
+        this.writeWithOKResponse(commandToWrite);
+    }
+
+    /**
+     * Bring the device to a safe, known state.
+     * @throws IOException If this cannot be done
+     */
+    @Override public void reset() throws IOException {
+        this.writeWithOKResponse(RESET_COMMAND);
+    }
+
+    /**
+     * @return The currently-set value of the current that the device is to
+     * output
+     * @throws IOException if the current value cannot be retrieved from the
+     * device
+     */
+    @Override public Double getCurrent() throws IOException {
+        return this.writeWithDoubleResponse(GET_CURRENT_COMMAND);
+    }
+
+    /**
+     * @param newCurrent The current in Amperes, to set the device to
+     * @throws IOException If the command to set the current cannot be sent
+     */
+    @Override public void setCurrent(double newCurrent) throws IOException {
+        String commandToWrite = String.format(
+            PowerSupply.SET_CURRENT_COMMAND, newCurrent
+        );
+
+        this.writeWithOKResponse(commandToWrite);
+    }
+
+    /**
+     * Turn off the device output
+     * @throws IOException If the command to turn the device off could not
+     * be sent
+     */
+    @Override public void outputOff() throws IOException {
+        String commandToWrite = String.format(
+            PowerSupply.SET_OUTPUT_COMMAND, PowerSupply.OFF
+        );
+
+        this.writeWithOKResponse(commandToWrite);
+    }
+
+    /**
+     * Turn the device output on
+     * @throws IOException If the command to turn the power supply on could
+     * not be sent
+     */
+    @Override public void outputOn() throws IOException {
+        String command = String.format(
+            PowerSupply.SET_OUTPUT_COMMAND, PowerSupply.ON
+        );
+
+        this.writeWithOKResponse(command);
+    }
+
+    /**
+     * Initializes the device by sending the
+     * {@link PowerSupply#GET_ADDRESS_COMMAND} with the address being
+     * {@link TDKLambdaPowerSupply#deviceName}.
+     *
+     * @throws IOException If the command could not be sent
+     */
+    private void startDevice() throws IOException {
+        String commandToWrite = String.format(GET_ADDRESS_COMMAND,
+                deviceAddress);
+
+        this.writeWithOKResponse(commandToWrite);
+    }
+
+    /**
+     * Write a formatted command to the communicator's
+     * {@link java.io.OutputStream}, then read the response.
+     * The response is a double, so the method parses this number and
+     * returns it.
+     *
+     * @param commandToWrite The command to be written to the device
+     * @return The floating point number returned
+     * @throws IOException If the command could not be sent
+     */
+    private Double writeWithDoubleResponse(String commandToWrite) throws
+            IOException {
+        this.write(commandToWrite);
+        String response = this.read();
+
+        return Double.parseDouble(response);
+    }
+
+    /**
+     * Write a formatted command to the device, expecting a response of "OK".
+     * @param commandToWrite The command to be written to the device
+     * @throws IOException If the command could not be sent
+     */
+    private void writeWithOKResponse(String commandToWrite) throws
+            IOException {
+        this.write(commandToWrite);
+        String response = this.read();
+
+        if (!response.equals(PowerSupply.OK_RESPONSE)){
+            throw new ResponseNotOKException("Did not receive response of " +
+                String.format("%s", PowerSupply.OK_RESPONSE));
         }
-
-        this.baudRate = newBaudRate;
-    }
-
-    /**
-     * @return The required data format
-     */
-    @Override public int getDataFormat(){ return SerialPort.DATABITS_8; }
-
-    /**
-     * @return The parity regime of the Power supply connection
-     */
-    @Override public int getParity(){
-        return SerialPort.PARITY_NONE;
-    }
-
-    /**
-     * @return The current address of the Power Supply
-     */
-    @Override public int getAddress(){ return address; }
-
-    /**
-     * Set the device address to a new Address
-     * @param newAddress The address to which the device is to be set
-     * @throws NotAllowedAddressException if the address is not allowed
-     */
-    @Override public void setAddress(int newAddress) throws
-            NotAllowedAddressException {
-        if(newAddress < MINIMUM_ADDRESS || newAddress > MAXIMUM_ADDRESS){
-            String messageToThrow = String.format(
-                "Attempted to set address of %d which is not between %d and " +
-                        "%d",
-                newAddress, MINIMUM_ADDRESS, MAXIMUM_ADDRESS
-            );
-
-            throw new NotAllowedAddressException(messageToThrow);
-        }
-
-        this.address = newAddress;
     }
 }

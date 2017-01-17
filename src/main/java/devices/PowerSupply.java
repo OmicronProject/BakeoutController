@@ -1,104 +1,118 @@
 package devices;
 
-import exceptions.NotAllowedAddressException;
-import exceptions.NotAllowedBaudRateException;
-
-import java.util.ArrayList;
+import java.io.IOException;
 
 /**
  * Describes all methods that the power supply implements
  */
-public interface PowerSupply {
+public interface PowerSupply extends NamedDevice {
 
     /**
-     * 1200 bits per second Baud Rate
+     * Command to send to the power supply to specify the address of the
+     * device. The format parameter is the address of the device to use.
+     *
+     * @apiNote This command MUST be sent to the power supply with the
+     * address matching that of the device address before the supply will
+     * accept remote commands
      */
-    int BAUD_RATE_1200 = 1200;
+    String GET_ADDRESS_COMMAND = "ADR %d\r";
 
     /**
-     * 2400 bits per second Baud Rate
+     * Command to return the voltage that is set on the device
      */
-    int BAUD_RATE_2400 = 2400;
+    String GET_VOLTAGE_COMMAND = "PV?\r";
 
     /**
-     * 4800 bits per second Baud Rate
+     * Command to set the voltage to a specific amount. The format parameter
+     * is a float representing the value of the voltage to be set
      */
-    int BAUD_RATE_4800 = 4800;
+    String SET_VOLTAGE_COMMAND = "PV %.3f\r";
 
     /**
-     * 9600 bits per second Baud Rate
+     * Command to return the current that the Power supply has been set to
      */
-    int BAUD_RATE_9600 = 9600;
+    String GET_CURRENT_COMMAND = "PC?\r";
 
     /**
-     * 19200 bits per second Baud Rate
+     * Command to set the current to a desired value. The format parameter
+     * is the current that the value should be set to.
      */
-    int BAUD_RATE_19200 = 19200;
+    String SET_CURRENT_COMMAND = "PC %.3f\r";
 
     /**
-     * Minimum RS232 Address for the Power Supply
+     * Command to set the output mode to a specific value. The format parameter
+     * should be either {@link PowerSupply#OFF} or {@link PowerSupply#ON}, to
+     * indicate the desired output status. An output status of
+     * {@link PowerSupply#ON} indicates that power is flowing out of the
+     * power supply.
      */
-    int MINIMUM_ADDRESS = 0;
+    String SET_OUTPUT_COMMAND = "OUT %s\r";
 
     /**
-     * Maximum RS232 Address for the Power supply
+     * Command to bring the device to a known state.
      */
-    int MAXIMUM_ADDRESS = 30;
+    String RESET_COMMAND = "RST\r";
 
     /**
-     * The power supply's default address
+     * Command returned by the device to indicate that a command has been
+     * processed successfully.
      */
-    int DEFAULT_ADDRESS = 6;
+    String OK_RESPONSE = "OK";
 
     /**
-     * The default application Baud rate. This is controlled by a DIP switch
-     * at the back of the power supply, so there really isn't a hard-coded
-     * default rate. Set it to the fastest speed
+     * Represents the device output mode being off
      */
-    int DEFAULT_BAUD_RATE = BAUD_RATE_19200;
+    String OFF = "0";
 
     /**
-     * @return The current baud rate of the device
+     * Represents the device output mode being on
      */
-    int getBaudRate();
+    String ON = "1";
 
     /**
-     * @return The allowed baud rates (bits per second) that the device
-     * supports.
+     * Bring the device to a known safe state
+     * @throws IOException if the command could not be sent
      */
-    ArrayList<Integer> getAllowedBaudRates();
+    void reset() throws IOException;
 
     /**
-     * Checks whether a Baud rate is allowed by the device
-     * @param baudRate The Baud rate to check
-     * @return True if the baud rate is allowed, otherwise False
+     * @return The voltage value that the supply is set to output, in Volts.
+     * @throws IOException if the command could not be sent
      */
-    boolean isAllowedBaudRate(int baudRate);
+    Double getVoltage() throws IOException;
 
     /**
-     * @param newBaudRate The new baud rate to be set
-     * @throws NotAllowedBaudRateException if the Baud rate to be set is not
-     *  a valid Baud rate
+     * @param newVoltage The voltage to which the device output is to be set
+     * @throws IOException If the command could not be sent to the device
      */
-    void setBaudRate(int newBaudRate) throws NotAllowedBaudRateException;
+    void setVoltage(double newVoltage) throws IOException;
 
     /**
-     * @return The Data format of the RS232 Connection
+     * @return The current in Amperes that the power supply is set to output.
+     * @throws IOException If the command could not be sent to the device
      */
-    int getDataFormat();
+    Double getCurrent() throws IOException;
 
     /**
-     * @return The parity regime of the RS232 Connection to this instrument
+     * @param newCurrent The current in Amperes, to set the device to
+     * @throws IOException If the current could not be set
      */
-    int getParity();
+    void setCurrent(double newCurrent) throws IOException;
 
     /**
-     * @return The address of the Power Supply
+     * @return The address that this device is mapped to
      */
-    int getAddress();
+    int getDeviceAddress();
 
     /**
-     * @param newAdress The new address to set
+     * Turn the output on
+     * @throws IOException If the command could not be sent to the device
      */
-    void setAddress(int newAdress) throws NotAllowedAddressException;
+    void outputOn() throws IOException;
+
+    /**
+     * Turn the output off
+     * @throws IOException If the command could not be sent
+     */
+    void outputOff() throws IOException;
 }
