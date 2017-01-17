@@ -1,6 +1,7 @@
 package unit.devices.tdk_lambda_power_supply;
 
 import devices.PowerSupply;
+import exceptions.ResponseNotOKException;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -18,5 +19,11 @@ public final class SetCurrent extends TDKLambdaPowerSupplyTestCase {
         assertCorrectMessage(
             String.format(PowerSupply.SET_CURRENT_COMMAND, currentToSet)
         );
+    }
+
+    @Test(expected = ResponseNotOKException.class)
+    public void testResponseNotOK() throws IOException {
+        this.communicatorForDevice.setInputStreamData(errorMessage);
+        this.powerSupply.setCurrent(currentToSet);
     }
 }

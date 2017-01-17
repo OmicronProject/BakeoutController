@@ -1,12 +1,12 @@
 package unit.devices.tdk_lambda_power_supply;
 
 import devices.PowerSupply;
+import exceptions.ResponseNotOKException;
 import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.fail;
 
 /**
@@ -35,6 +35,12 @@ public final class SetVoltage extends TDKLambdaPowerSupplyTestCase {
     }
 
     private void happyPath() throws IOException {
+        this.powerSupply.setVoltage(newVoltage);
+    }
+
+    @Test(expected = ResponseNotOKException.class)
+    public void testSetVoltageError() throws IOException {
+        this.communicatorForDevice.setInputStreamData(errorMessage);
         this.powerSupply.setVoltage(newVoltage);
     }
 

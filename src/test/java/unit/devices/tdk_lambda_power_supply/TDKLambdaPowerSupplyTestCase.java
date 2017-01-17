@@ -14,8 +14,9 @@ import static org.junit.Assert.assertEquals;
  * Base class for all tests of {@link devices.TDKLambdaPowerSupply}
  */
 public abstract class TDKLambdaPowerSupplyTestCase extends DevicesTestCase {
-    protected final String deviceName = "Mockup Power Supply - Unit testing";
-    protected final int deviceAddress = 6;
+    final String deviceName = "Mockup Power Supply - Unit testing";
+    final int deviceAddress = 6;
+    final String errorMessage = "E01";
     protected PowerSupply powerSupply;
 
     @Before
