@@ -1,7 +1,6 @@
 package unit.devices;
 
 import devices.PowerSupply;
-import kernel.serial_ports.PortCommunicator;
 import org.junit.Before;
 import unit.UnitTestCase;
 
