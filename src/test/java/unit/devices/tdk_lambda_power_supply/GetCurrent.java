@@ -16,7 +16,7 @@ public final class GetCurrent extends TDKLambdaPowerSupplyTestCase {
 
     @Before
     public void setUpCommunicator(){
-        this.communicatorForDevice.setReadData(current.toString());
+        this.communicatorForDevice.setInputStreamData(current.toString());
     }
 
     @Test

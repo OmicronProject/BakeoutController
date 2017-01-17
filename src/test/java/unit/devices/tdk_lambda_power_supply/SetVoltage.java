@@ -18,7 +18,7 @@ public final class SetVoltage extends TDKLambdaPowerSupplyTestCase {
 
     @Before
     public void setUpCommunicator(){
-        this.communicatorForDevice.setReadData("OK");
+        this.communicatorForDevice.setInputStreamData("OK");
     }
 
     @Test

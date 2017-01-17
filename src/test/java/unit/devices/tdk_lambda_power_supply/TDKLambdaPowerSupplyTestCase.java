@@ -24,7 +24,7 @@ public abstract class TDKLambdaPowerSupplyTestCase extends DevicesTestCase {
     }
 
     private void setUpPowerSupply() throws IOException {
-        this.communicatorForDevice.setReadData("OK");
+        this.communicatorForDevice.setInputStreamData("OK");
         powerSupply = new TDKLambdaPowerSupply(deviceName, communicatorForDevice,
                 deviceAddress);
         this.communicatorForDevice.clear();
@@ -36,7 +36,7 @@ public abstract class TDKLambdaPowerSupplyTestCase extends DevicesTestCase {
     }
 
     protected void checkCorrectMessage(String expectedMessage){
-        String writtenData = this.communicatorForDevice.getReadData();
+        String writtenData = this.communicatorForDevice.getOutputStreamData();
         assertEquals(expectedMessage, writtenData);
     }
 }

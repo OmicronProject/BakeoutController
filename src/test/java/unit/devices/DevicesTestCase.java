@@ -1,5 +1,6 @@
 package unit.devices;
 
+import devices.PowerSupply;
 import kernel.serial_ports.PortCommunicator;
 import org.junit.Before;
 import unit.UnitTestCase;
@@ -18,15 +19,17 @@ public abstract class DevicesTestCase extends UnitTestCase {
     }
 
     private void initializeDeviceCommunicator(){
-        this.communicatorForDevice = new DeviceCommunicator();
+        this.communicatorForDevice = new CommunicationMonitor();
     }
 
-    protected class DeviceCommunicator implements PortCommunicator {
-        InputStream inputStream;
-        OutputStream outputStream;
+    protected class CommunicationMonitor implements DeviceCommunicator {
+        private InputStream inputStream;
+        private OutputStream outputStream;
 
-        public DeviceCommunicator(){
-            this.inputStream = new ByteArrayInputStream("OK".getBytes());
+        protected CommunicationMonitor(){
+            this.inputStream = new ByteArrayInputStream(
+                PowerSupply.OK_RESPONSE.getBytes()
+            );
             this.outputStream = new ByteArrayOutputStream();
         }
 
@@ -38,20 +41,22 @@ public abstract class DevicesTestCase extends UnitTestCase {
             return this.outputStream;
         }
 
-        public void setReadData(String dataForDeviceToRead){
+        @Override public void setInputStreamData(String dataForDeviceToRead){
             this.inputStream = new ByteArrayInputStream(
                 dataForDeviceToRead.getBytes()
             );
         }
 
-        public String getReadData(){
+        @Override public String getOutputStreamData(){
             String data = this.outputStream.toString();
             this.outputStream = new ByteArrayOutputStream();
             return data;
         }
 
-        public void clear(){
-            this.inputStream = new ByteArrayInputStream("OK".getBytes());
+        @Override public void clear(){
+            this.inputStream = new ByteArrayInputStream(
+                    PowerSupply.OK_RESPONSE.getBytes()
+            );
             this.outputStream = new ByteArrayOutputStream();
         }
     }
