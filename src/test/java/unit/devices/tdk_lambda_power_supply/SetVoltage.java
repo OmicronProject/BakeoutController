@@ -25,7 +25,7 @@ public final class SetVoltage extends TDKLambdaPowerSupplyTestCase {
     public void testSetVoltage(){
         try {
             happyPath();
-            checkCorrectMessage(
+            assertCorrectMessage(
                 String.format(PowerSupply.SET_VOLTAGE_COMMAND, newVoltage)
             );
         }

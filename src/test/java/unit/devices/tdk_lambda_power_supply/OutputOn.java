@@ -13,7 +13,7 @@ public final class OutputOn extends TDKLambdaPowerSupplyTestCase {
     @Test
     public void testOutputOn() throws IOException {
         this.powerSupply.outputOn();
-        checkCorrectMessage(
+        assertCorrectMessage(
             String.format(PowerSupply.SET_OUTPUT_COMMAND, PowerSupply.ON)
         );
     }

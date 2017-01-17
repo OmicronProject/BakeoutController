@@ -35,7 +35,7 @@ public abstract class TDKLambdaPowerSupplyTestCase extends DevicesTestCase {
         this.communicatorForDevice.clear();
     }
 
-    protected void checkCorrectMessage(String expectedMessage){
+    protected void assertCorrectMessage(String expectedMessage){
         String writtenData = this.communicatorForDevice.getOutputStreamData();
         assertEquals(expectedMessage, writtenData);
     }

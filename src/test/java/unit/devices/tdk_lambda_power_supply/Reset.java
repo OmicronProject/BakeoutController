@@ -13,6 +13,6 @@ public final class Reset extends TDKLambdaPowerSupplyTestCase {
     @Test
     public void testReset() throws IOException {
         this.powerSupply.reset();
-        checkCorrectMessage(PowerSupply.RESET_COMMAND);
+        assertCorrectMessage(PowerSupply.RESET_COMMAND);
     }
 }

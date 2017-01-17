@@ -15,7 +15,7 @@ public final class SetCurrent extends TDKLambdaPowerSupplyTestCase {
     @Test
     public void testSetCurrent() throws IOException {
         this.powerSupply.setCurrent(currentToSet);
-        checkCorrectMessage(
+        assertCorrectMessage(
             String.format(PowerSupply.SET_CURRENT_COMMAND, currentToSet)
         );
     }
