@@ -1,0 +1,22 @@
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import ui.power_supply_debug_panel.command_panel.CommandPanel?>
+<GridPane>
+    <Text text="Hello!">
+        <GridPane.columnIndex>
+            0
+        </GridPane.columnIndex>
+        <GridPane.rowIndex>
+            0
+        </GridPane.rowIndex>
+    </Text>
+    <CommandPanel>
+        <GridPane.columnIndex>
+            0
+        </GridPane.columnIndex>
+        <GridPane.rowIndex>
+            1
+        </GridPane.rowIndex>
+    </CommandPanel>
+</GridPane>
