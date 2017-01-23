@@ -1,14 +1,16 @@
 package unit;
 
+import javafx.stage.Stage;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.jmock.lib.concurrent.Synchroniser;
 import org.junit.After;
+import org.testfx.framework.junit.ApplicationTest;
 
 /**
  * Base class for all unit tests
  */
-public abstract class UnitTestCase {
+public abstract class UnitTestCase extends ApplicationTest {
     /**
      * Set up a context for performing mocks using JMock
      */
@@ -31,4 +33,11 @@ public abstract class UnitTestCase {
             setThreadingPolicy(new Synchroniser());
         }
     }
+
+    /**
+     * Do not start the UI
+     * @param stage the Stage to which a UI would normally be attached
+     */
+    @Override
+    public void start(Stage stage) throws Exception {}
 }

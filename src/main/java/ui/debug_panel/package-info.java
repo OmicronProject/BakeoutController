@@ -1,4 +1,4 @@
 /**
  * Contains a GUI for testing power supply communication
  */
-package ui.power_supply_debug_panel;
+package ui.debug_panel;

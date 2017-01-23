@@ -11,7 +11,7 @@ import java.io.IOException;
 /**
  * Base class for the UI. Responsible for launching the app
  */
-public class UserInterfaceLauncher extends Application
+public final class UserInterfaceLauncher extends Application
         implements JavaFXApplication {
 
     private Pane rootPane;

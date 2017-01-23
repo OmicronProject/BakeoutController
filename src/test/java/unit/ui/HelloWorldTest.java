@@ -9,7 +9,7 @@ import org.testfx.framework.junit.ApplicationTest;
 
 import static org.junit.Assert.assertEquals;
 
-public class HelloWorldTest extends ApplicationTest {
+public final class HelloWorldTest extends UserInterfaceTestCase {
 
     private Button button;
     private Text actionTarget;

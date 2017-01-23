@@ -1,7 +1,7 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.layout.GridPane?>
-<?import ui.power_supply_debug_panel.command_panel.CommandPanel?>
+<?import ui.debug_panel.CommandPanel?>
 <GridPane>
     <Text text="Hello!">
         <GridPane.columnIndex>
