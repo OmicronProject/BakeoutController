@@ -2,6 +2,7 @@
 
 <?import javafx.scene.layout.GridPane?>
 <?import ui.debug_panel.CommandPanel?>
+
 <GridPane>
     <Text text="Hello!">
         <GridPane.columnIndex>
