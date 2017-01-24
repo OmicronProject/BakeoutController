@@ -48,6 +48,9 @@ repositories {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
+    // Spring DI
+    compile 'org.springframework:spring-aop:3.2.18.RELEASE'
+
     // Import RXTX. This is a cross-platform wrapper for an RS232 serial port
     // that implements the Java Communications API
     compile 'org.rxtx:rxtx:2.1.7'
