@@ -39,11 +39,11 @@
             </GridPane.rowIndex>
         </Text>
 
-        <Text text="Status" fx:id="connectionStatus">
+        <Text text="Status">
             <GridPane.columnIndex>0</GridPane.columnIndex>
             <GridPane.rowIndex>3</GridPane.rowIndex>
         </Text>
-        <Text text="Not connected">
+        <Text text="Not connected" fx:id="connectionStatus">
             <GridPane.columnIndex>1</GridPane.columnIndex>
             <GridPane.rowIndex>3</GridPane.rowIndex>
         </Text>

@@ -1,6 +1,7 @@
 package kernel;
 
 import kernel.controllers.VoltageController;
+import kernel.views.CommPortReporter;
 import kernel.views.VoltageReporter;
 
 /**
@@ -9,4 +10,5 @@ import kernel.views.VoltageReporter;
 public interface Kernel {
     VoltageController getVoltageController();
     VoltageReporter getVoltageReporter();
+    CommPortReporter getCommPortReporter();
 }

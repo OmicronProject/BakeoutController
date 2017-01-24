@@ -2,6 +2,7 @@ package kernel;
 
 import exceptions.UnableToCreateKernelException;
 import kernel.controllers.VoltageController;
+import kernel.serial_ports.PortDriver;
 import kernel.views.VoltageReporter;
 
 /**
@@ -11,6 +12,8 @@ public interface KernelFactory {
     void setVoltageReporter(VoltageReporter newVoltageReporter);
 
     void setVoltageController(VoltageController newVoltageController);
+
+    void setPortDriver(PortDriver newPortDriver);
 
     Kernel getKernelInstance() throws UnableToCreateKernelException;
 

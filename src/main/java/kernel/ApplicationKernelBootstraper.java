@@ -2,6 +2,7 @@ package kernel;
 
 import exceptions.UnableToCreateKernelException;
 import kernel.controllers.VoltageController;
+import kernel.serial_ports.PortDriver;
 import kernel.views.VoltageReporter;
 
 /**
@@ -10,17 +11,21 @@ import kernel.views.VoltageReporter;
 public final class ApplicationKernelBootstraper implements KernelFactory {
     private VoltageReporter voltageReporter;
     private VoltageController voltageController;
+    private PortDriver portDriver;
+
     private Boolean doesKernelExist;
     private Kernel kernelInstance;
 
     private Boolean hasVoltageReporter;
     private Boolean hasVoltageController;
+    private Boolean hasPortDriver;
 
     public ApplicationKernelBootstraper(){
         this.doesKernelExist = Boolean.FALSE;
 
         this.hasVoltageReporter = Boolean.FALSE;
         this.hasVoltageController = Boolean.FALSE;
+        this.hasPortDriver = Boolean.FALSE;
     }
 
     @Override public void setVoltageReporter(
@@ -34,6 +39,11 @@ public final class ApplicationKernelBootstraper implements KernelFactory {
     ){
         this.voltageController = newVoltageController;
         this.hasVoltageController = Boolean.TRUE;
+    }
+
+    @Override public void setPortDriver(PortDriver newPortDriver){
+        this.portDriver = newPortDriver;
+        this.hasPortDriver = Boolean.TRUE;
     }
 
     @Override public Kernel getKernelInstance() throws
@@ -51,7 +61,7 @@ public final class ApplicationKernelBootstraper implements KernelFactory {
 
     @Override public Boolean canKernelBeStarted(){
         if(
-            !hasVoltageController || !hasVoltageReporter
+            !hasVoltageController || !hasVoltageReporter || !hasPortDriver
         ){
             return Boolean.FALSE;
         } else {
@@ -61,7 +71,8 @@ public final class ApplicationKernelBootstraper implements KernelFactory {
 
     private void createKernel(){
         this.kernelInstance = new ApplicationKernel(
-            this.voltageReporter, this.voltageController
+            this.voltageReporter, this.voltageController,
+            this.portDriver
         );
         this.doesKernelExist = Boolean.TRUE;
     }
