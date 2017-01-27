@@ -6,6 +6,7 @@ import kernel.Kernel;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Contains unit tests for
@@ -23,15 +24,10 @@ public final class GetKernelInstance extends
     public void finishedKernel(){
         constructKernelFactory();
         Kernel kernel = this.applicationKernelBootstrapper.getKernelInstance();
-        assertEquals(
-            mockVoltageController,
-            kernel.getVoltageController()
-        );
+        assertNotNull(kernel);
     }
 
     private void constructKernelFactory(){
         applicationKernelBootstrapper.setPortDriver(mockPortDriver);
-        applicationKernelBootstrapper.setVoltageController(mockVoltageController);
-        applicationKernelBootstrapper.setVoltageReporter(mockVoltageReporter);
     }
 }
