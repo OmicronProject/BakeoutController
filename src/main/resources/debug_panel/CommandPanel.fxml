@@ -12,7 +12,8 @@
 <?import javafx.scene.text.Text?>
 
 <fx:root type="javafx.scene.layout.GridPane" alignment="center"
-         xmlns:fx="http://javafx.com/fxml">
+         xmlns:fx="http://javafx.com/fxml"
+>
     <padding>
         <Insets top="25" right="25" bottom="10" left="25"/>
     </padding>
@@ -52,12 +53,20 @@
             <GridPane.rowIndex>2</GridPane.rowIndex>
             <GridPane.columnIndex>2</GridPane.columnIndex>
         </Text>
+        <Text text="Kernel">
+            <GridPane.rowIndex>3</GridPane.rowIndex>
+            <GridPane.columnIndex>0</GridPane.columnIndex>
+        </Text>
+        <Text fx:id="kernelData">
+            <GridPane.rowIndex>3</GridPane.rowIndex>
+            <GridPane.columnIndex>1</GridPane.columnIndex>
+        </Text>
     </GridPane>
 
     <HBox alignment="BASELINE_RIGHT">
         <Button fx:id="refreshButton" text="Refresh"/>
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>1</GridPane.rowIndex>
-        <Button fx:id="sendButton" text="Update"/>
+        <Button fx:id="updateButton" text="Update"/>
     </HBox>
 </fx:root>
