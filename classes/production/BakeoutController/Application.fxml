@@ -1,0 +1,23 @@
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import ui.debug_panel.CommandPanel?>
+
+<GridPane>
+    <Text text="Hello!">
+        <GridPane.columnIndex>
+            0
+        </GridPane.columnIndex>
+        <GridPane.rowIndex>
+            0
+        </GridPane.rowIndex>
+    </Text>
+    <CommandPanel>
+        <GridPane.columnIndex>
+            0
+        </GridPane.columnIndex>
+        <GridPane.rowIndex>
+            1
+        </GridPane.rowIndex>
+    </CommandPanel>
+</GridPane>

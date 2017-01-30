@@ -9,12 +9,15 @@ import kernel.serial_ports.comm_port_wrapper.JavaCommsAPIWrapper;
 import kernel.serial_ports.comm_port_wrapper.PortIdentifierGetter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.Lazy;
+import ui.UserInterfaceConfiguration;
 
 /**
  * Inversion of Control (IOC) container for the application
  */
 @Configuration
+@Import(UserInterfaceConfiguration.class)
 @Lazy
 public class ApplicationConfiguration {
     private static final String applicationName = "BakeoutController";

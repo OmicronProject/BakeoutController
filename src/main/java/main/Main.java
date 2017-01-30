@@ -1,6 +1,6 @@
 package main;
 
-import ui.JavaFXApplication;
+import javafx.application.Application;
 import ui.UserInterfaceLauncher;
 
 /**
@@ -8,7 +8,6 @@ import ui.UserInterfaceLauncher;
  */
 public class Main {
     public static void main(String[] args) throws Exception {
-        JavaFXApplication app = new UserInterfaceLauncher();
-        app.launchApplication(args);
+        Application.launch(UserInterfaceLauncher.class, args);
     }
 }
