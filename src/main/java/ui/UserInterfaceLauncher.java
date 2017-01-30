@@ -1,43 +1,44 @@
 package ui;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-
-import java.io.IOException;
+import main.ApplicationConfiguration;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
- * Base class for the UI. Responsible for launching the app
+ * Main entry point for the UI
  */
-public final class UserInterfaceLauncher extends Application
-        implements JavaFXApplication {
+public class UserInterfaceLauncher extends Application {
+    private final ApplicationContext context;
 
-    private Pane rootPane;
+    /**
+     * Creates the launcher with the default Application context.
+     */
+    public UserInterfaceLauncher(){
+        context = new AnnotationConfigApplicationContext(
+            ApplicationConfiguration.class
+        );
+    }
 
-    public UserInterfaceLauncher() {
-        super();
+    public UserInterfaceLauncher(ApplicationContext context){
+        this.context = context;
     }
 
     /**
-     * Start the application
-     * @param stage The Java FX Stage (an abstract representation of the
-     *              Window that the application will run in) that the
-     *              BakeoutController will populate with graphical elements
+     * Starts the application
+     *
+     * @param stage The stage in which to start the application
+     * @throws Exception If the application could not be started
      */
-    @Override public void start(Stage stage) throws IOException {
-        stage.setTitle("RS232 Debug Console");
-        rootPane = FXMLLoader.load(
-                getClass().getResource("/Application.fxml")
+    @Override
+    public void start(Stage stage) throws Exception {
+
+        UserInterfaceConfiguration userInterface = context.getBean(
+            UserInterfaceConfiguration.class
         );
-        Scene scene = new Scene(rootPane, 300, 275);
-        stage.setScene(scene);
 
-        stage.show();
-    }
-
-    @Override public void launchApplication(String[] args){
-        launch(args);
+        userInterface.setPrimaryStage(stage);
+        userInterface.setupPanel().show();
     }
 }

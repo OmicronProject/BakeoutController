@@ -9,43 +9,48 @@ import kernel.views.VoltageReporter;
  * Implements methods for bootstrapping the hardware kernel
  */
 public final class ApplicationKernelBootstraper implements KernelFactory {
-    private VoltageReporter voltageReporter;
-    private VoltageController voltageController;
+    /**
+     * The port driver to add to the kernel
+     */
     private PortDriver portDriver;
 
+    /**
+     * True if the kernel exists and false if not
+     */
     private Boolean doesKernelExist;
+
+    /**
+     * The instance of the kernel that is to be returned
+     */
     private Kernel kernelInstance;
 
-    private Boolean hasVoltageReporter;
-    private Boolean hasVoltageController;
+    /**
+     * True if a port driver has been supplied and false if not
+     */
     private Boolean hasPortDriver;
 
     public ApplicationKernelBootstraper(){
         this.doesKernelExist = Boolean.FALSE;
 
-        this.hasVoltageReporter = Boolean.FALSE;
-        this.hasVoltageController = Boolean.FALSE;
         this.hasPortDriver = Boolean.FALSE;
     }
 
-    @Override public void setVoltageReporter(
-            VoltageReporter newVoltageReporter){
-        this.voltageReporter = newVoltageReporter;
-        this.hasVoltageReporter = Boolean.TRUE;
-    }
-
-    @Override public void setVoltageController(
-            VoltageController newVoltageController
-    ){
-        this.voltageController = newVoltageController;
-        this.hasVoltageController = Boolean.TRUE;
-    }
-
+    /**
+     * @param newPortDriver The port driver to use in the Kernel
+     */
     @Override public void setPortDriver(PortDriver newPortDriver){
         this.portDriver = newPortDriver;
         this.hasPortDriver = Boolean.TRUE;
     }
 
+    /**
+     * If the kernel already exists, returns the current Kernel installation
+     * . If the kernel has not been instantiated, create the kernel and
+     * return it.
+     *
+     * @return The kernel
+     * @throws UnableToCreateKernelException If the kernel cannot be created
+     */
     @Override public Kernel getKernelInstance() throws
             UnableToCreateKernelException {
         if (!canKernelBeStarted()){
@@ -59,9 +64,12 @@ public final class ApplicationKernelBootstraper implements KernelFactory {
         return this.kernelInstance;
     }
 
+    /**
+     * @return True if the kernel can be started, otherwise false
+     */
     @Override public Boolean canKernelBeStarted(){
         if(
-            !hasVoltageController || !hasVoltageReporter || !hasPortDriver
+            !hasPortDriver
         ){
             return Boolean.FALSE;
         } else {
@@ -69,12 +77,13 @@ public final class ApplicationKernelBootstraper implements KernelFactory {
         }
     }
 
+    /**
+     * Make the kernel
+     */
     private void createKernel(){
         this.kernelInstance = new ApplicationKernel(
-            this.voltageReporter, this.voltageController,
             this.portDriver
         );
         this.doesKernelExist = Boolean.TRUE;
     }
-
 }

@@ -12,7 +12,6 @@
 <?import javafx.scene.control.TextField?>
 <fx:root alignment="center" type="javafx.scene.layout.GridPane"
          xmlns:fx="http://javafx.com/fxml/1"
-         fx:controller="ui.debug_panel.setup_panel.SetupPanelController"
          xmlns="http://javafx.com/javafx/8.0.112">
     <padding>
         <Insets bottom="10" left="25" right="25" top="25" />
@@ -62,7 +61,6 @@
         </Text>
 
         <HBox alignment="BASELINE_RIGHT">
-            <Button fx:id="updateButton" text="Update" onAction="#update" />
             <Button fx:id="connectButton" text="Connect"/>
             <GridPane.columnIndex>1</GridPane.columnIndex>
             <GridPane.rowIndex>4</GridPane.rowIndex>
