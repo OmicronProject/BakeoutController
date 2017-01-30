@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
 import ui.debug_panel.setup_panel.SetupPanel;
 import ui.debug_panel.setup_panel.SetupPanelController;
-import ui.hello_world.HelloWorldController;
 
 /**
  * Contains the configuration for the User Interface. This is a structure of
@@ -38,28 +37,6 @@ public class UserInterfaceConfiguration {
     public void showScreen(Parent screen){
         primaryStage.setScene(new Scene(screen, 500, 400));
         primaryStage.show();
-    }
-
-    /**
-     * The controller for this application
-     * @return The controller
-     */
-    @Bean
-    HelloWorldController helloWorldController(){
-        return new HelloWorldController();
-    }
-
-    /**
-     * @return The Hello World component
-     */
-    @Bean
-    @Scope("prototype")
-    FXMLStage helloWorld(){
-        return new FXMLStage(
-            helloWorldController(),
-            getClass().getResource("/HelloWorld.fxml"),
-            primaryStage
-        );
     }
 
     @Bean
