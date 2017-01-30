@@ -1,6 +1,5 @@
 package ui.debug_panel.setup_panel;
 
-import javafx.collections.ObservableList;
 import javafx.collections.ObservableListBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
