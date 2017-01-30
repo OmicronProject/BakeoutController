@@ -10,6 +10,18 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * Main entry point for the UI
  */
 public class UserInterfaceLauncher extends Application {
+    private final ApplicationContext context;
+
+    public UserInterfaceLauncher(){
+        context = new AnnotationConfigApplicationContext(
+            ApplicationConfiguration.class
+        );
+    }
+
+    public UserInterfaceLauncher(ApplicationContext context){
+        this.context = context;
+    }
+
     /**
      * Starts the application
      *
@@ -18,9 +30,6 @@ public class UserInterfaceLauncher extends Application {
      */
     @Override
     public void start(Stage stage) throws Exception {
-        ApplicationContext context = new AnnotationConfigApplicationContext(
-                ApplicationConfiguration.class
-        );
 
         UserInterfaceConfiguration userInterface = context.getBean(
             UserInterfaceConfiguration.class

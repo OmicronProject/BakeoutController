@@ -1,7 +1,13 @@
 package unit.ui.debug_panel.setup_panel;
 
 import javafx.collections.ObservableList;
+import kernel.Kernel;
+import kernel.views.CommPortReporter;
+import org.jmock.Expectations;
+import org.jmock.Mockery;
 import org.junit.Test;
+
+import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
@@ -14,6 +20,9 @@ public final class UpdateButton extends SetupPanelTestCase {
 
     @Test
     public void testUpdate(){
+        List testData = applicationContext.getBean("testData", List.class);
+
+
         clickOn(updateButton);
 
         ObservableList<String> ports = availablePortsDropdown.getItems();
