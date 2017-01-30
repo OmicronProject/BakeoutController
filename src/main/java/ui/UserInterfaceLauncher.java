@@ -12,6 +12,9 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class UserInterfaceLauncher extends Application {
     private final ApplicationContext context;
 
+    /**
+     * Creates the launcher with the default Application context.
+     */
     public UserInterfaceLauncher(){
         context = new AnnotationConfigApplicationContext(
             ApplicationConfiguration.class
