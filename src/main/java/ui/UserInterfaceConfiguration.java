@@ -7,6 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
+import ui.debug_panel.SetupPanel;
+import ui.debug_panel.SetupPanelController;
 import ui.hello_world.HelloWorldController;
 
 /**
@@ -56,6 +58,22 @@ public class UserInterfaceConfiguration {
         return new FXMLStage(
             helloWorldController(),
             getClass().getResource("/HelloWorld.fxml"),
+            primaryStage
+        );
+    }
+
+    @Bean
+    SetupPanelController setupPanelController(){
+        return new SetupPanelController();
+    }
+
+    @Bean
+    @Scope("prototype")
+    FXMLStage setupPanel(){
+        return new FXMLStage(
+            new SetupPanel(),
+            setupPanelController(),
+            getClass().getResource("/debug_panel/SetupPanel.fxml"),
             primaryStage
         );
     }

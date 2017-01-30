@@ -1,6 +1,7 @@
 package ui;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
@@ -29,7 +30,8 @@ public class FXMLStage extends Stage {
      *             represents the layout of the component
      * @param owner The window that owns this stage
      */
-    public FXMLStage(Controller controller, URL fxml, Window owner){
+    public FXMLStage(Controller controller, URL fxml, Window
+            owner){
         this(controller, fxml, owner, StageStyle.DECORATED);
     }
 
@@ -49,6 +51,27 @@ public class FXMLStage extends Stage {
         FXMLLoader loader = new FXMLLoader(fxml);
 
         configureLoader(loader);
+
+        this.controller.setFXMLStage(this);
+
+        loadFXML(loader);
+    }
+
+    public FXMLStage(Node component, Controller controller, URL fxml, Window
+            owner){
+        this(component, controller, fxml, owner, StageStyle.DECORATED);
+    }
+
+    public FXMLStage(Node component, Controller controller, URL fxml, Window
+            owner, StageStyle style){
+        super(style);
+        this.controller = controller;
+        initOwner(owner);
+        initModality(Modality.NONE);
+        FXMLLoader loader = new FXMLLoader(fxml);
+
+        configureLoader(loader);
+        loader.setRoot(component);
 
         this.controller.setFXMLStage(this);
 

@@ -12,6 +12,7 @@
 <?import javafx.scene.control.TextField?>
 <fx:root alignment="center" type="javafx.scene.layout.GridPane"
          xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="ui.debug_panel.SetupPanelController"
          xmlns="http://javafx.com/javafx/8.0.112">
     <padding>
         <Insets bottom="10" left="25" right="25" top="25" />
