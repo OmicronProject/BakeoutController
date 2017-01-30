@@ -10,27 +10,46 @@ import org.springframework.context.annotation.Scope;
 import ui.hello_world.HelloWorldController;
 
 /**
- * Created by mkononen on 30/01/17.
+ * Contains the configuration for the User Interface. This is a structure of
+ * beans that are used to load the user interface. Construction details are
+ * specified in this configuration
  */
 @Configuration
 @Lazy
 public class UserInterfaceConfiguration {
+    /**
+     * The stage in which the UI is to be displayed
+     */
     private Stage primaryStage;
 
+    /**
+     * @param primaryStage The stage to use as the primary stage
+     */
     public void setPrimaryStage(Stage primaryStage) {
         this.primaryStage = primaryStage;
     }
 
+    /**
+     * Show a particular modal dialog
+     * @param screen The screen to show
+     */
     public void showScreen(Parent screen){
         primaryStage.setScene(new Scene(screen, 500, 400));
         primaryStage.show();
     }
 
+    /**
+     * The controller for this application
+     * @return The controller
+     */
     @Bean
     HelloWorldController helloWorldController(){
         return new HelloWorldController();
     }
 
+    /**
+     * @return The Hello World component
+     */
     @Bean
     @Scope("prototype")
     FXMLStage helloWorld(){

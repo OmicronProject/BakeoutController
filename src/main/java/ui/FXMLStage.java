@@ -7,7 +7,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
-import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
@@ -56,17 +55,21 @@ public class FXMLStage extends Stage {
         loadFXML(loader);
     }
 
+    /**
+     * Configure the stage's FXML to load the controller supplied in the
+     * stage's constructor.
+     * @param loader The FXMLLoader to configure
+     */
     private void configureLoader(FXMLLoader loader){
         loader.setControllerFactory(
-            new Callback<Class<?>, Object>() {
-                @Override
-                public Object call(Class<?> aClass){
-                    return controller;
-                }
-            }
+                (Class<?> aClass) -> controller
         );
     }
 
+    /**
+     * Load the FXML component
+     * @param loader The loader to use for loading the component
+     */
     private void loadFXML(FXMLLoader loader){
         try {
             setScene(new Scene((Parent) loader.load()));

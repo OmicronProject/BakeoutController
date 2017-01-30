@@ -6,17 +6,29 @@ import ui.Controller;
 import ui.FXMLStage;
 
 /**
- * Created by mkononen on 30/01/17.
+ * Contains the controller for working with a super-simple Hello World UI
  */
 public class HelloWorldController implements Controller {
+    /**
+     * The stage used for the controller
+     */
     private FXMLStage stage;
 
+    /**
+     * The text to which the result of the button action is to be written
+     */
+    @FXML private Text actionTarget;
+
+    /**
+     * @param stage The stage to set
+     */
     @Override public void setFXMLStage(FXMLStage stage){
         this.stage = stage;
     }
 
-    @FXML private Text actionTarget;
-
+    /**
+     * Perform the action when the button is clicked
+     */
     @FXML public void sayHello(){
         actionTarget.setText("The button was pressed");
     }

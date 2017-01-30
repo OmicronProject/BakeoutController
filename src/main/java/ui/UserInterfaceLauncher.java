@@ -10,6 +10,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * Main entry point for the UI
  */
 public class UserInterfaceLauncher extends Application {
+    /**
+     * Starts the application
+     *
+     * @param stage The stage in which to start the application
+     * @throws Exception If the application could not be started
+     */
     @Override
     public void start(Stage stage) throws Exception {
         ApplicationContext context = new AnnotationConfigApplicationContext(
