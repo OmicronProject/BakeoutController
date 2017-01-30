@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
-import ui.debug_panel.SetupPanel;
-import ui.debug_panel.SetupPanelController;
+import ui.debug_panel.setup_panel.SetupPanel;
+import ui.debug_panel.setup_panel.SetupPanelController;
 import ui.hello_world.HelloWorldController;
 
 /**

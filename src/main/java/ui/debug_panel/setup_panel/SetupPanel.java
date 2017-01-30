@@ -1,9 +1,9 @@
-package ui.debug_panel;
+package ui.debug_panel.setup_panel;
 
 import javafx.scene.layout.GridPane;
 
 /**
- * Created by mkononen on 30/01/17.
+ * Wrapper for the Setup Panel component
  */
 public class SetupPanel extends GridPane {
 }
