@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['reset',['reset',['../interfacedevices_1_1PowerSupply.html#a8634b4c427419fdeca080074081a609d',1,'devices.PowerSupply.reset()'],['../classdevices_1_1TDKLambdaPowerSupply.html#abf49edb1448f7451b68b5b09b9cf1ac3',1,'devices.TDKLambdaPowerSupply.reset()']]],
-  ['rxtxportconfiguration',['RXTXPortConfiguration',['../classkernel_1_1serial__ports_1_1RXTXPortConfiguration.html#ac4fabced7419ea1e63514f36fb2aff95',1,'kernel::serial_ports::RXTXPortConfiguration']]],
-  ['rxtxportdriver',['RXTXPortDriver',['../classkernel_1_1serial__ports_1_1RXTXPortDriver.html#ac11ce3de1138ea370d57f04ae59f32ad',1,'kernel::serial_ports::RXTXPortDriver']]]
+  ['kernel',['kernel',['../classmain_1_1ApplicationConfiguration.html#a716977811d1c965c1a6d644654b88379',1,'main.ApplicationConfiguration.kernel()'],['../classunit_1_1ui_1_1TestingConfiguration.html#ad5656c822f80397eb03ce6b15b907425',1,'unit.ui.TestingConfiguration.kernel()']]]
 ];

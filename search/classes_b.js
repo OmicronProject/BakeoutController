@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['serialport',['SerialPort',['../interfacekernel_1_1serial__ports_1_1SerialPort.html',1,'kernel::serial_ports']]],
-  ['serialportstestcase',['SerialPortsTestCase',['../classunit_1_1kernel_1_1serial__ports_1_1SerialPortsTestCase.html',1,'unit::kernel::serial_ports']]],
-  ['setcurrent',['SetCurrent',['../classunit_1_1devices_1_1tdk__lambda__power__supply_1_1SetCurrent.html',1,'unit::devices::tdk_lambda_power_supply']]],
-  ['setvoltage',['SetVoltage',['../classunit_1_1devices_1_1tdk__lambda__power__supply_1_1SetVoltage.html',1,'unit::devices::tdk_lambda_power_supply']]]
+  ['reset',['Reset',['../classunit_1_1devices_1_1tdk__lambda__power__supply_1_1Reset.html',1,'unit::devices::tdk_lambda_power_supply']]],
+  ['responsenotokexception',['ResponseNotOKException',['../classexceptions_1_1ResponseNotOKException.html',1,'exceptions']]],
+  ['rxtxportconfiguration',['RXTXPortConfiguration',['../classkernel_1_1serial__ports_1_1RXTXPortConfiguration.html',1,'kernel::serial_ports']]],
+  ['rxtxportconfigurationtestcase',['RXTXPortConfigurationTestCase',['../classunit_1_1kernel_1_1serial__ports_1_1rxtx__port__configuration_1_1RXTXPortConfigurationTestCase.html',1,'unit::kernel::serial_ports::rxtx_port_configuration']]],
+  ['rxtxportdriver',['RXTXPortDriver',['../classkernel_1_1serial__ports_1_1RXTXPortDriver.html',1,'kernel::serial_ports']]],
+  ['rxtxportdrivertestcase',['RXTXPortDriverTestCase',['../classunit_1_1kernel_1_1serial__ports_1_1rxtx__port__driver_1_1RXTXPortDriverTestCase.html',1,'unit::kernel::serial_ports::rxtx_port_driver']]]
 ];

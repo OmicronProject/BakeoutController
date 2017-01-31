@@ -1,0 +1,7 @@
+<map id="unit.ui.UserInterfaceTestCase" name="unit.ui.UserInterfaceTestCase">
+<area shape="rect" id="node4" href="$classunit_1_1ui_1_1controllers_1_1setup__panel__controller_1_1SetupPanelControllerTestCase.html" title="unit.ui.controllers.setup\l_panel_controller.SetupPanelController\lTestCase" alt="" coords="587,5,833,61"/>
+<area shape="rect" id="node6" href="$classunit_1_1ui_1_1user__interface__launcher_1_1UserInterfaceLauncherTestCase.html" title="unit.ui.user_interface\l_launcher.UserInterfaceLauncher\lTestCase" alt="" coords="603,85,817,141"/>
+<area shape="rect" id="node2" href="$classunit_1_1UnitTestCase.html" title="unit.UnitTestCase" alt="" coords="165,60,293,87"/>
+<area shape="rect" id="node5" href="$classunit_1_1ui_1_1controllers_1_1setup__panel__controller_1_1UpdateButton.html" title="unit.ui.controllers.setup\l_panel_controller.UpdateButton" alt="" coords="891,13,1095,54"/>
+<area shape="rect" id="node7" href="$classunit_1_1ui_1_1user__interface__launcher_1_1NoArgumentConstructor.html" title="unit.ui.user_interface\l_launcher.NoArgumentConstructor" alt="" coords="881,93,1104,134"/>
+</map>

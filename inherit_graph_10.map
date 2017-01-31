@@ -1,3 +1,4 @@
 <map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node2" href="$classunit_1_1ui_1_1HelloWorldTest.html" title="unit.ui.HelloWorldTest" alt="" coords="165,5,316,32"/>
+<area shape="rect" id="node1" href="$interfacekernel_1_1serial__ports_1_1PortConfiguration.html" title="kernel.serial_ports.Port\lConfiguration" alt="" coords="5,5,161,47"/>
+<area shape="rect" id="node2" href="$classkernel_1_1serial__ports_1_1RXTXPortConfiguration.html" title="kernel.serial_ports.RXTXPort\lConfiguration" alt="" coords="209,5,401,47"/>
 </map>

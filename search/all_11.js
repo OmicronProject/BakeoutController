@@ -1,11 +1,10 @@
 var searchData=
 [
-  ['devices',['devices',['../namespaceunit_1_1devices.html',1,'unit']]],
-  ['rxtx_5fport_5fconfiguration',['rxtx_port_configuration',['../namespaceunit_1_1kernel_1_1serial__ports_1_1rxtx__port__configuration.html',1,'unit::kernel::serial_ports']]],
-  ['rxtx_5fport_5fdriver',['rxtx_port_driver',['../namespaceunit_1_1kernel_1_1serial__ports_1_1rxtx__port__driver.html',1,'unit::kernel::serial_ports']]],
-  ['serial_5fports',['serial_ports',['../namespaceunit_1_1kernel_1_1serial__ports.html',1,'unit::kernel']]],
-  ['tdk_5flambda_5fpower_5fsupply',['tdk_lambda_power_supply',['../namespaceunit_1_1devices_1_1tdk__lambda__power__supply.html',1,'unit::devices']]],
-  ['unabletocasttoidentifierexception',['UnableToCastToIdentifierException',['../classexceptions_1_1UnableToCastToIdentifierException.html',1,'exceptions']]],
-  ['unit',['unit',['../namespaceunit.html',1,'']]],
-  ['unittestcase',['UnitTestCase',['../classunit_1_1UnitTestCase.html',1,'unit']]]
+  ['tdklambdapowersupply',['TDKLambdaPowerSupply',['../classdevices_1_1TDKLambdaPowerSupply.html',1,'devices']]],
+  ['tdklambdapowersupply',['TDKLambdaPowerSupply',['../classdevices_1_1TDKLambdaPowerSupply.html#a205f24466d3e98bd93d95da6271cfa72',1,'devices::TDKLambdaPowerSupply']]],
+  ['tdklambdapowersupplytestcase',['TDKLambdaPowerSupplyTestCase',['../classunit_1_1devices_1_1tdk__lambda__power__supply_1_1TDKLambdaPowerSupplyTestCase.html',1,'unit::devices::tdk_lambda_power_supply']]],
+  ['testdata',['testData',['../classunit_1_1ui_1_1TestingConfiguration.html#a2596fd4b760d564ce90f5fd5b82bb8f1',1,'unit::ui::TestingConfiguration']]],
+  ['testingconfiguration',['TestingConfiguration',['../classunit_1_1ui_1_1TestingConfiguration.html',1,'unit::ui']]],
+  ['turnoff',['turnOff',['../interfacekernel_1_1controllers_1_1VoltageController.html#a76fc09794111f7db279166dd96f1fe26',1,'kernel::controllers::VoltageController']]],
+  ['turnon',['turnOn',['../interfacekernel_1_1controllers_1_1VoltageController.html#a35fcedea969fceadaf4bbce3345a4af5',1,'kernel::controllers::VoltageController']]]
 ];
