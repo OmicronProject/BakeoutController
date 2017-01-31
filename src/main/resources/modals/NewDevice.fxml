@@ -9,35 +9,41 @@
 
 <?import javafx.scene.control.Button?>
 
+<?import java.net.URL?>
+
 <GridPane alignment="CENTER"
-          xmlns="http://javafx.com/javafx/8.0.112">
+          xmlns="http://javafx.com/javafx/8.0.112" id="newDeviceForm"
+          styleClass="modal-background">
+    <stylesheets>
+        <URL value="@../css/modals/NewDevice.css"/>
+    </stylesheets>
     <Text text="New Device" styleClass="modal-title">
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>0</GridPane.rowIndex>
         <GridPane.columnSpan>4</GridPane.columnSpan>
     </Text>
 
-    <Text text="Device">
+    <Text text="Device" styleClass="modal-label">
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>1</GridPane.rowIndex>
     </Text>
-    <ComboBox>
+    <ComboBox styleClass="three-column-combo-box">
         <GridPane.columnIndex>1</GridPane.columnIndex>
         <GridPane.rowIndex>1</GridPane.rowIndex>
         <GridPane.columnSpan>3</GridPane.columnSpan>
     </ComboBox>
 
-    <Text text="Port">
+    <Text text="Port" styleClass="modal-label">
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>2</GridPane.rowIndex>
     </Text>
-    <ComboBox>
+    <ComboBox styleClass="three-column-combo-box">
         <GridPane.columnIndex>1</GridPane.columnIndex>
         <GridPane.rowIndex>2</GridPane.rowIndex>
         <GridPane.columnSpan>3</GridPane.columnSpan>
     </ComboBox>
 
-    <Text text="Details">
+    <Text text="Details" styleClass="modal-minor-title">
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>3</GridPane.rowIndex>
         <GridPane.columnSpan>4</GridPane.columnSpan>
@@ -95,5 +101,4 @@
             <Button text="Connect"/>
         </HBox>
     </GridPane>
-
 </GridPane>
