@@ -3,10 +3,7 @@ package ui;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Lazy;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.*;
 import ui.controllers.SetupPanelController;
 
 /**
@@ -39,15 +36,20 @@ public class UserInterfaceConfiguration {
     }
 
     @Bean
+    @Scope("prototype")
+    FXMLLoader fxmlLoader(){
+        return new FXMLLoader();
+    }
+
+    @Bean
     SetupPanelController setupPanelController(){
         return new SetupPanelController();
     }
 
     @Bean
-    @Scope("prototype")
+    @Scope("singleton")
     FXMLStage application(){
         return new FXMLStage(
-            setupPanelController(),
             getClass().getResource("/Application.fxml"),
             primaryStage
         );

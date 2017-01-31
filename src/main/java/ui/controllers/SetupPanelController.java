@@ -16,7 +16,8 @@ import java.util.List;
 /**
  * Controller for the setup Panel
  */
-public class SetupPanelController implements Controller {
+@Controller
+public class SetupPanelController {
     private FXMLStage stage;
 
     @Autowired
@@ -27,11 +28,6 @@ public class SetupPanelController implements Controller {
 
     @FXML
     private ComboBox<String> availablePortsDropdown;
-
-    @Override
-    public void setFXMLStage(FXMLStage stage) {
-        this.stage = stage;
-    }
 
     @FXML
     public void update(ActionEvent event){

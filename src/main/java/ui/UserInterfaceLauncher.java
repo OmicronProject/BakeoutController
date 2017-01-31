@@ -39,6 +39,7 @@ public class UserInterfaceLauncher extends Application {
         );
 
         userInterface.setPrimaryStage(stage);
+        userInterface.application().loadFXML();
         userInterface.application().show();
     }
 }
