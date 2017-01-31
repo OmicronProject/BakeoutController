@@ -1,16 +1,15 @@
 package unit.kernel.application_kernel_bootstrapper;
 
 import exceptions.UnableToCreateKernelException;
-import kernel.ApplicationKernelBootstraper;
+import kernel.ApplicationKernelFactory;
 import kernel.Kernel;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
  * Contains unit tests for
- * {@link ApplicationKernelBootstraper#getKernelInstance()}
+ * {@link ApplicationKernelFactory#getKernelInstance()}
  */
 public final class GetKernelInstance extends
         ApplicationKernelBootstrapperTestCase {

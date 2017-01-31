@@ -1,6 +1,6 @@
 package main;
 
-import kernel.ApplicationKernelBootstraper;
+import kernel.ApplicationKernelFactory;
 import kernel.Kernel;
 import kernel.KernelFactory;
 import kernel.serial_ports.PortDriver;
@@ -56,7 +56,7 @@ public class ApplicationConfiguration {
     @Bean
     @Scope("singleton")
     public static Kernel kernel(){
-        KernelFactory kernelFactory = new ApplicationKernelBootstraper();
+        KernelFactory kernelFactory = new ApplicationKernelFactory();
         kernelFactory.setPortDriver(portDriver());
 
         assert kernelFactory.canKernelBeStarted();

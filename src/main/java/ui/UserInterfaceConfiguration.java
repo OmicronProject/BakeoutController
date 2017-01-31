@@ -37,18 +37,18 @@ public class UserInterfaceConfiguration {
 
     @Bean
     @Scope("prototype")
-    FXMLLoader fxmlLoader(){
-        return new FXMLLoader();
+    public FXMLLoader fxmlLoader(){
+        return new ContextAwareFXMLLoader();
     }
 
     @Bean
-    SetupPanelController setupPanelController(){
+    public SetupPanelController setupPanelController(){
         return new SetupPanelController();
     }
 
     @Bean
     @Scope("singleton")
-    FXMLStage application(){
+    public FXMLStage application(){
         return new FXMLStage(
             getClass().getResource("/Application.fxml"),
             primaryStage

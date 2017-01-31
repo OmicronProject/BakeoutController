@@ -1,23 +1,24 @@
 package ui;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+import java.io.IOException;
+import java.net.URL;
 
 /**
- * Define a loader for FXML that is aware of the current Spring application
- * context. This loader uses {@link ApplicationContext#getBean(Class)} to
- * load its controllers, and the Beans that control the UI have been
- * initialized in the Spring IOC container
+ * Describes a wrapper for components capable of loading JavaFX FXML files
  */
-public class FXMLLoader extends javafx.fxml.FXMLLoader implements
-        ApplicationContextAware {
+public interface FXMLLoader {
+    /**
+     * @param fxml A URL to the FXML document that needs to be loaded
+     */
+    void setLocation(URL fxml);
 
     /**
-     * Sets the controller factory to use
-     * {@link ApplicationContext#getBean(Class)}
-     * @param context The new context that is set by Spring
+     * Load the FXML document into JavaFX
+     * @param <FXMLType> The resulting type of the top-level element loaded
+     *                  by this loader
+     * @return The loaded document
+     * @throws IOException If the document cannot be found
      */
-    @Override public void setApplicationContext(ApplicationContext context){
-        this.setControllerFactory(context::getBean);
-    }
+    <FXMLType>FXMLType load() throws IOException;
+
 }

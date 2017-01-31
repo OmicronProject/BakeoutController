@@ -8,7 +8,7 @@ import kernel.views.VoltageReporter;
 /**
  * Implements methods for bootstrapping the hardware kernel
  */
-public final class ApplicationKernelBootstraper implements KernelFactory {
+public final class ApplicationKernelFactory implements KernelFactory {
     /**
      * The port driver to add to the kernel
      */
@@ -29,7 +29,7 @@ public final class ApplicationKernelBootstraper implements KernelFactory {
      */
     private Boolean hasPortDriver;
 
-    public ApplicationKernelBootstraper(){
+    public ApplicationKernelFactory(){
         this.doesKernelExist = Boolean.FALSE;
 
         this.hasPortDriver = Boolean.FALSE;
@@ -57,8 +57,7 @@ public final class ApplicationKernelBootstraper implements KernelFactory {
             throw new UnableToCreateKernelException("Cannot create kernel. " +
                     "Parameter missing");
         }
-
-        if(!doesKernelExist){
+        if (!doesKernelExist){
             createKernel();
         }
         return this.kernelInstance;
@@ -68,9 +67,7 @@ public final class ApplicationKernelBootstraper implements KernelFactory {
      * @return True if the kernel can be started, otherwise false
      */
     @Override public Boolean canKernelBeStarted(){
-        if(
-            !hasPortDriver
-        ){
+        if (!hasPortDriver){
             return Boolean.FALSE;
         } else {
             return Boolean.TRUE;
@@ -78,7 +75,8 @@ public final class ApplicationKernelBootstraper implements KernelFactory {
     }
 
     /**
-     * Make the kernel
+     * Make the kernel. This should be called only if a kernel doesn't
+     * already exist.
      */
     private void createKernel(){
         this.kernelInstance = new ApplicationKernel(

@@ -39,5 +39,7 @@ public abstract class UnitTestCase extends ApplicationTest {
      * @param stage the Stage to which a UI would normally be attached
      */
     @Override
-    public void start(Stage stage) throws Exception {}
+    public void start(Stage stage) throws Exception {
+        // This is deliberate. Don't start the test
+    }
 }

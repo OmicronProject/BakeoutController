@@ -1,7 +1,7 @@
 package unit.kernel.application_kernel_bootstrapper;
 
 import exceptions.UnableToCreateKernelException;
-import kernel.ApplicationKernelBootstraper;
+import kernel.ApplicationKernelFactory;
 import kernel.KernelFactory;
 import kernel.controllers.VoltageController;
 import kernel.serial_ports.PortDriver;
@@ -51,6 +51,6 @@ public abstract class ApplicationKernelBootstrapperTestCase
     }
 
     private void setupBootstrapper(){
-        applicationKernelBootstrapper = new ApplicationKernelBootstraper();
+        applicationKernelBootstrapper = new ApplicationKernelFactory();
     }
 }

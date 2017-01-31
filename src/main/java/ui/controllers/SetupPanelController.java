@@ -3,13 +3,11 @@ package ui.controllers;
 import javafx.collections.ObservableListBase;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import kernel.Kernel;
 import kernel.views.CommPortReporter;
 import org.springframework.beans.factory.annotation.Autowired;
 import ui.Controller;
-import ui.FXMLStage;
 
 import java.util.List;
 
@@ -18,13 +16,8 @@ import java.util.List;
  */
 @Controller
 public class SetupPanelController {
-    private FXMLStage stage;
-
     @Autowired
     private Kernel kernel;
-
-    @FXML
-    private Button updateButton;
 
     @FXML
     private ComboBox<String> availablePortsDropdown;
