@@ -106,6 +106,7 @@ public class TestingConfiguration {
          */
         private void expectationsForPortReporter(){
             allowing(mockKernel).getCommPortReporter();
+            will(returnValue(portReporter()));
         }
 
         /**
