@@ -7,8 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
-import ui.debug_panel.setup_panel.SetupPanel;
-import ui.debug_panel.setup_panel.SetupPanelController;
+import ui.controllers.SetupPanelController;
 
 /**
  * Contains the configuration for the User Interface. This is a structure of
@@ -46,11 +45,10 @@ public class UserInterfaceConfiguration {
 
     @Bean
     @Scope("prototype")
-    FXMLStage setupPanel(){
+    FXMLStage application(){
         return new FXMLStage(
-            new SetupPanel(),
             setupPanelController(),
-            getClass().getResource("/debug_panel/SetupPanel.fxml"),
+            getClass().getResource("/Application.fxml"),
             primaryStage
         );
     }

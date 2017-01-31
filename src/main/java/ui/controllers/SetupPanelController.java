@@ -1,4 +1,4 @@
-package ui.debug_panel.setup_panel;
+package ui.controllers;
 
 import javafx.collections.ObservableListBase;
 import javafx.event.ActionEvent;

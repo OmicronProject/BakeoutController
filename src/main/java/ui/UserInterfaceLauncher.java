@@ -39,6 +39,6 @@ public class UserInterfaceLauncher extends Application {
         );
 
         userInterface.setPrimaryStage(stage);
-        userInterface.setupPanel().show();
+        userInterface.application().show();
     }
 }
