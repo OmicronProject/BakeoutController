@@ -36,7 +36,7 @@ public class TestingConfiguration {
      */
     @Bean
     @Scope("singleton")
-    private Mockery mockingContext(){
+    public Mockery mockingContext(){
         if(mockingContext == null) {
             mockingContext = new SynchronizedJUnit4Mockery();
         }
@@ -47,7 +47,7 @@ public class TestingConfiguration {
      * @return A list containing data of serial ports
      */
     @Bean
-    private static List<String> testData(){
+    public static List<String> testData(){
         List<String> testData = new ArrayList<>();
         testData.add("/dev/ttyUSB0");
         return testData;
@@ -58,7 +58,7 @@ public class TestingConfiguration {
      */
     @Bean
     @Scope("singleton")
-    private CommPortReporter portReporter(){
+    public CommPortReporter portReporter(){
         return mockingContext().mock(CommPortReporter.class);
     }
 
