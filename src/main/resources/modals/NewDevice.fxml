@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.ComboBox?>
+
+<?import javafx.scene.layout.HBox?>
+
+<?import javafx.scene.control.Button?>
+
+<GridPane alignment="CENTER"
+          xmlns="http://javafx.com/javafx/8.0.112">
+    <Text text="New Device" styleClass="modal-title">
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+        <GridPane.rowIndex>0</GridPane.rowIndex>
+        <GridPane.columnSpan>4</GridPane.columnSpan>
+    </Text>
+
+    <Text text="Device">
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+        <GridPane.rowIndex>1</GridPane.rowIndex>
+    </Text>
+    <ComboBox>
+        <GridPane.columnIndex>1</GridPane.columnIndex>
+        <GridPane.rowIndex>1</GridPane.rowIndex>
+        <GridPane.columnSpan>3</GridPane.columnSpan>
+    </ComboBox>
+
+    <Text text="Port">
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+        <GridPane.rowIndex>2</GridPane.rowIndex>
+    </Text>
+    <ComboBox>
+        <GridPane.columnIndex>1</GridPane.columnIndex>
+        <GridPane.rowIndex>2</GridPane.rowIndex>
+        <GridPane.columnSpan>3</GridPane.columnSpan>
+    </ComboBox>
+
+    <Text text="Details">
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+        <GridPane.rowIndex>3</GridPane.rowIndex>
+        <GridPane.columnSpan>4</GridPane.columnSpan>
+    </Text>
+
+    <Text text="Baud Rate">
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+        <GridPane.rowIndex>4</GridPane.rowIndex>
+    </Text>
+    <ComboBox>
+        <GridPane.columnIndex>1</GridPane.columnIndex>
+        <GridPane.rowIndex>4</GridPane.rowIndex>
+    </ComboBox>
+
+    <Text text="Parity">
+        <GridPane.columnIndex>2</GridPane.columnIndex>
+        <GridPane.rowIndex>4</GridPane.rowIndex>
+    </Text>
+    <ComboBox>
+        <GridPane.columnIndex>3</GridPane.columnIndex>
+        <GridPane.rowIndex>4</GridPane.rowIndex>
+    </ComboBox>
+
+    <Text text="Stop Bits">
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+        <GridPane.rowIndex>5</GridPane.rowIndex>
+    </Text>
+    <ComboBox>
+        <GridPane.columnIndex>1</GridPane.columnIndex>
+        <GridPane.rowIndex>5</GridPane.rowIndex>
+    </ComboBox>
+
+    <Text text="Data Bits">
+        <GridPane.columnIndex>2</GridPane.columnIndex>
+        <GridPane.rowIndex>5</GridPane.rowIndex>
+    </Text>
+    <ComboBox>
+        <GridPane.columnIndex>3</GridPane.columnIndex>
+        <GridPane.rowIndex>5</GridPane.rowIndex>
+    </ComboBox>
+    <GridPane>
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+        <GridPane.rowIndex>6</GridPane.rowIndex>
+        <GridPane.columnSpan>4</GridPane.columnSpan>
+
+        <HBox alignment="BASELINE_LEFT">
+            <GridPane.rowIndex>0</GridPane.rowIndex>
+            <GridPane.columnIndex>0</GridPane.columnIndex>
+            <Text text="status"/>
+        </HBox>
+        <HBox alignment="BASELINE_RIGHT">
+            <GridPane.rowIndex>0</GridPane.rowIndex>
+            <GridPane.columnIndex>1</GridPane.columnIndex>
+            <Button text="Refresh"/>
+            <Button text="Connect"/>
+        </HBox>
+    </GridPane>
+
+</GridPane>
