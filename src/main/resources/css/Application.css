@@ -1,0 +1,11 @@
+.root{
+    -fx-background-color: #B5B6BC;
+}
+
+.selection-label{
+    -fx-font-size: 20px;
+}
+
+.dropdown {
+    -fx-pref-width: 200px;
+}
