@@ -47,6 +47,7 @@ public class TestingConfiguration {
      * @return A list containing data of serial ports
      */
     @Bean
+    @Scope("prototype")
     public static List<String> testData(){
         List<String> testData = new ArrayList<>();
         testData.add("/dev/ttyUSB0");

@@ -1,9 +1,7 @@
 package kernel;
 
 import exceptions.UnableToCreateKernelException;
-import kernel.controllers.VoltageController;
 import kernel.serial_ports.PortDriver;
-import kernel.views.VoltageReporter;
 
 /**
  * Implements methods for bootstrapping the hardware kernel

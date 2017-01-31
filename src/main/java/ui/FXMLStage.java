@@ -54,13 +54,10 @@ public class FXMLStage extends Stage {
     /**
      * Load the FXML component
      */
-    public void loadFXML(){
+    public void loadFXML() throws IOException {
         this.fxmlLoader.setLocation(this.fxml);
+        setScene(new Scene((Parent) this.fxmlLoader.load()));
 
-        try {
-            setScene(new Scene((Parent) this.fxmlLoader.load()));
-        } catch (IOException error){
-            throw new RuntimeException(error);
-        }
+
     }
 }
