@@ -4,7 +4,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.context.annotation.*;
-import ui.controllers.SetupPanelController;
 
 /**
  * Contains the configuration for the User Interface. This is a structure of
@@ -39,11 +38,6 @@ public class UserInterfaceConfiguration {
     @Scope("prototype")
     public FXMLLoader fxmlLoader(){
         return new ContextAwareFXMLLoader();
-    }
-
-    @Bean
-    public SetupPanelController setupPanelController(){
-        return new SetupPanelController();
     }
 
     @Bean
