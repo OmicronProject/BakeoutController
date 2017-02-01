@@ -55,7 +55,6 @@ public class AutowiredFXMLStage extends Stage implements FXMLStage {
         this.fxml = fxml;
         initOwner(owner);
         initModality(Modality.NONE);
-
     }
 
     /**
