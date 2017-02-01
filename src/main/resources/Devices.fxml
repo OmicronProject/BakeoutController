@@ -6,11 +6,12 @@
 <?import java.net.URL?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
+
 <GridPane alignment="CENTER_LEFT" styleClass="devices-panel">
     <padding>
         <Insets top="10" left="10" right="10" bottom="10"/>
     </padding>
-    <Text text="Devices" styleClass="tab-title">
+    <Text text="Devices" styleClass="title">
         <GridPane.rowIndex>0</GridPane.rowIndex>
         <GridPane.columnIndex>0</GridPane.columnIndex>
     </Text>
@@ -23,7 +24,6 @@
               styleClass="device-list">
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>2</GridPane.rowIndex>
-
     </GridPane>
 
     <Text id="requiredDevicesLabel" text="Required">
