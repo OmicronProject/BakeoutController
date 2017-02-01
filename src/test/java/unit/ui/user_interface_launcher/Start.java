@@ -1,6 +1,5 @@
 package unit.ui.user_interface_launcher;
 
-import javafx.stage.Stage;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;

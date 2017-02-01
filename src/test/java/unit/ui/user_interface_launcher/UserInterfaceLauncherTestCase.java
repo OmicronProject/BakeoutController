@@ -3,7 +3,6 @@ package unit.ui.user_interface_launcher;
 import javafx.stage.Stage;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import unit.ui.TestingConfiguration;
 import unit.ui.UserInterfaceTestCase;
 
 
