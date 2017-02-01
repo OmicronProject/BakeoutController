@@ -49,11 +49,11 @@
         <GridPane.columnSpan>4</GridPane.columnSpan>
     </Text>
 
-    <Text text="Baud Rate">
+    <Text text="Baud Rate" styleClass="modal-label">
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>4</GridPane.rowIndex>
     </Text>
-    <ComboBox>
+    <ComboBox styleClass="one-column-combo-box" id="availableBaudRates">
         <GridPane.columnIndex>1</GridPane.columnIndex>
         <GridPane.rowIndex>4</GridPane.rowIndex>
     </ComboBox>
