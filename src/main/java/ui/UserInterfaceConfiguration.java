@@ -60,7 +60,7 @@ public class UserInterfaceConfiguration {
     @Bean
     @Scope("singleton")
     public FXMLStage application(){
-        return new FXMLStage(
+        return new AutowiredFXMLStage(
             getClass().getResource("/Application.fxml"),
             primaryStage
         );
