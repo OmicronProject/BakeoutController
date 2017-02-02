@@ -1,4 +1,4 @@
-package ui.controllers;
+package ui.controllers.modals;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,12 +7,12 @@ import javafx.stage.Stage;
 import ui.Controller;
 
 /**
- * Contains a controller for the
+ * Contains the controller for the modal of the new step form
  */
 @Controller
-public class NewDeviceController {
-
-    @FXML public void closeStage(ActionEvent event){
+public class NewStepController {
+    @FXML
+    public void closeStage(ActionEvent event){
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();

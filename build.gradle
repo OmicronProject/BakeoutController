@@ -48,6 +48,9 @@ repositories {
 
 // In this section you declare the dependencies for your production and test code
 dependencies {
+    // JetBrains Annotations
+    compile group: 'org.jetbrains', name: 'annotations', version: '13.0'
+
     // Spring DI
     compile 'org.springframework:spring-aop:3.2.18.RELEASE'
 

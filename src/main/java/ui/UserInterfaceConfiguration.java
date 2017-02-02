@@ -5,8 +5,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.context.annotation.*;
 import ui.controllers.DevicesController;
-import ui.controllers.NewDeviceController;
-import ui.controllers.NewStepController;
+import ui.controllers.modals.NewDeviceController;
+import ui.controllers.modals.NewStepController;
 import ui.controllers.SequenceController;
 
 /**

@@ -13,7 +13,7 @@
           id="new-step-form"
           xmlns="http://www.javafx.com/8.02.110"
           xmlns:fx="http://javafx.com/fxml/1"
-          fx:controller="ui.controllers.NewStepController">
+          fx:controller="ui.controllers.modals.NewStepController">
     <Text styleClass="modal-title" text="New Step">
         <GridPane.rowIndex>0</GridPane.rowIndex>
         <GridPane.columnIndex>0</GridPane.columnIndex>

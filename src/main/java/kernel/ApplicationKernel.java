@@ -1,7 +1,10 @@
 package kernel;
 
+import devices.DeviceList;
 import kernel.serial_ports.PortDriver;
 import kernel.views.CommPortReporter;
+import kernel.views.DeviceReporter;
+import org.jetbrains.annotations.Contract;
 
 import java.util.List;
 
@@ -28,6 +31,7 @@ final class ApplicationKernel implements Kernel, CommPortReporter {
      * @return An implementation of {@link CommPortReporter} that can report
      * serial port names
      */
+    @Contract(pure = true)
     @Override public CommPortReporter getCommPortReporter(){
         return this;
     }
@@ -37,5 +41,10 @@ final class ApplicationKernel implements Kernel, CommPortReporter {
      */
     @Override public List<String> getSerialPortNames(){
         return this.portDriver.getSerialPortNames();
+    }
+
+    @Contract(" -> !null")
+    @Override public DeviceReporter getDeviceReporter(){
+        return new DeviceList();
     }
 }

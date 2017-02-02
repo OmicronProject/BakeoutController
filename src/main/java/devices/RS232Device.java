@@ -7,7 +7,7 @@ import java.io.*;
 /**
  * Base class for all devices using an RS232 serial port
  */
-abstract class RS232Device implements NamedDevice {
+public abstract class RS232Device implements NamedDevice {
     private final PortCommunicator portCommunicator;
     protected final String deviceName;
 
@@ -20,7 +20,7 @@ abstract class RS232Device implements NamedDevice {
         this.deviceName = deviceName;
         this.portCommunicator = portCommunicator;
     }
-
+    
     /**
      * @return The latest message from the device
      * @throws IOException if the device cannot be read
