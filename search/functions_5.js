@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['kernel',['kernel',['../classmain_1_1ApplicationConfiguration.html#a716977811d1c965c1a6d644654b88379',1,'main.ApplicationConfiguration.kernel()'],['../classunit_1_1ui_1_1TestingConfiguration.html#ad5656c822f80397eb03ce6b15b907425',1,'unit.ui.TestingConfiguration.kernel()']]]
+  ['isportopen',['isPortOpen',['../interfacekernel_1_1serial__ports_1_1SerialPort.html#add45b7be82e6a1b69e273cd93243187c',1,'kernel::serial_ports::SerialPort']]]
 ];

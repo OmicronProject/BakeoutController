@@ -1,6 +1,7 @@
 var searchData=
 [
   ['fxmlloader',['FXMLLoader',['../interfaceui_1_1FXMLLoader.html',1,'ui']]],
-  ['fxmlstage',['FXMLStage',['../classui_1_1FXMLStage.html#a1059d0f9a6ba558cf5d063ef7d599cec',1,'ui.FXMLStage.FXMLStage(URL fxml, Window owner)'],['../classui_1_1FXMLStage.html#ab763adcd036d951a16642c9d77895207',1,'ui.FXMLStage.FXMLStage(URL fxml, Window owner, StageStyle style)']]],
-  ['fxmlstage',['FXMLStage',['../classui_1_1FXMLStage.html',1,'ui']]]
+  ['fxmlloader',['fxmlLoader',['../classui_1_1UserInterfaceConfiguration.html#ac66ad0ef874de3777676898a7f32d851',1,'ui::UserInterfaceConfiguration']]],
+  ['fxmlloader',['FXMLLoader',['../classunit_1_1ui_1_1user__interface__configuration_1_1FXMLLoader.html',1,'unit::ui::user_interface_configuration']]],
+  ['fxmlstage',['FXMLStage',['../interfaceui_1_1FXMLStage.html',1,'ui']]]
 ];

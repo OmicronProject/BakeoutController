@@ -1,0 +1,8 @@
+<map id="unit.ui.controllers.ControllersTestCase" name="unit.ui.controllers.ControllersTestCase">
+<area shape="rect" id="node5" href="$classunit_1_1ui_1_1controllers_1_1devices__controller_1_1DevicesControllerTestCase.html" title="unit.ui.controllers.devices\l_controller.DevicesControllerTestCase" alt="" coords="828,5,1075,47"/>
+<area shape="rect" id="node7" href="$classunit_1_1ui_1_1controllers_1_1sequence__controller_1_1SequenceControllerTestCase.html" title="unit.ui.controllers.sequence\l_controller.SequenceControllerTestCase" alt="" coords="823,71,1080,112"/>
+<area shape="rect" id="node2" href="$classunit_1_1ui_1_1UserInterfaceTestCase.html" title="unit.ui.UserInterfaceTestCase" alt="" coords="341,46,539,73"/>
+<area shape="rect" id="node3" href="$classunit_1_1UnitTestCase.html" title="unit.UnitTestCase" alt="" coords="165,46,293,73"/>
+<area shape="rect" id="node6" href="$classunit_1_1ui_1_1controllers_1_1devices__controller_1_1DisplayNewDeviceForm.html" title="unit.ui.controllers.devices\l_controller.DisplayNewDeviceForm" alt="" coords="1128,5,1356,47"/>
+<area shape="rect" id="node8" href="$classunit_1_1ui_1_1controllers_1_1sequence__controller_1_1DisplayNewStepForm.html" title="unit.ui.controllers.sequence\l_controller.DisplayNewStepForm" alt="" coords="1135,71,1349,112"/>
+</map>

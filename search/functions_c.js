@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['tdklambdapowersupply',['TDKLambdaPowerSupply',['../classdevices_1_1TDKLambdaPowerSupply.html#a205f24466d3e98bd93d95da6271cfa72',1,'devices::TDKLambdaPowerSupply']]],
-  ['testdata',['testData',['../classunit_1_1ui_1_1TestingConfiguration.html#a2596fd4b760d564ce90f5fd5b82bb8f1',1,'unit::ui::TestingConfiguration']]],
-  ['turnoff',['turnOff',['../interfacekernel_1_1controllers_1_1VoltageController.html#a76fc09794111f7db279166dd96f1fe26',1,'kernel::controllers::VoltageController']]],
-  ['turnon',['turnOn',['../interfacekernel_1_1controllers_1_1VoltageController.html#a35fcedea969fceadaf4bbce3345a4af5',1,'kernel::controllers::VoltageController']]]
+  ['reset',['reset',['../interfacedevices_1_1PowerSupply.html#a8634b4c427419fdeca080074081a609d',1,'devices.PowerSupply.reset()'],['../classdevices_1_1TDKLambdaPowerSupply.html#abf49edb1448f7451b68b5b09b9cf1ac3',1,'devices.TDKLambdaPowerSupply.reset()']]],
+  ['rxtxportconfiguration',['RXTXPortConfiguration',['../classkernel_1_1serial__ports_1_1RXTXPortConfiguration.html#ac4fabced7419ea1e63514f36fb2aff95',1,'kernel::serial_ports::RXTXPortConfiguration']]],
+  ['rxtxportdriver',['RXTXPortDriver',['../classkernel_1_1serial__ports_1_1RXTXPortDriver.html#ac11ce3de1138ea370d57f04ae59f32ad',1,'kernel::serial_ports::RXTXPortDriver']]]
 ];

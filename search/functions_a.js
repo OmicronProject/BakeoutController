@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['reset',['reset',['../interfacedevices_1_1PowerSupply.html#a8634b4c427419fdeca080074081a609d',1,'devices.PowerSupply.reset()'],['../classdevices_1_1TDKLambdaPowerSupply.html#abf49edb1448f7451b68b5b09b9cf1ac3',1,'devices.TDKLambdaPowerSupply.reset()']]],
-  ['rxtxportconfiguration',['RXTXPortConfiguration',['../classkernel_1_1serial__ports_1_1RXTXPortConfiguration.html#ac4fabced7419ea1e63514f36fb2aff95',1,'kernel::serial_ports::RXTXPortConfiguration']]],
-  ['rxtxportdriver',['RXTXPortDriver',['../classkernel_1_1serial__ports_1_1RXTXPortDriver.html#ac11ce3de1138ea370d57f04ae59f32ad',1,'kernel::serial_ports::RXTXPortDriver']]]
+  ['open',['open',['../interfacekernel_1_1serial__ports_1_1SerialPort.html#ab6003d10f218721f40411153c6ed15ca',1,'kernel::serial_ports::SerialPort']]],
+  ['outputoff',['outputOff',['../interfacedevices_1_1PowerSupply.html#a4c45a602efddae04ad962b28f3ba0e2c',1,'devices.PowerSupply.outputOff()'],['../classdevices_1_1TDKLambdaPowerSupply.html#a44a7169389a846eb78e75dee3ada2ae5',1,'devices.TDKLambdaPowerSupply.outputOff()']]],
+  ['outputon',['outputOn',['../interfacedevices_1_1PowerSupply.html#aa57e74faad7a1aaec9f74dd84cbb4d48',1,'devices.PowerSupply.outputOn()'],['../classdevices_1_1TDKLambdaPowerSupply.html#a4642f63c53a2fe387b92747b6f64afa8',1,'devices.TDKLambdaPowerSupply.outputOn()']]]
 ];

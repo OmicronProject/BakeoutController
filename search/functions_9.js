@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['portdriver',['portDriver',['../classmain_1_1ApplicationConfiguration.html#a8a0586a52276ffad354fe300d194f8f4',1,'main::ApplicationConfiguration']]],
-  ['portreporter',['portReporter',['../classunit_1_1ui_1_1TestingConfiguration.html#ab8d6deeea8d017b01aae36bf4d5e425e',1,'unit::ui::TestingConfiguration']]],
-  ['portwrapper',['portWrapper',['../classmain_1_1ApplicationConfiguration.html#a0496bacc6c2f3a0e50a48ae5d60d6692',1,'main::ApplicationConfiguration']]]
+  ['newdeviceform',['newDeviceForm',['../classunit_1_1ui_1_1controllers_1_1devices__controller_1_1DisplayNewDeviceForm.html#af32598ad6187e0a571afa6b6a80062a6',1,'unit::ui::controllers::devices_controller::DisplayNewDeviceForm']]]
 ];
