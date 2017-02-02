@@ -1,4 +1,4 @@
 /**
- * Contains unit tests for {@link ui.debug_panel}
+ * Contains unit tests for {@link ui.controllers}
  */
 package unit.ui.controllers;

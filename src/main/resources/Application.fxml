@@ -6,10 +6,13 @@
 
 <TabPane xmlns="http://javafx.com/javafx/8.0.112" 
          xmlns:fx="http://javafx.com/fxml/1" styleClass="root">
-    <Tab closable="false" styleClass="topLevelLabel" text="Devices">
+    <Tab closable="false"
+         styleClass="topLevelLabel"
+         text="Devices"
+         id="devices-tab">
         <fx:include source="Devices.fxml" />
     </Tab>
-    <Tab closable="false" text="Sequence">
+    <Tab closable="false" text="Sequence" id="sequence-tab">
         <fx:include source="Sequence.fxml" />
     </Tab>
     <Tab closable="false" text="Result">

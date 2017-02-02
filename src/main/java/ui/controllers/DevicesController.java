@@ -25,7 +25,7 @@ public class DevicesController {
     /**
      * The location of the markup for the new device form
      */
-    private final URL resource = getClass().getResource(
+    private final URL newDeviceFormLocation = getClass().getResource(
             "/modals/NewDevice.fxml"
     );
 
@@ -65,7 +65,7 @@ public class DevicesController {
      */
     private void configureNewDeviceFormStage() throws IOException {
         newDeviceFormStage = new AutowiredFXMLStage(
-                resource, castStageToWindow(applicationStage)
+                newDeviceFormLocation, castStageToWindow(applicationStage)
         );
         newDeviceFormStage.setFXMLLoader(fxmlLoader);
         newDeviceFormStage.loadFXML();

@@ -2,6 +2,7 @@ package unit.ui.controllers.devices_controller;
 
 
 import javafx.scene.layout.GridPane;
+import org.junit.After;
 import org.junit.Test;
 import ui.controllers.DevicesController;
 
@@ -25,5 +26,10 @@ public final class DisplayNewDeviceForm extends DevicesControllerTestCase {
      */
     private GridPane lookupNewDeviceForm(){
         return lookup(queryForNewDeviceForm).query();
+    }
+
+    @After
+    public void closeDialog(){
+        closeCurrentWindow();
     }
 }

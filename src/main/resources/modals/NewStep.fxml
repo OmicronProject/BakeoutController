@@ -6,7 +6,8 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import java.net.URL?>
-<GridPane styleClass="root">
+
+<GridPane styleClass="root" id="new-step-form">
     <Text styleClass="modal-title" text="New Step">
         <GridPane.rowIndex>0</GridPane.rowIndex>
         <GridPane.columnIndex>0</GridPane.columnIndex>

@@ -10,8 +10,14 @@ import unit.ui.controllers.ControllersTestCase;
 public abstract class DevicesControllerTestCase extends ControllersTestCase {
     protected Button newDeviceButton;
 
-    protected final String queryForNewDeviceButton = "#newDeviceButton";
-    protected final String queryForNewDeviceForm = "#newDeviceForm";
+    protected static final String queryForNewDeviceButton = "#newDeviceButton";
+    protected static final String queryForNewDeviceForm = "#newDeviceForm";
+    private static final String queryForDevicesTab = "#devices-tab";
+
+    @Before
+    public void navigateToDevicesTab(){
+        clickOn(queryForDevicesTab);
+    }
 
     @Before
     public void setNewDeviceButton(){

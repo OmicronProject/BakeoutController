@@ -5,6 +5,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.context.annotation.*;
 import ui.controllers.DevicesController;
+import ui.controllers.SequenceController;
 
 /**
  * Contains the configuration for the User Interface. This is a structure of
@@ -59,6 +60,12 @@ public class UserInterfaceConfiguration {
     @Scope("prototype")
     public DevicesController devicesController(){
         return new DevicesController();
+    }
+
+    @Bean
+    @Scope("prototype")
+    public SequenceController sequenceController(){
+        return new SequenceController();
     }
 
     /**
