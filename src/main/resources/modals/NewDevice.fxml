@@ -12,11 +12,16 @@
 <?import java.net.URL?>
 
 <GridPane alignment="CENTER"
-          xmlns="http://javafx.com/javafx/8.0.112" id="newDeviceForm"
-          styleClass="modal-background">
+          xmlns="http://javafx.com/javafx/8.0.112"
+          xmlns:fx="http://javafx.com/fxml/1"
+          id="newDeviceForm"
+          styleClass="modal-background"
+          fx:controller="ui.controllers.NewDeviceController">
+
     <stylesheets>
         <URL value="@../css/modals/NewDevice.css"/>
     </stylesheets>
+
     <Text text="New Device" styleClass="modal-title">
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>0</GridPane.rowIndex>
@@ -99,6 +104,9 @@
             <GridPane.columnIndex>1</GridPane.columnIndex>
             <Button text="Refresh"/>
             <Button text="Connect"/>
+            <Button text="Close"
+                    id="device-panel-close-button"
+                    onAction="#closeStage"/>
         </HBox>
     </GridPane>
 </GridPane>

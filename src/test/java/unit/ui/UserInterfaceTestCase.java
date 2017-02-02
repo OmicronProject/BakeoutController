@@ -10,12 +10,13 @@ import unit.UnitTestCase;
  * Base class for tests involving the UI
  */
 public abstract class UserInterfaceTestCase extends UnitTestCase {
-    protected UserInterfaceLauncher application;
-    protected final ApplicationContext applicationContext =
+    protected static final ApplicationContext applicationContext =
         new AnnotationConfigApplicationContext(TestingConfiguration.class);
 
+    protected static volatile UserInterfaceLauncher application = new
+            UserInterfaceLauncher(applicationContext);
+
     @Override public void start(Stage stage) throws Exception {
-        application = new UserInterfaceLauncher(applicationContext);
         application.start(stage);
     }
 }

@@ -4,6 +4,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.springframework.context.annotation.*;
+import ui.controllers.DevicesController;
+import ui.controllers.NewDeviceController;
+import ui.controllers.NewStepController;
+import ui.controllers.SequenceController;
 
 /**
  * Contains the configuration for the User Interface. This is a structure of
@@ -54,6 +58,30 @@ public class UserInterfaceConfiguration {
         return new ContextAwareFXMLLoader();
     }
 
+    @Bean
+    @Scope("prototype")
+    public DevicesController devicesController(){
+        return new DevicesController();
+    }
+
+    @Bean
+    @Scope("prototype")
+    public SequenceController sequenceController(){
+        return new SequenceController();
+    }
+
+    @Bean
+    @Scope("prototype")
+    public NewDeviceController newDeviceController(){
+        return new NewDeviceController();
+    }
+
+    @Bean
+    @Scope("prototype")
+    public NewStepController newStepController(){
+        return new NewStepController();
+    }
+
     /**
      * @return A loaded user interface
      */
@@ -65,4 +93,6 @@ public class UserInterfaceConfiguration {
             primaryStage
         );
     }
+
+
 }

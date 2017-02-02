@@ -6,7 +6,14 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.TextField?>
 <?import java.net.URL?>
-<GridPane styleClass="root">
+
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.control.Button?>
+<GridPane styleClass="root"
+          id="new-step-form"
+          xmlns="http://www.javafx.com/8.02.110"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="ui.controllers.NewStepController">
     <Text styleClass="modal-title" text="New Step">
         <GridPane.rowIndex>0</GridPane.rowIndex>
         <GridPane.columnIndex>0</GridPane.columnIndex>
@@ -75,6 +82,16 @@
             </TextField>
 
         </GridPane>
+
+        <TilePane styleClass="bottom-control-buttons">
+            <GridPane.rowIndex>4</GridPane.rowIndex>
+            <GridPane.columnIndex>0</GridPane.columnIndex>
+            <GridPane.columnSpan>2</GridPane.columnSpan>
+            <Button text="Add"/>
+            <Button text="Close"
+                    id="new-step-panel-close-button"
+                    onAction="#closeStage"/>
+        </TilePane>
     </GridPane>
 
     <stylesheets>

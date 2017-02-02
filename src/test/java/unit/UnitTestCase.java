@@ -5,7 +5,10 @@ import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
 import org.jmock.lib.concurrent.Synchroniser;
 import org.junit.After;
+import org.testfx.api.FxToolkit;
 import org.testfx.framework.junit.ApplicationTest;
+
+import java.util.concurrent.TimeoutException;
 
 /**
  * Base class for all unit tests
@@ -34,6 +37,11 @@ public abstract class UnitTestCase extends ApplicationTest {
         }
     }
 
+    @Override
+    public void init() throws TimeoutException {
+        FxToolkit.registerStage(Stage::new);
+    }
+
     /**
      * Do not start the UI
      * @param stage the Stage to which a UI would normally be attached
@@ -41,5 +49,10 @@ public abstract class UnitTestCase extends ApplicationTest {
     @Override
     public void start(Stage stage) throws Exception {
         // This is deliberate. Don't start the test
+    }
+
+    @Override
+    public void stop() throws TimeoutException {
+        FxToolkit.hideStage();
     }
 }

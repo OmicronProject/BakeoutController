@@ -17,3 +17,7 @@
 .time-control-entry-field {
     -fx-pref-width: 50px;
 }
+
+.bottom-control-buttons {
+    -fx-alignment: baseline-right;
+}

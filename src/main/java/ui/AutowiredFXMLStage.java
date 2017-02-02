@@ -1,6 +1,5 @@
 package ui;
 
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -21,10 +20,6 @@ public class AutowiredFXMLStage extends Stage implements FXMLStage {
     /**
      * The loader to use for loading FXML. This loader is supplied by
      * Spring, and is aware of the current application context
-     *
-     * @implNote IntelliJ claims that this loader is never assigned. This is
-     * because spring does it automatically by the
-     * {@link Autowired} annotation.
      */
     @Autowired
     private FXMLLoader fxmlLoader;
@@ -49,8 +44,7 @@ public class AutowiredFXMLStage extends Stage implements FXMLStage {
      * @param owner The window that owns this stage
      * @param style The styling for the stage
      */
-    public AutowiredFXMLStage(URL fxml, Window owner,
-                              StageStyle style){
+    public AutowiredFXMLStage(URL fxml, Window owner, StageStyle style){
         super(style);
         this.fxml = fxml;
         initOwner(owner);
@@ -60,8 +54,21 @@ public class AutowiredFXMLStage extends Stage implements FXMLStage {
     /**
      * Load the FXML component
      */
-    public void loadFXML() throws IOException {
+    @Override public void loadFXML() throws IOException {
+        resetLoader();
         this.fxmlLoader.setLocation(this.fxml);
-        setScene(new Scene((Parent) this.fxmlLoader.load()));
+        setScene(new Scene(this.fxmlLoader.load()));
+    }
+
+    /**
+     * @param loader The FXML loader to use in this stage
+     */
+    @Override public void setFXMLLoader(FXMLLoader loader){
+        this.fxmlLoader = loader;
+    }
+
+    private void resetLoader(){
+        this.fxmlLoader.setRoot(null);
+        this.fxmlLoader.setLocation(null);
     }
 }

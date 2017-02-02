@@ -7,7 +7,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.Button?>
 
-<GridPane alignment="CENTER_LEFT" styleClass="devices-panel">
+<?import javafx.scene.layout.TilePane?>
+<GridPane alignment="CENTER_LEFT" styleClass="devices-panel"
+          xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="ui.controllers.DevicesController">
     <padding>
         <Insets top="10" left="10" right="10" bottom="10"/>
     </padding>
@@ -20,11 +23,11 @@
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>1</GridPane.rowIndex>
     </Text>
-    <GridPane id="connectedDevicesList" alignment="CENTER_LEFT"
+    <TilePane id="connectedDevicesList" alignment="CENTER_LEFT"
               styleClass="device-list">
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>2</GridPane.rowIndex>
-    </GridPane>
+    </TilePane>
 
     <Text id="requiredDevicesLabel" text="Required">
         <GridPane.rowIndex>3</GridPane.rowIndex>
@@ -39,7 +42,8 @@
     <HBox alignment="BASELINE_RIGHT" id="bottomRibbon">
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>5</GridPane.rowIndex>
-        <Button text="New"/>
+        <Button text="New" onAction="#displayNewDeviceForm"
+                id="newDeviceButton"/>
     </HBox>
 
     <stylesheets>
