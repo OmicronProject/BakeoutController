@@ -13,6 +13,8 @@ import static org.junit.Assert.assertNotNull;
 public final class DisplayNewStepForm extends SequenceControllerTestCase {
     private static final String queryForNewStepButton = "#new-step-button";
     private static final String queryForNewStepForm = "#new-step-form";
+    private static final String queryForCloseButton =
+            "#new-step-panel-close-button";
 
     @Test
     public void newStepForm(){
@@ -25,7 +27,7 @@ public final class DisplayNewStepForm extends SequenceControllerTestCase {
     }
 
     @After
-    public void cleanUp(){
-        closeCurrentWindow();
+    public void closePanel(){
+        clickOn(queryForCloseButton);
     }
 }

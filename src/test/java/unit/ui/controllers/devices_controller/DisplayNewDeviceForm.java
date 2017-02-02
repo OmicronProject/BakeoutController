@@ -12,6 +12,9 @@ import static org.junit.Assert.assertNotNull;
  * contains unit tests for {@link DevicesController#displayNewDeviceForm()}
  */
 public final class DisplayNewDeviceForm extends DevicesControllerTestCase {
+    private static final String queryForCloseButton =
+            "#device-panel-close-button";
+
     /**
      * Test that clicking the button for a new device will bring up the form
      */
@@ -30,6 +33,6 @@ public final class DisplayNewDeviceForm extends DevicesControllerTestCase {
 
     @After
     public void closeDialog(){
-        closeCurrentWindow();
+        clickOn(queryForCloseButton);
     }
 }
