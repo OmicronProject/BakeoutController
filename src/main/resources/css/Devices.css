@@ -2,6 +2,7 @@
     -fx-pref-height: 50px;
     -fx-pref-width: 100%;
     -fx-background-color: #FFFFFF;
+    -fx-orientation: vertical;
 }
 
 .devices-panel {

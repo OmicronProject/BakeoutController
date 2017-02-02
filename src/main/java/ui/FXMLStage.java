@@ -18,4 +18,9 @@ public interface FXMLStage {
      * Show the stage
      */
     void show();
+
+    /**
+     * @param loader The FXML loader to use in this stage
+     */
+    void setFXMLLoader(FXMLLoader loader);
 }
