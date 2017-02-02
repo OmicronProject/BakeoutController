@@ -55,6 +55,7 @@ public class AutowiredFXMLStage extends Stage implements FXMLStage {
      * Load the FXML component
      */
     @Override public void loadFXML() throws IOException {
+        resetLoader();
         this.fxmlLoader.setLocation(this.fxml);
         setScene(new Scene(this.fxmlLoader.load()));
     }
@@ -64,5 +65,10 @@ public class AutowiredFXMLStage extends Stage implements FXMLStage {
      */
     @Override public void setFXMLLoader(FXMLLoader loader){
         this.fxmlLoader = loader;
+    }
+
+    private void resetLoader(){
+        this.fxmlLoader.setRoot(null);
+        this.fxmlLoader.setLocation(null);
     }
 }

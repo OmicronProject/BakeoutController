@@ -21,4 +21,5 @@ public interface FXMLLoader {
      */
     <FXMLType>FXMLType load() throws IOException;
 
+    void setRoot(Object root);
 }
