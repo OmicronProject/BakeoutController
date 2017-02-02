@@ -55,7 +55,7 @@ public class SequenceController {
             newStepFormLocation, castStageToWindow(applicationStage)
         );
         newStepFormStage.setFXMLLoader(fxmlLoader);
-        newStepFormStage.show();
+        newStepFormStage.loadFXML();
     }
 
     private static Window castStageToWindow(FXMLStage stage){

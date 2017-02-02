@@ -13,4 +13,5 @@ public abstract class SequenceControllerTestCase extends ControllersTestCase {
     public void navigateToSequenceTab(){
         clickOn(queryForSequenceTab);
     }
+
 }

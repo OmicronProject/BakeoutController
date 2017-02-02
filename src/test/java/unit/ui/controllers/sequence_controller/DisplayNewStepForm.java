@@ -1,6 +1,7 @@
 package unit.ui.controllers.sequence_controller;
 
 import javafx.scene.layout.Pane;
+import org.junit.After;
 import org.junit.Test;
 import ui.controllers.SequenceController;
 
@@ -21,5 +22,10 @@ public final class DisplayNewStepForm extends SequenceControllerTestCase {
 
     private Pane lookupNewStepForm(){
         return lookup(queryForNewStepForm).query();
+    }
+
+    @After
+    public void cleanUp(){
+        closeCurrentWindow();
     }
 }
