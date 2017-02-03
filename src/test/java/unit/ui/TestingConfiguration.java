@@ -1,7 +1,12 @@
 package unit.ui;
 
+import devices.DeviceList;
+import devices.StandaloneDeviceListEntry;
+import devices.TDKLambdaPowerSupply;
 import kernel.Kernel;
 import kernel.views.CommPortReporter;
+import kernel.views.DeviceListEntry;
+import kernel.views.DeviceReporter;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.jmock.integration.junit4.JUnit4Mockery;
@@ -63,6 +68,31 @@ public class TestingConfiguration {
         return mockingContext().mock(CommPortReporter.class);
     }
 
+    @Bean
+    @Scope("singleton")
+    public static DeviceListEntry deviceListEntry(){
+        return new StandaloneDeviceListEntry(
+                TDKLambdaPowerSupply.class, "Power Supply"
+        );
+    }
+
+    @Bean
+    @Scope("singleton")
+    public static List<DeviceListEntry> deviceList(){
+        List<DeviceListEntry> deviceList = new ArrayList<>();
+        deviceList.add(
+            deviceListEntry()
+        );
+
+        return deviceList;
+    }
+
+    @Bean
+    @Scope("singleton")
+    public DeviceReporter deviceReporter(){
+        return mockingContext().mock(DeviceReporter.class);
+    }
+
     /**
      * @return A mock kernel
      */
@@ -99,6 +129,7 @@ public class TestingConfiguration {
         public ExpectationsForKernel(){
             expectationsForPortReporter();
             expectationsForSerialPortNames();
+            expectationsForDeviceReporter();
         }
 
         /**
@@ -116,6 +147,14 @@ public class TestingConfiguration {
         private void expectationsForSerialPortNames(){
             allowing(portReporter()).getSerialPortNames();
             will(returnValue(testData()));
+        }
+
+        private void expectationsForDeviceReporter(){
+            allowing(mockKernel).getDeviceReporter();
+            will(returnValue(deviceReporter()));
+
+            allowing(deviceReporter()).getRS232Devices();
+            will(returnValue(deviceList()));
         }
     }
 }

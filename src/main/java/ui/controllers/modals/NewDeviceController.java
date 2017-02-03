@@ -30,7 +30,7 @@ public class NewDeviceController {
 
     @FXML private ComboBox<Integer> stopBitSelector;
 
-    @FXML public void closeStage(ActionEvent event){
+    @FXML public void handleCloseButtonClicked(ActionEvent event){
         Node source = (Node) event.getSource();
         Stage stage = (Stage) source.getScene().getWindow();
         stage.close();
@@ -40,6 +40,10 @@ public class NewDeviceController {
     public void initialize(){
         initializePortList();
         initializeDeviceList();
+    }
+
+    @FXML public void handleRefreshButtonClicked(ActionEvent event){
+        updatePortList();
     }
 
     private void initializePortList(){
@@ -52,14 +56,9 @@ public class NewDeviceController {
     }
 
     private void updatePortList(){
-        ObservableList<String> portsInBox = portSelector.getItems();
-        CommPortReporter reporter = kernel.getCommPortReporter();
-
-        for (String portName: reporter.getSerialPortNames()){
-            if(!portsInBox.contains(portName)){
-                portsInBox.add(portName);
-            }
-        }
+        portSelector.getItems().addAll(
+                kernel.getCommPortReporter().getSerialPortNames()
+        );
     }
 
     private void initializeDeviceList(){

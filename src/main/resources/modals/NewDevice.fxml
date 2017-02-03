@@ -32,7 +32,8 @@
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>1</GridPane.rowIndex>
     </Text>
-    <ComboBox styleClass="three-column-combo-box" fx:id="deviceSelector">
+    <ComboBox styleClass="three-column-combo-box" fx:id="deviceSelector"
+              id="device-selector">
         <GridPane.columnIndex>1</GridPane.columnIndex>
         <GridPane.rowIndex>1</GridPane.rowIndex>
         <GridPane.columnSpan>3</GridPane.columnSpan>
@@ -103,11 +104,13 @@
         <HBox alignment="BASELINE_RIGHT">
             <GridPane.rowIndex>0</GridPane.rowIndex>
             <GridPane.columnIndex>1</GridPane.columnIndex>
-            <Button text="Refresh"/>
+            <Button text="Refresh"
+                    id="refresh-button"
+                    onAction="#handleRefreshButtonClicked"/>
             <Button text="Connect"/>
             <Button text="Close"
                     id="device-panel-close-button"
-                    onAction="#closeStage"/>
+                    onAction="#handleCloseButtonClicked"/>
         </HBox>
     </GridPane>
 </GridPane>
