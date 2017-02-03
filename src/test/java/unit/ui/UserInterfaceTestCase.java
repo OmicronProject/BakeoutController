@@ -1,6 +1,8 @@
 package unit.ui;
 
 import javafx.stage.Stage;
+import org.jmock.Mockery;
+import org.junit.After;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import ui.UserInterfaceLauncher;
@@ -18,5 +20,9 @@ public abstract class UserInterfaceTestCase extends UnitTestCase {
 
     @Override public void start(Stage stage) throws Exception {
         application.start(stage);
+    }
+
+    @After public void assertGoodApplicationContextMockery(){
+        applicationContext.getBean(Mockery.class).assertIsSatisfied();
     }
 }

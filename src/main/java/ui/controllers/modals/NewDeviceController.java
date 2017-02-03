@@ -54,6 +54,10 @@ public class NewDeviceController {
         stage.close();
     }
 
+    /**
+     * Runs when the controller is first loaded. Fetches information from
+     * the kernel.
+     */
     @FXML
     public void initialize(){
         initializePortList();

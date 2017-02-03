@@ -43,7 +43,8 @@
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>2</GridPane.rowIndex>
     </Text>
-    <ComboBox styleClass="three-column-combo-box" fx:id="portSelector">
+    <ComboBox styleClass="three-column-combo-box" fx:id="portSelector"
+              id="port-selector">
         <GridPane.columnIndex>1</GridPane.columnIndex>
         <GridPane.rowIndex>2</GridPane.rowIndex>
         <GridPane.columnSpan>3</GridPane.columnSpan>

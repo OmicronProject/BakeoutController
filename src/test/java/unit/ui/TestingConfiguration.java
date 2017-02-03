@@ -1,6 +1,5 @@
 package unit.ui;
 
-import devices.DeviceList;
 import devices.StandaloneDeviceListEntry;
 import devices.TDKLambdaPowerSupply;
 import kernel.Kernel;
@@ -37,6 +36,11 @@ public class TestingConfiguration {
     private volatile Mockery mockingContext;
 
     /**
+     *
+     */
+    private volatile List<String> portList;
+
+    /**
      * @return The context in which mockery is to take place
      */
     @Bean
@@ -52,11 +56,11 @@ public class TestingConfiguration {
      * @return A list containing data of serial ports
      */
     @Bean
-    @Scope("prototype")
-    public static List<String> testData(){
-        List<String> testData = new ArrayList<>();
-        testData.add("/dev/ttyUSB0");
-        return testData;
+    @Scope("singleton")
+    public List<String> testData(){
+        portList = new ArrayList<>();
+        portList.add("/dev/ttyUSB0");
+        return portList;
     }
 
     /**
