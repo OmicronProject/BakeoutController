@@ -1,5 +1,7 @@
 package devices;
 
+import kernel.serial_ports.PortConfiguration;
+import kernel.serial_ports.RXTXPortConfiguration;
 import kernel.views.DeviceListEntry;
 
 /**
@@ -21,5 +23,14 @@ public class StandaloneDeviceListEntry implements DeviceListEntry {
 
     @Override public String toString(){
         return deviceName;
+    }
+
+    @Override public PortConfiguration getDefaultConfiguration(){
+        return new RXTXPortConfiguration(
+                PortConfiguration.BAUD_RATE_9600,
+                PortConfiguration.STOPBITS_1,
+                PortConfiguration.DATABITS_8,
+                PortConfiguration.PARITY_NONE
+            );
     }
 }

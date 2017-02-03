@@ -33,7 +33,7 @@
         <GridPane.rowIndex>1</GridPane.rowIndex>
     </Text>
     <ComboBox styleClass="three-column-combo-box" fx:id="deviceSelector"
-              id="device-selector">
+              id="device-selector" onAction="#handleDeviceSelected">
         <GridPane.columnIndex>1</GridPane.columnIndex>
         <GridPane.rowIndex>1</GridPane.rowIndex>
         <GridPane.columnSpan>3</GridPane.columnSpan>
@@ -87,7 +87,7 @@
         <GridPane.columnIndex>2</GridPane.columnIndex>
         <GridPane.rowIndex>5</GridPane.rowIndex>
     </Text>
-    <ComboBox>
+    <ComboBox fx:id="dataBitsSelector">
         <GridPane.columnIndex>3</GridPane.columnIndex>
         <GridPane.rowIndex>5</GridPane.rowIndex>
     </ComboBox>
