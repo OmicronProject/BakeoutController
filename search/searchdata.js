@@ -5,7 +5,7 @@ var indexSectionsWithContent =
   2: "deku",
   3: "acdfgiklmnoprstu",
   4: "bcdgoprs",
-  5: "bu"
+  5: "bku"
 };
 
 var indexSectionNames =

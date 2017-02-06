@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.11"/>
-<title>BakeoutController: exceptions.NotAllowedBaudRateException Class Reference</title>
+<title>BakeoutController: Kernel API</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -41,9 +41,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
+      <li class="current"><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="namespaces.html"><span>Packages</span></a></li>
-      <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -63,14 +63,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
-  <div id="navrow2" class="tabs2">
-    <ul class="tablist">
-      <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
-      <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
-      <li><a href="inherits.html"><span>Class&#160;Hierarchy</span></a></li>
-      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
-    </ul>
-  </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
@@ -85,44 +77,26 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="namespaceexceptions.html">exceptions</a></li><li class="navelem"><a class="el" href="classexceptions_1_1NotAllowedBaudRateException.html">NotAllowedBaudRateException</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classexceptions_1_1NotAllowedBaudRateException-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">exceptions.NotAllowedBaudRateException Class Reference</div>  </div>
+<div class="title">Kernel API </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="dynheader">
-Inheritance diagram for exceptions.NotAllowedBaudRateException:</div>
-<div class="dyncontent">
-<div class="center"><img src="classexceptions_1_1NotAllowedBaudRateException__inherit__graph.png" border="0" usemap="#exceptions_8NotAllowedBaudRateException_inherit__map" alt="Inheritance graph"/></div>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
-<div class="dynheader">
-Collaboration diagram for exceptions.NotAllowedBaudRateException:</div>
-<div class="dyncontent">
-<div class="center"><img src="classexceptions_1_1NotAllowedBaudRateException__coll__graph.png" border="0" usemap="#exceptions_8NotAllowedBaudRateException_coll__map" alt="Collaboration graph"/></div>
-<center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a10212ab5fa8d411eb6ac111f144a8c90"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a10212ab5fa8d411eb6ac111f144a8c90"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>NotAllowedBaudRateException</b> (String message)</td></tr>
-<tr class="separator:a10212ab5fa8d411eb6ac111f144a8c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Thrown if attempting to set a Baud Rate for a device that does not support the required Baud rate </p>
-
-<p>Definition at line <a class="el" href="NotAllowedBaudRateException_8java_source.html#l00007">7</a> of file <a class="el" href="NotAllowedBaudRateException_8java_source.html">NotAllowedBaudRateException.java</a>.</p>
-</div><hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="NotAllowedBaudRateException_8java_source.html">NotAllowedBaudRateException.java</a></li>
+<div class="textblock"><h2>Introduction</h2>
+<p>The BakeoutController kernel manages access to hardware. It runs in a separate thread from the UI, and allows for separation of concerns between rendering data and collecting it. The kernel also manages global application state.</p>
+<p>The kernel singelton is instantiated at boot time. Other components should interact with the kernel through the API described in this document.</p>
+<h2>The Kernel API</h2>
+<p>The API consists of a series of public interfaces, and getters to retrieve implementations of these interfaces. The root interface is <a class="el" href="interfacekernel_1_1Kernel.html">Kernel</a></p>
+<h3>Kernel Interfaces</h3>
+<ul>
+<li><a class="el" href="interfacekernel_1_1Kernel.html">Kernel</a><ul>
+<li><a class="el" href="interfacekernel_1_1Kernel.html#a3651309f45b51595cbea6a6872be64bc">Kernel.getCommPortReporter</a> returns kernel.views.CommPortReporter</li>
 </ul>
-</div><!-- contents -->
+</li>
+<li><a class="el" href="interfacekernel_1_1views_1_1CommPortReporter.html">CommPortReporter</a> reports on the state of available serial ports in this application </li>
+</ul>
+</div></div><!-- contents -->
 <table>
     <tr>
         <td>
