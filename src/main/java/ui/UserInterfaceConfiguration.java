@@ -41,15 +41,6 @@ public class UserInterfaceConfiguration {
     }
 
     /**
-     * Show a particular modal dialog
-     * @param screen The screen to show
-     */
-    public void showScreen(Parent screen){
-        primaryStage.setScene(new Scene(screen, 500, 400));
-        primaryStage.show();
-    }
-
-    /**
      * @return An FXML loader awqre of this application context
      */
     @Bean

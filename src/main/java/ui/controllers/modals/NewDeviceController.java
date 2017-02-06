@@ -68,6 +68,9 @@ public class NewDeviceController {
         initializeDeviceList();
     }
 
+    /**
+     *
+     */
     @FXML public void handleRefreshButtonClicked(ActionEvent event){
         updatePortList();
     }
@@ -87,9 +90,6 @@ public class NewDeviceController {
     @FXML public void handleConnectButtonClicked(ActionEvent event){
         String portName = portSelector.getSelectionModel().getSelectedItem();
 
-        if(isPortUsed()){
-            displayUnableToConnectDialog(portName);
-        }
     }
 
     private void initializePortList(){
@@ -157,16 +157,5 @@ public class NewDeviceController {
                 .getSelectedItem();
 
         return kernel.getCommPortReporter().isPortInUse(portAddress);
-    }
-
-    private void displayUnableToConnectDialog(String address){
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Unable To Connect");
-        alert.setHeaderText("Port is in use");
-        alert.setContentText(
-                String.format("The port %s is in use by another device or " +
-                        "application", address)
-        );
-        alert.showAndWait();
     }
 }
