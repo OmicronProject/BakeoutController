@@ -4,11 +4,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import kernel.Kernel;
+import kernel.controllers.RS232PortConfigurationFactory;
 import kernel.serial_ports.PortConfiguration;
 import kernel.views.CommPortReporter;
 import kernel.views.DeviceListEntry;
@@ -89,6 +89,8 @@ public class NewDeviceController {
 
     @FXML public void handleConnectButtonClicked(ActionEvent event){
         String portName = portSelector.getSelectionModel().getSelectedItem();
+        PortConfiguration config = assemblePortConfigurationFromSelectors();
+
 
     }
 
@@ -157,5 +159,25 @@ public class NewDeviceController {
                 .getSelectedItem();
 
         return kernel.getCommPortReporter().isPortInUse(portAddress);
+    }
+
+    private PortConfiguration assemblePortConfigurationFromSelectors(){
+        RS232PortConfigurationFactory configMaker = kernel
+                .getRS232PortConfigurationFactory();
+
+        configMaker.setBaudRate(
+                baudRateSelector.getSelectionModel().getSelectedItem()
+        );
+        configMaker.setDataBits(
+                dataBitsSelector.getSelectionModel().getSelectedItem()
+        );
+        configMaker.setParityBits(
+                paritySelector.getSelectionModel().getSelectedItem()
+        );
+        configMaker.setStopBits(
+                stopBitSelector.getSelectionModel().getSelectedItem()
+        );
+
+        return configMaker.getConfiguration();
     }
 }

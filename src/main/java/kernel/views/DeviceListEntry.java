@@ -3,7 +3,8 @@ package kernel.views;
 import kernel.serial_ports.PortConfiguration;
 
 /**
- * Created by mkononen on 02/02/17.
+ * Describes an entry in the device list containing the type of device, and
+ * a user-friendly representation for the UI to display.
  */
 public interface DeviceListEntry {
     Class getDeviceType();

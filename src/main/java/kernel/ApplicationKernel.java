@@ -1,6 +1,8 @@
 package kernel;
 
 import devices.DeviceList;
+import kernel.controllers.RS232PortConfigurationFactory;
+import kernel.controllers.RXTXPortConfigurationFactory;
 import kernel.serial_ports.PortDriver;
 import kernel.serial_ports.SerialPort;
 import kernel.views.CommPortReporter;
@@ -45,14 +47,32 @@ final class ApplicationKernel implements Kernel, CommPortReporter {
         return this.portDriver.getSerialPortNames();
     }
 
+    /**
+     * @return The list of available devices that can be instantiated
+     */
     @Contract(" -> !null")
     @Override public DeviceReporter getDeviceReporter(){
         return new DeviceList();
     }
 
+    /**
+     * @param portName The name of the port to be determined whether it is
+     *                 open or not
+     * @return True if the port is in use, otherwise false
+     */
     @NotNull
     @Override public Boolean isPortInUse(String portName){
         SerialPort port = portDriver.getPortByName(portName);
         return port.isPortOpen();
+    }
+
+    /**
+     * @return A factory capable of constructing port configurations for an
+     * RS232 port
+     */
+    @Contract(" -> !null")
+    @Override public RS232PortConfigurationFactory
+    getRS232PortConfigurationFactory(){
+        return new RXTXPortConfigurationFactory();
     }
 }
