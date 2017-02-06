@@ -10,4 +10,6 @@ public interface CommPortReporter {
      * @return The list of serial ports accessible to this machine
      */
     List<String> getSerialPortNames();
+
+    Boolean isPortInUse(String portName);
 }

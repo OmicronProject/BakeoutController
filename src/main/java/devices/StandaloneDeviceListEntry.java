@@ -33,4 +33,8 @@ public class StandaloneDeviceListEntry implements DeviceListEntry {
                 PortConfiguration.PARITY_NONE
             );
     }
+
+    @Override public Boolean requiresAddress(){
+        return true;
+    }
 }

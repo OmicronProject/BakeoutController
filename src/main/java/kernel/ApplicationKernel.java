@@ -2,9 +2,11 @@ package kernel;
 
 import devices.DeviceList;
 import kernel.serial_ports.PortDriver;
+import kernel.serial_ports.SerialPort;
 import kernel.views.CommPortReporter;
 import kernel.views.DeviceReporter;
 import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -46,5 +48,11 @@ final class ApplicationKernel implements Kernel, CommPortReporter {
     @Contract(" -> !null")
     @Override public DeviceReporter getDeviceReporter(){
         return new DeviceList();
+    }
+
+    @NotNull
+    @Override public Boolean isPortInUse(String portName){
+        SerialPort port = portDriver.getPortByName(portName);
+        return port.isPortOpen();
     }
 }

@@ -11,11 +11,12 @@
 
 <?import java.net.URL?>
 
+<?import javafx.scene.control.TextField?>
 <GridPane alignment="CENTER"
           xmlns="http://javafx.com/javafx/8.0.112"
           xmlns:fx="http://javafx.com/fxml/1"
           id="newDeviceForm"
-          styleClass="modal-background"
+          styleClass="form, new-device-form"
           fx:controller="ui.controllers.modals.NewDeviceController">
 
     <stylesheets>
@@ -92,9 +93,20 @@
         <GridPane.columnIndex>3</GridPane.columnIndex>
         <GridPane.rowIndex>5</GridPane.rowIndex>
     </ComboBox>
-    <GridPane>
+
+    <Text text="Address">
         <GridPane.columnIndex>0</GridPane.columnIndex>
         <GridPane.rowIndex>6</GridPane.rowIndex>
+    </Text>
+    <TextField id="address-box" disable="true" fx:id="addressField">
+        <GridPane.columnIndex>1</GridPane.columnIndex>
+        <GridPane.rowIndex>6</GridPane.rowIndex>
+        <GridPane.columnSpan>3</GridPane.columnSpan>
+    </TextField>
+
+    <GridPane>
+        <GridPane.columnIndex>0</GridPane.columnIndex>
+        <GridPane.rowIndex>7</GridPane.rowIndex>
         <GridPane.columnSpan>4</GridPane.columnSpan>
 
         <HBox alignment="BASELINE_LEFT">
@@ -108,7 +120,9 @@
             <Button text="Refresh"
                     id="refresh-button"
                     onAction="#handleRefreshButtonClicked"/>
-            <Button text="Connect"/>
+            <Button text="Connect"
+                    id="connect-button"
+                    onAction="#handleConnectButtonClicked"/>
             <Button text="Close"
                     id="device-panel-close-button"
                     onAction="#handleCloseButtonClicked"/>

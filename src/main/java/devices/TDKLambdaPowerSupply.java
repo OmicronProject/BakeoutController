@@ -8,7 +8,8 @@ import java.io.IOException;
 /**
  * Contains methods for working with the power supply
  */
-public class TDKLambdaPowerSupply extends RS232Device implements PowerSupply {
+public class TDKLambdaPowerSupply extends AbstractRS232Device
+        implements PowerSupply {
     /**
      * The device address
      */
@@ -22,26 +23,18 @@ public class TDKLambdaPowerSupply extends RS232Device implements PowerSupply {
      * the device with its matching address. This command must return an
      * "OK" response.
      *
-     * @param deviceName The name of the device
      * @param portCommunicator A tool capable of communicating with the device
      * @param deviceAddress An integer representing the address of the
      *                      device on the given port
      * @throws IOException If the device cannot be initialized
      */
     public TDKLambdaPowerSupply(
-            String deviceName, PortCommunicator portCommunicator, int
-            deviceAddress
+            PortCommunicator portCommunicator,
+            int deviceAddress
     ) throws IOException {
-        super(deviceName, portCommunicator);
+        super(portCommunicator);
         this.deviceAddress = deviceAddress;
         this.startDevice();
-    }
-
-    /**
-     * @return The name of the device
-     */
-    @Override public String getName(){
-        return deviceName;
     }
 
     /**
@@ -130,7 +123,7 @@ public class TDKLambdaPowerSupply extends RS232Device implements PowerSupply {
     /**
      * Initializes the device by sending the
      * {@link PowerSupply#GET_ADDRESS_COMMAND} with the address being
-     * {@link TDKLambdaPowerSupply#deviceName}.
+     * {@link TDKLambdaPowerSupply#deviceAddress}.
      *
      * @throws IOException If the command could not be sent
      */

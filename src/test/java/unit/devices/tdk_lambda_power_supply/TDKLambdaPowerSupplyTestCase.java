@@ -14,8 +14,7 @@ import static org.junit.Assert.assertEquals;
  * Base class for all tests of {@link devices.TDKLambdaPowerSupply}
  */
 public abstract class TDKLambdaPowerSupplyTestCase extends DevicesTestCase {
-    public static final String deviceName = "Mockup Power Supply - Unit " +
-            "testing";
+    
     public static final int deviceAddress = 6;
     public static final String errorMessage = "E01";
     protected PowerSupply powerSupply;
@@ -27,7 +26,7 @@ public abstract class TDKLambdaPowerSupplyTestCase extends DevicesTestCase {
 
     private void setUpPowerSupply() throws IOException {
         this.communicatorForDevice.setInputStreamData("OK");
-        powerSupply = new TDKLambdaPowerSupply(deviceName, communicatorForDevice,
+        powerSupply = new TDKLambdaPowerSupply(communicatorForDevice,
                 deviceAddress);
         this.communicatorForDevice.clear();
     }

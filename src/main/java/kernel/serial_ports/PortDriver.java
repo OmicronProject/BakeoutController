@@ -23,11 +23,6 @@ public interface PortDriver {
      * @param portName The name of the port that needs to be retrieved. An
      *                 example of a valid name is "/dev/ttyUSB0"
      * @return An open serial port
-     * @throws NoSuchPortException if no port with that name is available to
-     * the application
-     * @throws PortInUseException if the port exists, but is currently owned
-     * by another application.
      */
-    SerialPort getPortByName(String portName) throws NoSuchPortException,
-            PortInUseException;
+    SerialPort getPortByName(String portName);
 }

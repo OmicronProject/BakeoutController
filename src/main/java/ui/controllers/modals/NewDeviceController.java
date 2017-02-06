@@ -4,7 +4,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import kernel.Kernel;
 import kernel.serial_ports.PortConfiguration;
@@ -42,6 +44,8 @@ public class NewDeviceController {
 
     @FXML private ComboBox<Integer> dataBitsSelector;
 
+    @FXML private TextField addressField;
+
     /**
      * If the "close" button has been clicked, close the window that this
      * controls
@@ -77,6 +81,15 @@ public class NewDeviceController {
         clearConnectionDetailsSelectors();
         populateConnectionDetailsSelectors(defaultConfiguration);
         selectDefaultConnectionDetails(defaultConfiguration);
+        checkAddressField(entry);
+    }
+
+    @FXML public void handleConnectButtonClicked(ActionEvent event){
+        String portName = portSelector.getSelectionModel().getSelectedItem();
+
+        if(isPortUsed()){
+            displayUnableToConnectDialog(portName);
+        }
     }
 
     private void initializePortList(){
@@ -131,5 +144,29 @@ public class NewDeviceController {
         dataBitsSelector.getSelectionModel().select(
                 (Integer) defaultConfiguration.getDataBits()
         );
+    }
+
+    private void checkAddressField(DeviceListEntry entry){
+        if(entry.requiresAddress()){
+            addressField.setDisable(false);
+        }
+    }
+
+    private Boolean isPortUsed(){
+        String portAddress = portSelector.getSelectionModel()
+                .getSelectedItem();
+
+        return kernel.getCommPortReporter().isPortInUse(portAddress);
+    }
+
+    private void displayUnableToConnectDialog(String address){
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Unable To Connect");
+        alert.setHeaderText("Port is in use");
+        alert.setContentText(
+                String.format("The port %s is in use by another device or " +
+                        "application", address)
+        );
+        alert.showAndWait();
     }
 }

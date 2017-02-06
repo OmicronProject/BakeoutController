@@ -11,4 +11,6 @@ public interface DeviceListEntry {
     @Override String toString();
 
     PortConfiguration getDefaultConfiguration();
+
+    Boolean requiresAddress();
 }

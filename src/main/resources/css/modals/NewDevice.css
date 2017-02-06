@@ -1,5 +1,10 @@
+.form {
+    -fx-vgap: 5px;
+    -fx-hgap: 5px;
+}
+
 .modal-title {
-    -fx-font-size: 25px;
+    -fx-font-size: 15px;
     -fx-font-weight: bold;
 }
 

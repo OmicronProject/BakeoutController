@@ -5,7 +5,7 @@ import java.io.IOException;
 /**
  * Describes all methods that the power supply implements
  */
-public interface PowerSupply extends NamedDevice {
+public interface PowerSupply extends RS232Device {
 
     /**
      * Command to send to the power supply to specify the address of the
