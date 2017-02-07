@@ -4,6 +4,7 @@ import exceptions.UnableToCreateKernelException;
 import kernel.ApplicationKernelFactory;
 import kernel.KernelFactory;
 import kernel.controllers.VoltageController;
+import kernel.models.Kernel;
 import kernel.serial_ports.PortDriver;
 import kernel.views.VoltageReporter;
 import org.junit.Before;
@@ -12,7 +13,7 @@ import unit.kernel.KernelTestCase;
 import static org.junit.Assert.fail;
 
 /**
- * Base class for all unit tests of {@link kernel.ApplicationKernel}
+ * Base class for all unit tests of {@link Kernel}
  */
 public abstract class ApplicationKernelBootstrapperTestCase
         extends KernelTestCase {

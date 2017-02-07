@@ -1,6 +1,6 @@
-package unit.kernel.controllers.connection_manager;
+package unit.kernel.models.device_connector;
 
-import kernel.controllers.ConnectionManager;
+import kernel.models.DeviceConnector;
 import kernel.controllers.DeviceRegistry;
 import org.junit.Before;
 import org.junit.Test;
@@ -9,21 +9,21 @@ import static org.junit.Assert.assertEquals;
 
 /**
  * Contains unit tests for
- * {@link ConnectionManager#getDeviceRegistry()}
+ * {@link DeviceConnector#getDeviceRegistry()}
  */
-public final class GetDeviceRegistry extends ConnectionManagerTestCase {
+public final class GetDeviceRegistry extends DeviceConnectorTestCase {
     private final DeviceRegistry registry = context.mock(DeviceRegistry.class);
 
     @Before
     public void setDeviceRegistry(){
-        connectionManager.setDeviceRegistry(registry);
+        deviceConnector.setDeviceRegistry(registry);
     }
 
     @Test
     public void getDeviceRegistry(){
         assertEquals(
                 registry,
-                connectionManager.getDeviceRegistry()
+                deviceConnector.getDeviceRegistry()
         );
     }
 }

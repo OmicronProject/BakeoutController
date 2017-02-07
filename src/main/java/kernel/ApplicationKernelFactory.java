@@ -1,6 +1,7 @@
 package kernel;
 
 import exceptions.UnableToCreateKernelException;
+import kernel.models.Kernel;
 import kernel.serial_ports.PortDriver;
 
 /**
@@ -20,7 +21,7 @@ public final class ApplicationKernelFactory implements KernelFactory {
     /**
      * The instance of the kernel that is to be returned
      */
-    private Kernel kernelInstance;
+    private kernel.Kernel kernelInstance;
 
     /**
      * True if a port driver has been supplied and false if not
@@ -49,7 +50,7 @@ public final class ApplicationKernelFactory implements KernelFactory {
      * @return The kernel
      * @throws UnableToCreateKernelException If the kernel cannot be created
      */
-    @Override public Kernel getKernelInstance() throws
+    @Override public kernel.Kernel getKernelInstance() throws
             UnableToCreateKernelException {
         if (!canKernelBeStarted()){
             throw new UnableToCreateKernelException("Cannot create kernel. " +
@@ -77,7 +78,7 @@ public final class ApplicationKernelFactory implements KernelFactory {
      * already exist.
      */
     private void createKernel(){
-        this.kernelInstance = new ApplicationKernel(
+        this.kernelInstance = new Kernel(
             this.portDriver
         );
         this.doesKernelExist = Boolean.TRUE;

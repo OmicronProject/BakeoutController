@@ -1,6 +1,8 @@
 package kernel;
 
+import kernel.controllers.DeviceConnector;
 import kernel.controllers.RS232PortConfigurationFactory;
+import kernel.serial_ports.PortDriver;
 import kernel.views.CommPortReporter;
 import kernel.views.DeviceReporter;
 
@@ -19,4 +21,8 @@ public interface Kernel {
     DeviceReporter getDeviceReporter();
 
     RS232PortConfigurationFactory getRS232PortConfigurationFactory();
+
+    DeviceConnector getDeviceConnector();
+
+    PortDriver getPortDriver();
 }

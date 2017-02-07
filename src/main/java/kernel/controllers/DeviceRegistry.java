@@ -7,8 +7,4 @@ import devices.RS232Device;
  */
 public interface DeviceRegistry {
     void registerRS232Device(RS232Device device);
-
-    <DeviceType extends RS232Device> DeviceType getRS232Device(
-            Class<DeviceType> deviceType
-    );
 }

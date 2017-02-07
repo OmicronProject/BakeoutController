@@ -1,17 +1,17 @@
-package unit.kernel.controllers.rxtx_port_configuration_factory;
+package unit.kernel.models.rxtx_port_configuration_factory;
 
 import kernel.controllers.RS232PortConfigurationFactory;
-import kernel.controllers.RXTXPortConfigurationFactory;
+import kernel.models.RXTXPortConfigurationFactory;
 import kernel.serial_ports.PortConfiguration;
 import org.junit.Before;
-import unit.ui.controllers.ControllersTestCase;
+import unit.kernel.models.ModelsTestCase;
 
 /**
  * Base class for unit tests of
- * {@link kernel.controllers.RXTXPortConfigurationFactory}
+ * {@link RXTXPortConfigurationFactory}
  */
 public abstract class RXTXPortConfigurationFactoryTestCase extends
-        ControllersTestCase {
+        ModelsTestCase {
     protected RS232PortConfigurationFactory portConfigurationFactory;
 
     protected static final Integer baudRate = 9001;

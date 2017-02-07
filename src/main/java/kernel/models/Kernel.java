@@ -1,8 +1,7 @@
-package kernel;
+package kernel.models;
 
 import devices.DeviceList;
 import kernel.controllers.RS232PortConfigurationFactory;
-import kernel.controllers.RXTXPortConfigurationFactory;
 import kernel.serial_ports.PortDriver;
 import kernel.serial_ports.SerialPort;
 import kernel.views.CommPortReporter;
@@ -16,7 +15,7 @@ import java.util.List;
  * Contains methods for working with application hardware, getting the
  * necessary views and controllers for working with the UI
  */
-final class ApplicationKernel implements Kernel, CommPortReporter {
+public final class Kernel implements kernel.Kernel, CommPortReporter {
 
     /**
      * The driver responsible for managing serial ports
@@ -27,7 +26,7 @@ final class ApplicationKernel implements Kernel, CommPortReporter {
      * @param portDriver The driver to be used for managing the RS232 serial
      *                   port
      */
-    public ApplicationKernel(PortDriver portDriver){
+    public Kernel(PortDriver portDriver){
         this.portDriver = portDriver;
     }
 
@@ -74,5 +73,15 @@ final class ApplicationKernel implements Kernel, CommPortReporter {
     @Override public RS232PortConfigurationFactory
     getRS232PortConfigurationFactory(){
         return new RXTXPortConfigurationFactory();
+    }
+
+    @Contract(" -> !null")
+    @Override
+    public kernel.controllers.DeviceConnector getDeviceConnector(){
+        return new DeviceConnector();
+    }
+
+    public PortDriver getPortDriver(){
+        return this.portDriver;
     }
 }

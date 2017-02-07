@@ -1,12 +1,13 @@
-package unit.kernel.controllers.rxtx_port_configuration_factory;
+package unit.kernel.models.rxtx_port_configuration_factory;
 
+import kernel.models.RXTXPortConfigurationFactory;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 
 /**
  * Contains unit tests for
- * {@link kernel.controllers.RXTXPortConfigurationFactory#setDataBits(Integer)}
+ * {@link RXTXPortConfigurationFactory#setDataBits(Integer)}
  */
 public final class SetDataBits extends RXTXPortConfigurationFactoryTestCase {
     @Test

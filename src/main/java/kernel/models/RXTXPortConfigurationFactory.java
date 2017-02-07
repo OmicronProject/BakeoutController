@@ -1,5 +1,6 @@
-package kernel.controllers;
+package kernel.models;
 
+import kernel.controllers.RS232PortConfigurationFactory;
 import kernel.serial_ports.PortConfiguration;
 import kernel.serial_ports.RXTXPortConfiguration;
 import org.jetbrains.annotations.Contract;

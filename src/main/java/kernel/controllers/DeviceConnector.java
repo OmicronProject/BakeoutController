@@ -1,18 +1,19 @@
 package kernel.controllers;
 
-import kernel.views.DeviceListEntry;
+import exceptions.DeviceNotCreatedException;
+import gnu.io.PortInUseException;
+import kernel.views.ConnectionRequest;
 
 /**
  * Factory for creating connections to devices
  */
 public interface DeviceConnector {
-    DeviceListEntry getDeviceToConnect();
-    void setDeviceToConnect(DeviceListEntry device);
-    String getPortName();
-    void setPortName(String portName);
+    ConnectionRequest getConnectionRequest();
+    void setConnectionRequest(ConnectionRequest request);
+
     DeviceRegistry getDeviceRegistry();
     void setDeviceRegistry(DeviceRegistry registry);
     Boolean canMakeConnections();
 
-    void connect();
+    void connect() throws DeviceNotCreatedException, PortInUseException;
 }
