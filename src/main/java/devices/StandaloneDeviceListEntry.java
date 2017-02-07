@@ -1,5 +1,6 @@
 package devices;
 
+import devices.factories.DeviceFactory;
 import kernel.serial_ports.PortConfiguration;
 import kernel.serial_ports.RXTXPortConfiguration;
 import kernel.views.DeviceListEntry;
@@ -8,13 +9,16 @@ import kernel.views.DeviceListEntry;
  * Implements a human-readable data structure containing a name for a
  * device, and the type to use for constructing the device.
  */
-public class StandaloneDeviceListEntry implements DeviceListEntry {
+public abstract class StandaloneDeviceListEntry implements DeviceListEntry {
     private final Class deviceType;
     private final String deviceName;
+    private final DeviceFactory deviceFactory;
 
-    public StandaloneDeviceListEntry(Class deviceType, String deviceName){
+    public StandaloneDeviceListEntry(Class deviceType, String deviceName,
+                                     DeviceFactory deviceFactory){
         this.deviceType = deviceType;
         this.deviceName = deviceName;
+        this.deviceFactory = deviceFactory;
     }
 
     @Override public Class getDeviceType(){
@@ -36,5 +40,9 @@ public class StandaloneDeviceListEntry implements DeviceListEntry {
 
     @Override public Boolean requiresAddress(){
         return true;
+    }
+
+    @Override public DeviceFactory getDeviceFactory(){
+        return deviceFactory;
     }
 }

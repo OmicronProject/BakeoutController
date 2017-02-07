@@ -1,5 +1,6 @@
 package kernel.views;
 
+import devices.factories.DeviceFactory;
 import kernel.serial_ports.PortConfiguration;
 
 /**
@@ -14,4 +15,6 @@ public interface DeviceListEntry {
     PortConfiguration getDefaultConfiguration();
 
     Boolean requiresAddress();
+
+    DeviceFactory getDeviceFactory();
 }

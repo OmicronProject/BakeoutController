@@ -1,7 +1,6 @@
 package unit.ui;
 
-import devices.StandaloneDeviceListEntry;
-import devices.TDKLambdaPowerSupply;
+import devices.TDKLambdaPowerSupplyListEntry;
 import kernel.Kernel;
 import kernel.views.CommPortReporter;
 import kernel.views.DeviceListEntry;
@@ -75,9 +74,7 @@ public class TestingConfiguration {
     @Bean
     @Scope("singleton")
     public static DeviceListEntry deviceListEntry(){
-        return new StandaloneDeviceListEntry(
-                TDKLambdaPowerSupply.class, "Power Supply"
-        );
+        return new TDKLambdaPowerSupplyListEntry();
     }
 
     @Bean

@@ -16,9 +16,7 @@ public final class DeviceList implements DeviceReporter {
     public DeviceList(){
         deviceList = new Vector<>();
         deviceList.add(
-            new StandaloneDeviceListEntry(
-                TDKLambdaPowerSupply.class, "TDK Lambda Power Supply"
-            )
+                new TDKLambdaPowerSupplyListEntry()
         );
     }
 
